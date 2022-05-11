@@ -6,12 +6,15 @@ import { theme } from '../../../const/theme'
 import DataTable from '../index'
 import GlobalStyles from '../../../const/globalStyles'
 import { sampleColumns1, props } from './sample'
-import { TiArrowSortedDown, TiArrowSortedUp, TiArrowUnsorted } from 'react-icons/ti'
+import {
+    TiArrowSortedDown,
+    TiArrowSortedUp,
+    TiArrowUnsorted,
+} from 'react-icons/ti'
 
 import { Cell as DataTableGrid, Row as DataTableRow } from '../Styles'
 
 export default { title: 'Data Table - Default View', component: DataTable }
-
 
 const theme1 = extendTheme(
     Object.assign({}, theme, {
@@ -27,7 +30,8 @@ const theme1 = extendTheme(
         styles: {
             global: {
                 'html, body': {
-                    fontFamily: "'Amazon Ember', Arial, sans-serif, 'Noto Sans HK'",
+                    fontFamily:
+                        "'Amazon Ember', Arial, sans-serif, 'Noto Sans HK'",
                 },
                 a: {
                     color: 'blue.800',
@@ -40,6 +44,6 @@ const theme1 = extendTheme(
 export const DefaultTableView = () => (
     <ChakraProvider theme={theme1}>
         <GlobalStyles />
-            <DataTable {...props} isColumnResizable={true}/>
+        <DataTable {...props} isColumnResizable={true} />
     </ChakraProvider>
 )

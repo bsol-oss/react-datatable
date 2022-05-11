@@ -30,10 +30,12 @@ export const TableHeaderTitle = styled.div`
     font-size: ${({ theme: { dataTable } }) => dataTable.fontSize}rem;
     font-weight: ${({ theme: { dataTable } }) => dataTable.headerFontWeight};
     
-    padding-bottom: ${({ theme: { dataTable } }) => `${dataTable.fontSize * 0.5}rem`};
+    padding-bottom: ${({ theme: { dataTable } }) =>
+        `${dataTable.fontSize * 0.5}rem`};
 
     & > div.input  {
-        margin : ${({ theme: { dataTable } }) => dataTable.fontSize * -0.5}rem 0;
+        margin : ${({ theme: { dataTable } }) =>
+            dataTable.fontSize * -0.5}rem 0;
     }
 }
 
@@ -51,8 +53,10 @@ export const TableHeaderSearchBox = styled.span`
 
 const CatalogHeaderWrapper = ({ headerGroups, view }) => {
     const renderArrow = useCallback((direction) => {
-        if (direction === 'down') return <MdExpandMore data-testid="arrow-down" size={18} />
-        if (direction === 'up') return <MdExpandLess data-testid="arrow-up" size={18} />
+        if (direction === 'down')
+            return <MdExpandMore data-testid="arrow-down" size={18} />
+        if (direction === 'up')
+            return <MdExpandLess data-testid="arrow-up" size={18} />
         return <MdExpandLess size={18} color={'transparent'} />
     }, [])
 
@@ -62,7 +66,10 @@ const CatalogHeaderWrapper = ({ headerGroups, view }) => {
                 <TableHeaderRow key={i} isCondensed={view === 'ROWCONDENSED'}>
                     {headerGroup.headers.map((column, i) => (
                         <TitlesWrapper key={i}>
-                            <TableHeaderTitle {...column.getSortByToggleProps()} key={i}>
+                            <TableHeaderTitle
+                                {...column.getSortByToggleProps()}
+                                key={i}
+                            >
                                 {column.render('Header')}
                                 {column.isSorted
                                     ? column.isSortedDesc
@@ -72,7 +79,9 @@ const CatalogHeaderWrapper = ({ headerGroups, view }) => {
                             </TableHeaderTitle>
                             {!column.disableFilters && (
                                 <TableHeaderSearchBox key={i + 'i'}>
-                                    {column.canFilter ? column.render('Filter') : null}
+                                    {column.canFilter
+                                        ? column.render('Filter')
+                                        : null}
                                 </TableHeaderSearchBox>
                             )}
                         </TitlesWrapper>

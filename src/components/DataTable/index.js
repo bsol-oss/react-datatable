@@ -17,7 +17,12 @@ import { AutoSizeWrapper, Loader, MainWrapper as Main } from './Styles'
 import { Checkbox as ChakraCheckbox, useTheme, Center } from '@chakra-ui/react'
 
 const Checkbox = ({ checked, indeterminate, ...props }) => (
-    <ChakraCheckbox zIndex={99} isChecked={checked} isIndeterminate={indeterminate} {...props} />
+    <ChakraCheckbox
+        zIndex={99}
+        isChecked={checked}
+        isIndeterminate={indeterminate}
+        {...props}
+    />
 )
 
 /**
@@ -129,15 +134,21 @@ const DataTable = ({
                             if (selectable === 'multi')
                                 return (
                                     <Center>
-                                        <Checkbox {...getToggleAllRowsSelectedProps()} />
+                                        <Checkbox
+                                            {...getToggleAllRowsSelectedProps()}
+                                        />
                                     </Center>
                                 )
                             else return ''
                         },
                         disableFilters: true,
                         width: 20,
-                        Cell: ({ row }) => <Checkbox {...row.getToggleRowSelectedProps()} />,
-                        CellForGrid: ({ row }) => <Checkbox {...row.getToggleRowSelectedProps()} />,
+                        Cell: ({ row }) => (
+                            <Checkbox {...row.getToggleRowSelectedProps()} />
+                        ),
+                        CellForGrid: ({ row }) => (
+                            <Checkbox {...row.getToggleRowSelectedProps()} />
+                        ),
                     },
 
                     ...columns,
@@ -165,12 +176,15 @@ const DataTable = ({
             const current = Object.keys(selectedRowIds)
             const previous = Object.keys(prevSelected || {})
 
-            if (current.length === 1) onSelect(selectedFlatRows.map((row) => row.original))
+            if (current.length === 1)
+                onSelect(selectedFlatRows.map((row) => row.original))
             // Unselect previous
-            if (current.length === 2) rows[parseInt(previous[0])].toggleRowSelected()
+            if (current.length === 2)
+                rows[parseInt(previous[0])].toggleRowSelected()
         }
 
-        if (selectable === 'multi') onSelect(selectedFlatRows.map((row) => row.original))
+        if (selectable === 'multi')
+            onSelect(selectedFlatRows.map((row) => row.original))
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [selectedRowIds])
 

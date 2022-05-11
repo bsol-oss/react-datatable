@@ -53,7 +53,10 @@ const GridWrapper = ({
             columnWidth={Math.floor(divWidth / gridCols)}
             rowCount={Math.ceil(data.length / gridCols)}
             rowHeight={rowHeight}
-            height={Math.min(divHeight, Math.ceil(data.length / gridCols) * rowHeight)}
+            height={Math.min(
+                divHeight,
+                Math.ceil(data.length / gridCols) * rowHeight
+            )}
             width={divWidth}
         >
             {RenderCellWrapper}

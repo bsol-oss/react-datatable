@@ -12,7 +12,7 @@ import {
     IconButton,
     Grid,
     Flex,
-    Select 
+    Select,
 } from '@chakra-ui/react'
 import { RiFilterOffLine } from 'react-icons/ri'
 
@@ -37,7 +37,9 @@ function Search({ column: { filterValue, setFilter } }) {
             placeholder={t(`DataTable_Column_Search`)}
             size={size}
             bgColor={bgColor}
-            variant={theme.components?.DataTable?.Header?.Search?.variant || 'filled'}
+            variant={
+                theme.components?.DataTable?.Header?.Search?.variant || 'filled'
+            }
         />
     )
 }
@@ -109,7 +111,9 @@ function Slider({ column: { filterValue, setFilter, preFilteredRows, id } }) {
 // This is a custom UI for our 'between' or number range
 // filter. It uses two number boxes and filters rows to
 // ones that have values between the two
-function Range({ column: { filterValue = [], preFilteredRows, setFilter, id } }) {
+function Range({
+    column: { filterValue = [], preFilteredRows, setFilter, id },
+}) {
     const theme = useTheme()
     const bgColor = theme.components?.DataTable?.Header?.Range?.bgColor || null
     const size =
@@ -135,7 +139,10 @@ function Range({ column: { filterValue = [], preFilteredRows, setFilter, id } })
                 type="number"
                 onChange={(e) => {
                     const val = e.target.value
-                    setFilter((old = []) => [val ? parseInt(val, 10) : undefined, old[1]])
+                    setFilter((old = []) => [
+                        val ? parseInt(val, 10) : undefined,
+                        old[1],
+                    ])
                 }}
                 placeholder={min}
                 bgColor={bgColor}
@@ -149,7 +156,10 @@ function Range({ column: { filterValue = [], preFilteredRows, setFilter, id } })
                 type="number"
                 onChange={(e) => {
                     const val = e.target.value
-                    setFilter((old = []) => [old[0], val ? parseInt(val, 10) : undefined])
+                    setFilter((old = []) => [
+                        old[0],
+                        val ? parseInt(val, 10) : undefined,
+                    ])
                 }}
                 placeholder={max}
                 bgColor={bgColor}
@@ -162,9 +172,10 @@ function Range({ column: { filterValue = [], preFilteredRows, setFilter, id } })
 // This is a custom filter UI for selecting
 // a unique option from a list
 function Dropdown({ column: { filterValue, setFilter, preFilteredRows, id } }) {
-    const {t} = useTranslation()
+    const { t } = useTranslation()
     const theme = useTheme()
-    const bgColor = theme.components?.DataTable?.Header?.Dropdown?.bgColor || null
+    const bgColor =
+        theme.components?.DataTable?.Header?.Dropdown?.bgColor || null
     const size =
         theme.components?.DataTable?.Header?.Dropdown?.size ||
         theme.components?.DataTable?.Header?.widgetSize ||
@@ -183,7 +194,7 @@ function Dropdown({ column: { filterValue, setFilter, preFilteredRows, id } }) {
 
     // Render a multi-select box
     return (
-        <Select 
+        <Select
             value={filterValue}
             onChange={(e) => {
                 setFilter(e.target.value || undefined)

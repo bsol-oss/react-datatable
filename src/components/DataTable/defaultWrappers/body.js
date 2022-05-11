@@ -2,13 +2,19 @@ import React, { useMemo } from 'react'
 
 import { FixedSizeList } from 'react-window'
 
-import { ViewContainer, Row as DefaultRow, Cell as DefaultCell } from '../Styles'
+import {
+    ViewContainer,
+    Row as DefaultRow,
+    Cell as DefaultCell,
+} from '../Styles'
 import GridWrapper from '../GridWrapper'
 import { useTheme } from '@chakra-ui/react'
 
 const GRID_ROW_HEIGHT = 270
 const browserFontSize =
-    typeof document === 'object' ? parseFloat(getComputedStyle(document.body).fontSize) || 16 : 16
+    typeof document === 'object'
+        ? parseFloat(getComputedStyle(document.body).fontSize) || 16
+        : 16
 
 const Body = ({
     width,
@@ -31,7 +37,13 @@ const Body = ({
 
     const theme = useTheme()
 
-    const RenderCell = ({ actualRowIndex, data, columnIndex, rowIndex, style }) => {
+    const RenderCell = ({
+        actualRowIndex,
+        data,
+        columnIndex,
+        rowIndex,
+        style,
+    }) => {
         const reactTableProp = data.getRowProps()
         // console.log(data)
         return (
@@ -43,7 +55,9 @@ const Body = ({
                 row={rowIndex}
                 data={data.values}
             >
-                {data.cells.map(({ column, render }, i) => render('CellForGrid'))}
+                {data.cells.map(({ column, render }, i) =>
+                    render('CellForGrid')
+                )}
             </Cell>
         )
     }
@@ -70,7 +84,8 @@ const Body = ({
     const rowHeight = useMemo(
         () => {
             const rowHeightMultiplier = 2
-            const fontSize = (theme.components?.DataTable?.fontSize || 1) * browserFontSize
+            const fontSize =
+                (theme.components?.DataTable?.fontSize || 1) * browserFontSize
 
             switch (view) {
                 case 'ROW':
@@ -103,7 +118,10 @@ const Body = ({
                 case 'ROWCONDENSED':
                     let h = 0
                     for (const c of columns) {
-                        h = Math.max(h, c.height || fontSize * rowHeightMultiplier)
+                        h = Math.max(
+                            h,
+                            c.height || fontSize * rowHeightMultiplier
+                        )
                     }
                     return h
                 case 'GRID':

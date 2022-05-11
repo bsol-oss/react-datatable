@@ -6,7 +6,11 @@ import { theme } from '../../../const/theme'
 import DataTable from '../index'
 import GlobalStyles from '../../../const/globalStyles'
 import { sampleColumns1, props } from './sample'
-import { TiArrowSortedDown, TiArrowSortedUp, TiArrowUnsorted } from 'react-icons/ti'
+import {
+    TiArrowSortedDown,
+    TiArrowSortedUp,
+    TiArrowUnsorted,
+} from 'react-icons/ti'
 
 import { Cell as DataTableGrid, Row as DataTableRow } from '../Styles'
 
@@ -32,7 +36,8 @@ const theme1 = extendTheme(
         styles: {
             global: {
                 'html, body': {
-                    fontFamily: "'Amazon Ember', Arial, sans-serif, 'Noto Sans HK'",
+                    fontFamily:
+                        "'Amazon Ember', Arial, sans-serif, 'Noto Sans HK'",
                 },
                 a: {
                     color: 'blue.800',
@@ -200,7 +205,10 @@ export const CustomRow = () => {
     const Row = ({ children, ...props }) => {
         console.log(props)
         return (
-            <DataTableRow onClick={() => alert(`haha ${props.index}`)} {...props}>
+            <DataTableRow
+                onClick={() => alert(`haha ${props.index}`)}
+                {...props}
+            >
                 {children}
             </DataTableRow>
         )
@@ -208,7 +216,10 @@ export const CustomRow = () => {
     const Cell = ({ children, ...props }) => {
         console.log(props)
         return (
-            <DataTableGrid onClick={() => alert(`hehe ${props.index}`)} {...props}>
+            <DataTableGrid
+                onClick={() => alert(`hehe ${props.index}`)}
+                {...props}
+            >
                 {children}
             </DataTableGrid>
         )
@@ -229,14 +240,20 @@ export const CustomRow = () => {
 export const WithRecordTotalComponent = () => (
     <ChakraProvider theme={theme1}>
         <GlobalStyles />
-        <DataTable {...props} recordTotalComponent={() => <div>random total</div>} />
+        <DataTable
+            {...props}
+            recordTotalComponent={() => <div>random total</div>}
+        />
     </ChakraProvider>
 )
 
 export const WithglobalSearchBarComponent = () => (
     <ChakraProvider theme={theme1}>
         <GlobalStyles />
-        <DataTable {...props} globalSearchBarComponent={() => <div>random global total</div>} />
+        <DataTable
+            {...props}
+            globalSearchBarComponent={() => <div>random global total</div>}
+        />
     </ChakraProvider>
 )
 

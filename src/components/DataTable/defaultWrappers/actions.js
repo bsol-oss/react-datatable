@@ -3,8 +3,19 @@ import { useTheme } from '@emotion/react'
 import styled from '@emotion/styled'
 import { useTranslation } from 'react-i18next'
 
-import { MdViewModule, MdFormatAlignJustify, MdWrapText, MdSearch } from 'react-icons/md'
-import { ButtonGroup, IconButton, Input, InputGroup, InputRightElement } from '@chakra-ui/react'
+import {
+    MdViewModule,
+    MdFormatAlignJustify,
+    MdWrapText,
+    MdSearch,
+} from 'react-icons/md'
+import {
+    ButtonGroup,
+    IconButton,
+    Input,
+    InputGroup,
+    InputRightElement,
+} from '@chakra-ui/react'
 
 const Action = ({
     showGlobalSearch,
@@ -53,13 +64,18 @@ const Action = ({
                         setGlobalFilter={setGlobalFilter}
                     />
                 ))}
-            
+
             {showToggleButtons && (
                 <ButtonGroup
                     gridArea="toggleButtons"
                     data-testid="sort-icon-container"
-                    size={theme.components?.DataTable?.ToggleButtons?.size || 'sm'}
-                    colorScheme={theme.components?.DataTable?.ToggleButtons?.colorScheme || 'gray'}
+                    size={
+                        theme.components?.DataTable?.ToggleButtons?.size || 'sm'
+                    }
+                    colorScheme={
+                        theme.components?.DataTable?.ToggleButtons
+                            ?.colorScheme || 'gray'
+                    }
                     justifyContent="flex-end"
                 >
                     {enabledView.includes('GRID') && (
@@ -91,7 +107,9 @@ const Action = ({
                     {enabledView.includes('ROWCONDENSED') && (
                         <IconButton
                             aria-label="Display as Condensed Row"
-                            variant={view === 'ROWCONDENSED' ? 'solid' : 'ghost'}
+                            variant={
+                                view === 'ROWCONDENSED' ? 'solid' : 'ghost'
+                            }
                             icon={
                                 <MdFormatAlignJustify
                                     onClick={() => setView('ROWCONDENSED')}
@@ -130,7 +148,8 @@ export const ActionWrapper = styled.div`
     justify-content: ${({ theme }) =>
         theme.components?.DataTable?.Actions?.justify || 'space-between'};
     align-items: stretch;
-    background-color: ${({ theme }) => theme.components?.DataTable?.Actions?.bgColor || '#fff'};
+    background-color: ${({ theme }) =>
+        theme.components?.DataTable?.Actions?.bgColor || '#fff'};
 `
 
 const DefaultGlobalSearchBar = ({ globalFilter, setGlobalFilter }) => {
@@ -142,8 +161,10 @@ const DefaultGlobalSearchBar = ({ globalFilter, setGlobalFilter }) => {
     }
 
     const theme = useTheme()
-    const bgColor = theme.components?.DataTable?.Actions?.GlobalSearch?.bgColor || '#fff'
-    const iconColor = theme.components?.DataTable?.Actions?.GlobalSearch?.iconColor || '#ccc'
+    const bgColor =
+        theme.components?.DataTable?.Actions?.GlobalSearch?.bgColor || '#fff'
+    const iconColor =
+        theme.components?.DataTable?.Actions?.GlobalSearch?.iconColor || '#ccc'
     const size =
         theme.components?.DataTable?.Actions?.GlobalSearch?.size ||
         theme.components?.DataTable?.widgetSize ||

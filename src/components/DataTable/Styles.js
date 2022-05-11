@@ -6,7 +6,8 @@ import ContentLoader from 'react-content-loader'
 import { down } from '../../const/theme'
 
 export const MainWrapper = styled.div`
-    background: ${({ theme }) => theme.components?.DataTable?.bgColor || '#fff'};
+    background: ${({ theme }) =>
+        theme.components?.DataTable?.bgColor || '#fff'};
     color: ${({ theme }) => theme.components?.DataTable?.color || '#000'};
 
     display: grid;
@@ -59,10 +60,13 @@ export const TableHeaderRow = styled.div`
     display: flex;
     justify-content: flex-start;
 
-    background: ${({ theme }) => theme.components?.DataTable?.Header?.bgColor || '#eee'};
+    background: ${({ theme }) =>
+        theme.components?.DataTable?.Header?.bgColor || '#eee'};
     border-bottom: ${({ theme }) =>
-        theme.components?.DataTable?.Header?.borderBottomWidth || '0px'} solid
-        ${({ theme }) => theme.components?.DataTable?.Header?.borderColor || '#aaa'};
+            theme.components?.DataTable?.Header?.borderBottomWidth || '0px'}
+        solid
+        ${({ theme }) =>
+            theme.components?.DataTable?.Header?.borderColor || '#aaa'};
     flex-wrap: ${({ view }) => (view === 'ROWCONDENSED' ? 'nowrap' : 'wrap')};
 
     ${down('tablet')} {
@@ -115,8 +119,11 @@ export const Row = styled.div`
     justify-content: flex-start;
     align-items: center;
 
-    border: ${({ theme }) => theme.components?.DataTable?.Body?.Row?.borderWidth || '0px'} solid
-        ${({ theme }) => theme.components?.DataTable?.Body?.Row?.borderColor || '#ccc'};
+    border: ${({ theme }) =>
+            theme.components?.DataTable?.Body?.Row?.borderWidth || '0px'}
+        solid
+        ${({ theme }) =>
+            theme.components?.DataTable?.Body?.Row?.borderColor || '#ccc'};
     background-color: ${({ theme }) =>
         theme.components?.DataTable?.Body?.Row?.bgColor ||
         theme.components?.DataTable?.bgColor ||
@@ -124,9 +131,12 @@ export const Row = styled.div`
 
     &:hover {
         border-left: ${({ theme }) =>
-                theme.components?.DataTable?.Body?.Row?.hoverBorderWidth || '3px'}
+                theme.components?.DataTable?.Body?.Row?.hoverBorderWidth ||
+                '3px'}
             solid
-            ${({ theme }) => theme.components?.DataTable?.Body?.Row?.hoverBorderColor || '#777'};
+            ${({ theme }) =>
+                theme.components?.DataTable?.Body?.Row?.hoverBorderColor ||
+                '#777'};
     }
     flex-wrap: ${({ isCondensed }) => (isCondensed ? `nowrap` : `wrap`)};
     padding: 8px 0;
@@ -142,7 +152,9 @@ export const ViewContainer = styled.div`
         ${({ isMainWrap, isHeader }) =>
             isMainWrap &&
             css`
-                height: calc(100vh - ${!isHeader ? '140px' : '207px'}) !important;
+                height: calc(
+                    100vh - ${!isHeader ? '140px' : '207px'}
+                ) !important;
             `}
 `
 
@@ -158,10 +170,12 @@ export const Cell = styled.div`
         ${({ theme: { dataTable } }) => dataTable.borderColor};
 
     background-color: ${({ theme: { dataTable, components } }) =>
-        components?.DataTable?.bgColor ? components.DataTable.bgColor : dataTable.background};
+        components?.DataTable?.bgColor
+            ? components.DataTable.bgColor
+            : dataTable.background};
 
     &:hover {
-        border-left: ${({ theme: { dataTable } }) => dataTable.borderWidth}px solid
-            ${({ theme: { dataTable } }) => dataTable.hoverColor};
+        border-left: ${({ theme: { dataTable } }) => dataTable.borderWidth}px
+            solid ${({ theme: { dataTable } }) => dataTable.hoverColor};
     }
 `

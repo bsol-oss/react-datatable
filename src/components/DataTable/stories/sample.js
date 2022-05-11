@@ -7,7 +7,7 @@ import {
     CellForGridTextStyle,
     CellStyle,
     CellForPriceStyle,
-    CellForInfoStyle
+    CellForInfoStyle,
 } from './Styles'
 import { Slider, Range, Dropdown } from '../Filters'
 
@@ -217,7 +217,7 @@ export const sampleData = [
         prdSubCat: 'Product SubCat 00',
         cat1: 'cat1a',
         cat2: 'cat2a',
-        price: 10
+        price: 10,
     },
     {
         SKUID: '111',
@@ -228,7 +228,7 @@ export const sampleData = [
         prdSubCat: 'Product SubCat 01',
         cat1: 'cat1b',
         cat2: 'cat2b',
-        price: 21
+        price: 21,
     },
     {
         SKUID: '222',
@@ -239,7 +239,7 @@ export const sampleData = [
         prdSubCat: 'Product SubCat 02',
         cat1: 'cat1c',
         cat2: 'cat2c',
-        price: 29
+        price: 29,
     },
     {
         SKUID: '333',
@@ -250,7 +250,7 @@ export const sampleData = [
         prdSubCat: 'Product SubCat 03',
         cat1: 'cat1d',
         cat2: 'cat2d',
-        price: 40
+        price: 40,
     },
     {
         SKUID: '444',
@@ -261,7 +261,7 @@ export const sampleData = [
         prdSubCat: 'Product SubCat 04',
         cat1: 'cat1e',
         cat2: 'cat2e',
-        price: 50
+        price: 50,
     },
     {
         SKUID: '555',
@@ -272,7 +272,7 @@ export const sampleData = [
         prdSubCat: 'Product SubCat 05',
         cat1: 'cat1f',
         cat2: 'cat2f',
-        price: 55
+        price: 55,
     },
     {
         SKUID: '666',
@@ -283,7 +283,7 @@ export const sampleData = [
         prdSubCat: 'Product SubCat 06',
         cat1: 'cat1g',
         cat2: 'cat2g',
-        price: 73
+        price: 73,
     },
     {
         SKUID: '777',
@@ -294,7 +294,7 @@ export const sampleData = [
         prdSubCat: 'Product SubCat 07',
         cat1: 'cat1h',
         cat2: 'cat2h',
-        price: 79
+        price: 79,
     },
     {
         SKUID: '888',
@@ -305,7 +305,7 @@ export const sampleData = [
         prdSubCat: 'Product SubCat 08',
         cat1: 'cat1i',
         cat2: 'cat2i',
-        price: 92
+        price: 92,
     },
     {
         SKUID: '999',
@@ -316,7 +316,7 @@ export const sampleData = [
         prdSubCat: 'Product SubCat 09',
         cat1: 'cat1j',
         cat2: 'cat2j',
-        price: 99
+        price: 99,
     },
     {
         SKUID: '000',
@@ -327,7 +327,7 @@ export const sampleData = [
         prdSubCat: 'Product SubCat 00',
         cat1: 'cat1a',
         cat2: 'cat2a',
-        price: 10
+        price: 10,
     },
     {
         SKUID: '111',
@@ -338,7 +338,7 @@ export const sampleData = [
         prdSubCat: 'Product SubCat 01',
         cat1: 'cat1b',
         cat2: 'cat2b',
-        price: 21
+        price: 21,
     },
     {
         SKUID: '222',
@@ -349,7 +349,7 @@ export const sampleData = [
         prdSubCat: 'Product SubCat 02',
         cat1: 'cat1c',
         cat2: 'cat2c',
-        price: 29
+        price: 29,
     },
     {
         SKUID: '333',
@@ -360,7 +360,7 @@ export const sampleData = [
         prdSubCat: 'Product SubCat 03',
         cat1: 'cat1d',
         cat2: 'cat2d',
-        price: 40
+        price: 40,
     },
     {
         SKUID: '444',
@@ -371,7 +371,7 @@ export const sampleData = [
         prdSubCat: 'Product SubCat 04',
         cat1: 'cat1e',
         cat2: 'cat2e',
-        price: 50
+        price: 50,
     },
     {
         SKUID: '555',
@@ -382,7 +382,7 @@ export const sampleData = [
         prdSubCat: 'Product SubCat 05',
         cat1: 'cat1f',
         cat2: 'cat2f',
-        price: 55
+        price: 55,
     },
     {
         SKUID: '666',
@@ -393,7 +393,7 @@ export const sampleData = [
         prdSubCat: 'Product SubCat 06',
         cat1: 'cat1g',
         cat2: 'cat2g',
-        price: 73
+        price: 73,
     },
     {
         SKUID: '777',
@@ -404,7 +404,7 @@ export const sampleData = [
         prdSubCat: 'Product SubCat 07',
         cat1: 'cat1h',
         cat2: 'cat2h',
-        price: 79
+        price: 79,
     },
     {
         SKUID: '888',
@@ -415,7 +415,7 @@ export const sampleData = [
         prdSubCat: 'Product SubCat 08',
         cat1: 'cat1i',
         cat2: 'cat2i',
-        price: 92
+        price: 92,
     },
     {
         SKUID: '999',
@@ -426,7 +426,7 @@ export const sampleData = [
         prdSubCat: 'Product SubCat 09',
         cat1: 'cat1j',
         cat2: 'cat2j',
-        price: 99
+        price: 99,
     },
     {
         SKUID: '000',
@@ -437,7 +437,7 @@ export const sampleData = [
         prdSubCat: 'Product SubCat 00',
         cat1: 'cat1a',
         cat2: 'cat2a',
-        price: 10
+        price: 10,
     },
     {
         SKUID: '111',
@@ -448,7 +448,7 @@ export const sampleData = [
         prdSubCat: 'Product SubCat 01',
         cat1: 'cat1b',
         cat2: 'cat2b',
-        price: 21
+        price: 21,
     },
     {
         SKUID: '222',
@@ -459,7 +459,7 @@ export const sampleData = [
         prdSubCat: 'Product SubCat 02',
         cat1: 'cat1c',
         cat2: 'cat2c',
-        price: 29
+        price: 29,
     },
     {
         SKUID: '333',
@@ -470,7 +470,7 @@ export const sampleData = [
         prdSubCat: 'Product SubCat 03',
         cat1: 'cat1d',
         cat2: 'cat2d',
-        price: 40
+        price: 40,
     },
     {
         SKUID: '444',
@@ -481,7 +481,7 @@ export const sampleData = [
         prdSubCat: 'Product SubCat 04',
         cat1: 'cat1e',
         cat2: 'cat2e',
-        price: 50
+        price: 50,
     },
     {
         SKUID: '555',
@@ -492,7 +492,7 @@ export const sampleData = [
         prdSubCat: 'Product SubCat 05',
         cat1: 'cat1f',
         cat2: 'cat2f',
-        price: 55
+        price: 55,
     },
     {
         SKUID: '666',
@@ -503,7 +503,7 @@ export const sampleData = [
         prdSubCat: 'Product SubCat 06',
         cat1: 'cat1g',
         cat2: 'cat2g',
-        price: 73
+        price: 73,
     },
     {
         SKUID: '777',
@@ -514,7 +514,7 @@ export const sampleData = [
         prdSubCat: 'Product SubCat 07',
         cat1: 'cat1h',
         cat2: 'cat2h',
-        price: 79
+        price: 79,
     },
     {
         SKUID: '888',
@@ -525,7 +525,7 @@ export const sampleData = [
         prdSubCat: 'Product SubCat 08',
         cat1: 'cat1i',
         cat2: 'cat2i',
-        price: 92
+        price: 92,
     },
     {
         SKUID: '999',
@@ -536,7 +536,7 @@ export const sampleData = [
         prdSubCat: 'Product SubCat 09',
         cat1: 'cat1j',
         cat2: 'cat2j',
-        price: 99
+        price: 99,
     },
     {
         SKUID: '000',
@@ -547,7 +547,7 @@ export const sampleData = [
         prdSubCat: 'Product SubCat 00',
         cat1: 'cat1a',
         cat2: 'cat2a',
-        price: 10
+        price: 10,
     },
     {
         SKUID: '111',
@@ -558,7 +558,7 @@ export const sampleData = [
         prdSubCat: 'Product SubCat 01',
         cat1: 'cat1b',
         cat2: 'cat2b',
-        price: 21
+        price: 21,
     },
     {
         SKUID: '222',
@@ -569,7 +569,7 @@ export const sampleData = [
         prdSubCat: 'Product SubCat 02',
         cat1: 'cat1c',
         cat2: 'cat2c',
-        price: 29
+        price: 29,
     },
     {
         SKUID: '333',
@@ -580,7 +580,7 @@ export const sampleData = [
         prdSubCat: 'Product SubCat 03',
         cat1: 'cat1d',
         cat2: 'cat2d',
-        price: 40
+        price: 40,
     },
     {
         SKUID: '444',
@@ -591,7 +591,7 @@ export const sampleData = [
         prdSubCat: 'Product SubCat 04',
         cat1: 'cat1e',
         cat2: 'cat2e',
-        price: 50
+        price: 50,
     },
     {
         SKUID: '555',
@@ -602,7 +602,7 @@ export const sampleData = [
         prdSubCat: 'Product SubCat 05',
         cat1: 'cat1f',
         cat2: 'cat2f',
-        price: 55
+        price: 55,
     },
     {
         SKUID: '666',
@@ -613,7 +613,7 @@ export const sampleData = [
         prdSubCat: 'Product SubCat 06',
         cat1: 'cat1g',
         cat2: 'cat2g',
-        price: 73
+        price: 73,
     },
     {
         SKUID: '777',
@@ -624,7 +624,7 @@ export const sampleData = [
         prdSubCat: 'Product SubCat 07',
         cat1: 'cat1h',
         cat2: 'cat2h',
-        price: 79
+        price: 79,
     },
     {
         SKUID: '888',
@@ -635,7 +635,7 @@ export const sampleData = [
         prdSubCat: 'Product SubCat 08',
         cat1: 'cat1i',
         cat2: 'cat2i',
-        price: 92
+        price: 92,
     },
     {
         SKUID: '999',
@@ -646,7 +646,7 @@ export const sampleData = [
         prdSubCat: 'Product SubCat 09',
         cat1: 'cat1j',
         cat2: 'cat2j',
-        price: 99
+        price: 99,
     },
     {
         SKUID: '000',
@@ -657,7 +657,7 @@ export const sampleData = [
         prdSubCat: 'Product SubCat 00',
         cat1: 'cat1a',
         cat2: 'cat2a',
-        price: 10
+        price: 10,
     },
     {
         SKUID: '111',
@@ -668,7 +668,7 @@ export const sampleData = [
         prdSubCat: 'Product SubCat 01',
         cat1: 'cat1b',
         cat2: 'cat2b',
-        price: 21
+        price: 21,
     },
     {
         SKUID: '222',
@@ -679,7 +679,7 @@ export const sampleData = [
         prdSubCat: 'Product SubCat 02',
         cat1: 'cat1c',
         cat2: 'cat2c',
-        price: 29
+        price: 29,
     },
     {
         SKUID: '333',
@@ -690,7 +690,7 @@ export const sampleData = [
         prdSubCat: 'Product SubCat 03',
         cat1: 'cat1d',
         cat2: 'cat2d',
-        price: 40
+        price: 40,
     },
     {
         SKUID: '444',
@@ -701,7 +701,7 @@ export const sampleData = [
         prdSubCat: 'Product SubCat 04',
         cat1: 'cat1e',
         cat2: 'cat2e',
-        price: 50
+        price: 50,
     },
     {
         SKUID: '555',
@@ -712,7 +712,7 @@ export const sampleData = [
         prdSubCat: 'Product SubCat 05',
         cat1: 'cat1f',
         cat2: 'cat2f',
-        price: 55
+        price: 55,
     },
     {
         SKUID: '666',
@@ -723,7 +723,7 @@ export const sampleData = [
         prdSubCat: 'Product SubCat 06',
         cat1: 'cat1g',
         cat2: 'cat2g',
-        price: 73
+        price: 73,
     },
     {
         SKUID: '777',
@@ -734,7 +734,7 @@ export const sampleData = [
         prdSubCat: 'Product SubCat 07',
         cat1: 'cat1h',
         cat2: 'cat2h',
-        price: 79
+        price: 79,
     },
     {
         SKUID: '888',
@@ -745,7 +745,7 @@ export const sampleData = [
         prdSubCat: 'Product SubCat 08',
         cat1: 'cat1i',
         cat2: 'cat2i',
-        price: 92
+        price: 92,
     },
     {
         SKUID: '999',
@@ -756,7 +756,7 @@ export const sampleData = [
         prdSubCat: 'Product SubCat 09',
         cat1: 'cat1j',
         cat2: 'cat2j',
-        price: 99
+        price: 99,
     },
     {
         SKUID: '000',
@@ -767,7 +767,7 @@ export const sampleData = [
         prdSubCat: 'Product SubCat 00',
         cat1: 'cat1a',
         cat2: 'cat2a',
-        price: 10
+        price: 10,
     },
     {
         SKUID: '111',
@@ -778,7 +778,7 @@ export const sampleData = [
         prdSubCat: 'Product SubCat 01',
         cat1: 'cat1b',
         cat2: 'cat2b',
-        price: 21
+        price: 21,
     },
     {
         SKUID: '222',
@@ -789,7 +789,7 @@ export const sampleData = [
         prdSubCat: 'Product SubCat 02',
         cat1: 'cat1c',
         cat2: 'cat2c',
-        price: 29
+        price: 29,
     },
     {
         SKUID: '333',
@@ -800,7 +800,7 @@ export const sampleData = [
         prdSubCat: 'Product SubCat 03',
         cat1: 'cat1d',
         cat2: 'cat2d',
-        price: 40
+        price: 40,
     },
     {
         SKUID: '444',
@@ -811,7 +811,7 @@ export const sampleData = [
         prdSubCat: 'Product SubCat 04',
         cat1: 'cat1e',
         cat2: 'cat2e',
-        price: 50
+        price: 50,
     },
     {
         SKUID: '555',
@@ -822,7 +822,7 @@ export const sampleData = [
         prdSubCat: 'Product SubCat 05',
         cat1: 'cat1f',
         cat2: 'cat2f',
-        price: 55
+        price: 55,
     },
     {
         SKUID: '666',
@@ -833,7 +833,7 @@ export const sampleData = [
         prdSubCat: 'Product SubCat 06',
         cat1: 'cat1g',
         cat2: 'cat2g',
-        price: 73
+        price: 73,
     },
     {
         SKUID: '777',
@@ -844,7 +844,7 @@ export const sampleData = [
         prdSubCat: 'Product SubCat 07',
         cat1: 'cat1h',
         cat2: 'cat2h',
-        price: 79
+        price: 79,
     },
     {
         SKUID: '888',
@@ -855,7 +855,7 @@ export const sampleData = [
         prdSubCat: 'Product SubCat 08',
         cat1: 'cat1i',
         cat2: 'cat2i',
-        price: 92
+        price: 92,
     },
     {
         SKUID: '999',
@@ -866,7 +866,7 @@ export const sampleData = [
         prdSubCat: 'Product SubCat 09',
         cat1: 'cat1j',
         cat2: 'cat2j',
-        price: 99
+        price: 99,
     },
     {
         SKUID: '000',
@@ -877,7 +877,7 @@ export const sampleData = [
         prdSubCat: 'Product SubCat 00',
         cat1: 'cat1a',
         cat2: 'cat2a',
-        price: 10
+        price: 10,
     },
     {
         SKUID: '111',
@@ -888,7 +888,7 @@ export const sampleData = [
         prdSubCat: 'Product SubCat 01',
         cat1: 'cat1b',
         cat2: 'cat2b',
-        price: 21
+        price: 21,
     },
     {
         SKUID: '222',
@@ -899,7 +899,7 @@ export const sampleData = [
         prdSubCat: 'Product SubCat 02',
         cat1: 'cat1c',
         cat2: 'cat2c',
-        price: 29
+        price: 29,
     },
     {
         SKUID: '333',
@@ -910,7 +910,7 @@ export const sampleData = [
         prdSubCat: 'Product SubCat 03',
         cat1: 'cat1d',
         cat2: 'cat2d',
-        price: 40
+        price: 40,
     },
     {
         SKUID: '444',
@@ -921,7 +921,7 @@ export const sampleData = [
         prdSubCat: 'Product SubCat 04',
         cat1: 'cat1e',
         cat2: 'cat2e',
-        price: 50
+        price: 50,
     },
     {
         SKUID: '555',
@@ -932,7 +932,7 @@ export const sampleData = [
         prdSubCat: 'Product SubCat 05',
         cat1: 'cat1f',
         cat2: 'cat2f',
-        price: 55
+        price: 55,
     },
     {
         SKUID: '666',
@@ -943,7 +943,7 @@ export const sampleData = [
         prdSubCat: 'Product SubCat 06',
         cat1: 'cat1g',
         cat2: 'cat2g',
-        price: 73
+        price: 73,
     },
     {
         SKUID: '777',
@@ -954,7 +954,7 @@ export const sampleData = [
         prdSubCat: 'Product SubCat 07',
         cat1: 'cat1h',
         cat2: 'cat2h',
-        price: 79
+        price: 79,
     },
     {
         SKUID: '888',
@@ -965,7 +965,7 @@ export const sampleData = [
         prdSubCat: 'Product SubCat 08',
         cat1: 'cat1i',
         cat2: 'cat2i',
-        price: 92
+        price: 92,
     },
     {
         SKUID: '999',
@@ -976,7 +976,7 @@ export const sampleData = [
         prdSubCat: 'Product SubCat 09',
         cat1: 'cat1j',
         cat2: 'cat2j',
-        price: 99
+        price: 99,
     },
     {
         SKUID: '000',
@@ -987,7 +987,7 @@ export const sampleData = [
         prdSubCat: 'Product SubCat 00',
         cat1: 'cat1a',
         cat2: 'cat2a',
-        price: 10
+        price: 10,
     },
     {
         SKUID: '111',
@@ -998,7 +998,7 @@ export const sampleData = [
         prdSubCat: 'Product SubCat 01',
         cat1: 'cat1b',
         cat2: 'cat2b',
-        price: 21
+        price: 21,
     },
     {
         SKUID: '222',
@@ -1009,7 +1009,7 @@ export const sampleData = [
         prdSubCat: 'Product SubCat 02',
         cat1: 'cat1c',
         cat2: 'cat2c',
-        price: 29
+        price: 29,
     },
     {
         SKUID: '333',
@@ -1020,7 +1020,7 @@ export const sampleData = [
         prdSubCat: 'Product SubCat 03',
         cat1: 'cat1d',
         cat2: 'cat2d',
-        price: 40
+        price: 40,
     },
     {
         SKUID: '444',
@@ -1031,7 +1031,7 @@ export const sampleData = [
         prdSubCat: 'Product SubCat 04',
         cat1: 'cat1e',
         cat2: 'cat2e',
-        price: 50
+        price: 50,
     },
     {
         SKUID: '555',
@@ -1042,7 +1042,7 @@ export const sampleData = [
         prdSubCat: 'Product SubCat 05',
         cat1: 'cat1f',
         cat2: 'cat2f',
-        price: 55
+        price: 55,
     },
     {
         SKUID: '666',
@@ -1053,7 +1053,7 @@ export const sampleData = [
         prdSubCat: 'Product SubCat 06',
         cat1: 'cat1g',
         cat2: 'cat2g',
-        price: 73
+        price: 73,
     },
     {
         SKUID: '777',
@@ -1064,7 +1064,7 @@ export const sampleData = [
         prdSubCat: 'Product SubCat 07',
         cat1: 'cat1h',
         cat2: 'cat2h',
-        price: 79
+        price: 79,
     },
     {
         SKUID: '888',
@@ -1075,7 +1075,7 @@ export const sampleData = [
         prdSubCat: 'Product SubCat 08',
         cat1: 'cat1i',
         cat2: 'cat2i',
-        price: 92
+        price: 92,
     },
     {
         SKUID: '999',
@@ -1086,7 +1086,7 @@ export const sampleData = [
         prdSubCat: 'Product SubCat 09',
         cat1: 'cat1j',
         cat2: 'cat2j',
-        price: 99
+        price: 99,
     },
     {
         SKUID: '000',
@@ -1097,7 +1097,7 @@ export const sampleData = [
         prdSubCat: 'Product SubCat 00',
         cat1: 'cat1a',
         cat2: 'cat2a',
-        price: 10
+        price: 10,
     },
     {
         SKUID: '111',
@@ -1108,7 +1108,7 @@ export const sampleData = [
         prdSubCat: 'Product SubCat 01',
         cat1: 'cat1b',
         cat2: 'cat2b',
-        price: 21
+        price: 21,
     },
     {
         SKUID: '222',
@@ -1119,7 +1119,7 @@ export const sampleData = [
         prdSubCat: 'Product SubCat 02',
         cat1: 'cat1c',
         cat2: 'cat2c',
-        price: 29
+        price: 29,
     },
     {
         SKUID: '333',
@@ -1130,7 +1130,7 @@ export const sampleData = [
         prdSubCat: 'Product SubCat 03',
         cat1: 'cat1d',
         cat2: 'cat2d',
-        price: 40
+        price: 40,
     },
     {
         SKUID: '444',
@@ -1141,7 +1141,7 @@ export const sampleData = [
         prdSubCat: 'Product SubCat 04',
         cat1: 'cat1e',
         cat2: 'cat2e',
-        price: 50
+        price: 50,
     },
     {
         SKUID: '555',
@@ -1152,7 +1152,7 @@ export const sampleData = [
         prdSubCat: 'Product SubCat 05',
         cat1: 'cat1f',
         cat2: 'cat2f',
-        price: 55
+        price: 55,
     },
     {
         SKUID: '666',
@@ -1163,7 +1163,7 @@ export const sampleData = [
         prdSubCat: 'Product SubCat 06',
         cat1: 'cat1g',
         cat2: 'cat2g',
-        price: 73
+        price: 73,
     },
     {
         SKUID: '777',
@@ -1174,7 +1174,7 @@ export const sampleData = [
         prdSubCat: 'Product SubCat 07',
         cat1: 'cat1h',
         cat2: 'cat2h',
-        price: 79
+        price: 79,
     },
     {
         SKUID: '888',
@@ -1185,7 +1185,7 @@ export const sampleData = [
         prdSubCat: 'Product SubCat 08',
         cat1: 'cat1i',
         cat2: 'cat2i',
-        price: 92
+        price: 92,
     },
     {
         SKUID: '999',
@@ -1196,7 +1196,7 @@ export const sampleData = [
         prdSubCat: 'Product SubCat 09',
         cat1: 'cat1j',
         cat2: 'cat2j',
-        price: 99
+        price: 99,
     },
     {
         SKUID: '000',
@@ -1207,7 +1207,7 @@ export const sampleData = [
         prdSubCat: 'Product SubCat 00',
         cat1: 'cat1a',
         cat2: 'cat2a',
-        price: 10
+        price: 10,
     },
     {
         SKUID: '111',
@@ -1218,7 +1218,7 @@ export const sampleData = [
         prdSubCat: 'Product SubCat 01',
         cat1: 'cat1b',
         cat2: 'cat2b',
-        price: 21
+        price: 21,
     },
     {
         SKUID: '222',
@@ -1229,7 +1229,7 @@ export const sampleData = [
         prdSubCat: 'Product SubCat 02',
         cat1: 'cat1c',
         cat2: 'cat2c',
-        price: 29
+        price: 29,
     },
     {
         SKUID: '333',
@@ -1240,7 +1240,7 @@ export const sampleData = [
         prdSubCat: 'Product SubCat 03',
         cat1: 'cat1d',
         cat2: 'cat2d',
-        price: 40
+        price: 40,
     },
     {
         SKUID: '444',
@@ -1251,7 +1251,7 @@ export const sampleData = [
         prdSubCat: 'Product SubCat 04',
         cat1: 'cat1e',
         cat2: 'cat2e',
-        price: 50
+        price: 50,
     },
     {
         SKUID: '555',
@@ -1262,7 +1262,7 @@ export const sampleData = [
         prdSubCat: 'Product SubCat 05',
         cat1: 'cat1f',
         cat2: 'cat2f',
-        price: 55
+        price: 55,
     },
     {
         SKUID: '666',
@@ -1273,7 +1273,7 @@ export const sampleData = [
         prdSubCat: 'Product SubCat 06',
         cat1: 'cat1g',
         cat2: 'cat2g',
-        price: 73
+        price: 73,
     },
     {
         SKUID: '777',
@@ -1284,7 +1284,7 @@ export const sampleData = [
         prdSubCat: 'Product SubCat 07',
         cat1: 'cat1h',
         cat2: 'cat2h',
-        price: 79
+        price: 79,
     },
     {
         SKUID: '888',
@@ -1295,7 +1295,7 @@ export const sampleData = [
         prdSubCat: 'Product SubCat 08',
         cat1: 'cat1i',
         cat2: 'cat2i',
-        price: 92
+        price: 92,
     },
     {
         SKUID: '999',
@@ -1306,154 +1306,142 @@ export const sampleData = [
         prdSubCat: 'Product SubCat 09',
         cat1: 'cat1j',
         cat2: 'cat2j',
-        price: 99
+        price: 99,
     },
 ]
 
 const sampleSliderColumns1 = [...sampleColumns]
 sampleSliderColumns1.splice(-1, 1)
-sampleSliderColumns1.push(
-    {
-        Header: 'Price',
-        accessor: 'price',
-        Filter: Slider,
-        CellForGrid: ({ row }) => <div>{row.original.price}</div>,
-        Cell: ({ row }) => <div>{row.original.price}</div>,
-    })
+sampleSliderColumns1.push({
+    Header: 'Price',
+    accessor: 'price',
+    Filter: Slider,
+    CellForGrid: ({ row }) => <div>{row.original.price}</div>,
+    Cell: ({ row }) => <div>{row.original.price}</div>,
+})
 
 export const sampleSliderColumns = sampleSliderColumns1
 
 const sampleNumberRangeColumns1 = [...sampleColumns]
 sampleNumberRangeColumns1.splice(-1, 1)
-sampleNumberRangeColumns1.push(
-    {
-        Header: 'Price',
-        accessor: 'price',
-        Filter: Range,
-        filter: 'between',
-        CellForGrid: ({ row }) => <div>{row.original.price}</div>,
-        Cell: ({ row }) => <div>{row.original.price}</div>,
-    })
+sampleNumberRangeColumns1.push({
+    Header: 'Price',
+    accessor: 'price',
+    Filter: Range,
+    filter: 'between',
+    CellForGrid: ({ row }) => <div>{row.original.price}</div>,
+    Cell: ({ row }) => <div>{row.original.price}</div>,
+})
 
 export const sampleNumberRangeColumns = sampleNumberRangeColumns1
 
-export const condensedColumns = [{
-    Header: 'SKUID',
-    id: 'skuid',
-    accessor: 'SKUID',
-    defaultCanFilter: true,
-    CellForGrid: ({ row }) => (
-        <CellForGridSKUStyle>
-            SKU: {row.original.SKUID}
-        </CellForGridSKUStyle>
-    ),
-    Cell: ({ row }) => <CellStyle>{row.original.SKUID}</CellStyle>,
-},
-{
-    Header: 'Product Name',
-    id: 'product-name',
-    accessor: 'eName',
+export const condensedColumns = [
+    {
+        Header: 'SKUID',
+        id: 'skuid',
+        accessor: 'SKUID',
+        defaultCanFilter: true,
+        CellForGrid: ({ row }) => (
+            <CellForGridSKUStyle>SKU: {row.original.SKUID}</CellForGridSKUStyle>
+        ),
+        Cell: ({ row }) => <CellStyle>{row.original.SKUID}</CellStyle>,
+    },
+    {
+        Header: 'Product Name',
+        id: 'product-name',
+        accessor: 'eName',
 
-    defaultCanFilter: true,
-    CellForGrid: ({ row }) => (
-        <CellForGridNameStyle>
-            {row.original.eName}
-        </CellForGridNameStyle>
-    ),
-    Cell: ({ row }) => <CellStyle>{row.original.eName}</CellStyle>,
-},
-{
-    Header: 'Picture',
-    id: 'picture',
-    Cell: ({ row }) => (
-        <div className="image">
-            <img
-                src={`${row.original.smallPic}`}
-                alt={`${row.original.smallPic}`}
-                height="30"
-                width="30"
-            />
-        </div>
-    ),
-    CellForGrid: ({ row }) => (
-        <CellForGridImgStyle>
-            <img
-                src={`${row.original.smallPic}`}
-                alt={`${row.original.smallPic}`}
-            />
-        </CellForGridImgStyle>
-    )
-},
-{
-    Header: 'Brand',
-    id: 'brand',
-    accessor: 'brand',
-    defaultCanFilter: true,
-    CellForGrid: ({ row }) => (
-        <CellForGridTextStyle>
-            {row.original.brand}
-        </CellForGridTextStyle>
-    ),
-    Cell: ({ row }) => <CellStyle>{row.original.brand}</CellStyle>,
-},
-{
-    Header: 'Product Cat',
-    id: 'product-cat',
-    accessor: 'prdCat',
-    defaultCanFilter: true,
-    CellForGrid: ({ row }) => (
-        <CellForGridTextStyle>
-            {row.original.prdCat}
-        </CellForGridTextStyle>
-    ),
-    Cell: ({ row }) => (
-        <CellStyle>{row.original.prdCat}</CellStyle>
-    )
-},
-{
-    Header: 'Product SubCat',
-    id: 'product-sub-cat',
-    accessor: 'prdSubCat',
-    defaultCanFilter: true,
-    CellForGrid: ({ row }) => (
-        <CellForInfoStyle>
-            {row.original.prdSubCat}
-        </CellForInfoStyle>
-    ),
-    Cell: ({ row }) => <CellStyle>{row.original.prdSubCat}</CellStyle>
-},
-{
-    Header: 'Category 1',
-    id: 'category-1',
-    accessor: 'cat1',
-    defaultCanFilter: true,
-    CellForGrid: ({ row }) => (
-        <CellForInfoStyle>{row.original.cat1}</CellForInfoStyle>
-    ),
-    Cell: ({ row }) => <CellStyle>{row.original.cat1}</CellStyle>,
-},
-{
-    Header: 'Category 2',
-    id: 'category-2',
-    accessor: 'cat2',
-    defaultCanFilter: true,
-    CellForGrid: ({ row }) => (
-        <CellForInfoStyle>{row.original.cat2}</CellForInfoStyle>
-    ),
-    Cell: ({ row }) => <CellStyle>{row.original.cat2}</CellStyle>
-},
-{
-    Header: 'Price',
-    id: 'Price',
-    accessor: 'Price',
-    defaultCanFilter: false,
-    CellForGrid: ({ row }) => (
-        <CellForPriceStyle>${row.original.price}</CellForPriceStyle>
-    ),
-    Cell: ({ row }) => (
-        <CellForPriceStyle>${row.original.price}</CellForPriceStyle>
-    )
-}]
+        defaultCanFilter: true,
+        CellForGrid: ({ row }) => (
+            <CellForGridNameStyle>{row.original.eName}</CellForGridNameStyle>
+        ),
+        Cell: ({ row }) => <CellStyle>{row.original.eName}</CellStyle>,
+    },
+    {
+        Header: 'Picture',
+        id: 'picture',
+        Cell: ({ row }) => (
+            <div className="image">
+                <img
+                    src={`${row.original.smallPic}`}
+                    alt={`${row.original.smallPic}`}
+                    height="30"
+                    width="30"
+                />
+            </div>
+        ),
+        CellForGrid: ({ row }) => (
+            <CellForGridImgStyle>
+                <img
+                    src={`${row.original.smallPic}`}
+                    alt={`${row.original.smallPic}`}
+                />
+            </CellForGridImgStyle>
+        ),
+    },
+    {
+        Header: 'Brand',
+        id: 'brand',
+        accessor: 'brand',
+        defaultCanFilter: true,
+        CellForGrid: ({ row }) => (
+            <CellForGridTextStyle>{row.original.brand}</CellForGridTextStyle>
+        ),
+        Cell: ({ row }) => <CellStyle>{row.original.brand}</CellStyle>,
+    },
+    {
+        Header: 'Product Cat',
+        id: 'product-cat',
+        accessor: 'prdCat',
+        defaultCanFilter: true,
+        CellForGrid: ({ row }) => (
+            <CellForGridTextStyle>{row.original.prdCat}</CellForGridTextStyle>
+        ),
+        Cell: ({ row }) => <CellStyle>{row.original.prdCat}</CellStyle>,
+    },
+    {
+        Header: 'Product SubCat',
+        id: 'product-sub-cat',
+        accessor: 'prdSubCat',
+        defaultCanFilter: true,
+        CellForGrid: ({ row }) => (
+            <CellForInfoStyle>{row.original.prdSubCat}</CellForInfoStyle>
+        ),
+        Cell: ({ row }) => <CellStyle>{row.original.prdSubCat}</CellStyle>,
+    },
+    {
+        Header: 'Category 1',
+        id: 'category-1',
+        accessor: 'cat1',
+        defaultCanFilter: true,
+        CellForGrid: ({ row }) => (
+            <CellForInfoStyle>{row.original.cat1}</CellForInfoStyle>
+        ),
+        Cell: ({ row }) => <CellStyle>{row.original.cat1}</CellStyle>,
+    },
+    {
+        Header: 'Category 2',
+        id: 'category-2',
+        accessor: 'cat2',
+        defaultCanFilter: true,
+        CellForGrid: ({ row }) => (
+            <CellForInfoStyle>{row.original.cat2}</CellForInfoStyle>
+        ),
+        Cell: ({ row }) => <CellStyle>{row.original.cat2}</CellStyle>,
+    },
+    {
+        Header: 'Price',
+        id: 'Price',
+        accessor: 'Price',
+        defaultCanFilter: false,
+        CellForGrid: ({ row }) => (
+            <CellForPriceStyle>${row.original.price}</CellForPriceStyle>
+        ),
+        Cell: ({ row }) => (
+            <CellForPriceStyle>${row.original.price}</CellForPriceStyle>
+        ),
+    },
+]
 
 export const props = {
     loading: false,
@@ -1465,6 +1453,6 @@ export const props = {
     showGlobalSearch: true,
     showTableHeader: true,
     headerStyle: { fontSize: '10px' },
-    headerClass: "custom-header-item-class",
-    sortIconSize: "14"
+    headerClass: 'custom-header-item-class',
+    sortIconSize: '14',
 }

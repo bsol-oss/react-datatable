@@ -1,5 +1,7 @@
 import React from 'react'
 import { ThemeProvider } from '@emotion/react'
+import i18next from 'i18next'
+import { initReactI18next } from 'react-i18next'
 
 import { render, screen, fireEvent, findByRole } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
@@ -7,6 +9,34 @@ import '@testing-library/jest-dom/extend-expect'
 import DataTable from '../index'
 import { theme } from '../../../const/theme'
 import { sampleColumns, sampleData } from '../stories/sample.js'
+
+i18next.use(initReactI18next).init({
+    // init launch for forcing preload translation file
+    resources: {
+        'zh-HK': {
+            common: {
+                All: '全部',
+                'Total Items': '總項目',
+                'Filtered Items': '過濾項目',
+                'Selected Items': '選定項目',
+            },
+        },
+        en: {
+            common: {
+                All: 'All',
+                'Total Items': 'Total Items',
+                'Filtered Items': 'Filtered Items',
+                'Selected Items': 'Selected Items',
+            },
+        },
+    },
+    lng: ['en', 'zh-HK'],
+    fallbackLng: 'en',
+    preload: ['zh-HK', 'en'],
+    ns: ['common'],
+    defaultNS: 'common',
+    interpolation: { escapeValue: false },
+})
 
 const TableComp = (props = {}) => {
     let columns = props.columns || sampleColumns
@@ -70,9 +100,13 @@ const testColumnHeaderSort = (getByText, columnHeader) => {
 
 describe('DataTable should display data correctly', () => {
     test('display sort icons', () => {
-        const { getByText, container, getAllByText, queryAllByText, getByTestId } = render(
-            <TableComp height={5000} />
-        )
+        const {
+            getByText,
+            container,
+            getAllByText,
+            queryAllByText,
+            getByTestId,
+        } = render(<TableComp height={5000} />)
 
         // Should have a "Total Items: ..." text
         const totalRecordElm = getByText(/Total Items/i)
@@ -98,9 +132,8 @@ describe('DataTable should display data correctly', () => {
     })
 
     test('display grid & list views correctly', () => {
-        const { debug, getByText, container, getAllByText, queryAllByText } = render(
-            <TableComp height={5000} disableWidth={true} />
-        )
+        const { debug, getByText, container, getAllByText, queryAllByText } =
+            render(<TableComp height={5000} disableWidth={true} />)
 
         // The table should contain 10 records
         let rows = queryAllByText(/Pro /i)
@@ -149,7 +182,9 @@ describe('DataTable should display data correctly', () => {
 
         // Input category of the forth product
         // Table should have 1 item displayed
-        fireEvent.change(globalSearchElm, { target: { value: 'Product Cat 04' } })
+        fireEvent.change(globalSearchElm, {
+            target: { value: 'Product Cat 04' },
+        })
         rows = queryAllByText('Product Cat 04')
         expect(rows.length).toBe(1)
 
@@ -163,7 +198,9 @@ describe('DataTable should display data correctly', () => {
     })
 
     test('individual table columns should sort data correctly', () => {
-        const { container, getByText } = render(<TableComp disableWidth={true} />)
+        const { container, getByText } = render(
+            <TableComp disableWidth={true} />
+        )
 
         const headers = [
             'SKUID',
@@ -296,7 +333,9 @@ describe('DataTable should display options correctly', () => {
     })
 
     test('hide toggle buttons', () => {
-        const { getByText } = render(<TableComp showToggleButtons={false} disableWidth={true} />)
+        const { getByText } = render(
+            <TableComp showToggleButtons={false} disableWidth={true} />
+        )
 
         // Should have a "Total Items: XXX" text
         const totalRecordElm = getByText(/Total Items/i)
@@ -308,7 +347,11 @@ describe('DataTable should display options correctly', () => {
 
     test('disable column sort', () => {
         const { getByText } = render(
-            <TableComp showToggleButtons={true} disableSortBy={true} disableWidth={true} />
+            <TableComp
+                showToggleButtons={true}
+                disableSortBy={true}
+                disableWidth={true}
+            />
         )
 
         // Click on the "SKUID" table column header
@@ -351,7 +394,9 @@ describe('DataTable should display additional options correctly', () => {
         expect(queryByText(/Total Items/)).toBeFalsy()
 
         // Hide global search input
-        const globalSearchElm = container.querySelector('span[class^=Styles__GlobalSearchBox]')
+        const globalSearchElm = container.querySelector(
+            'span[class^=Styles__GlobalSearchBox]'
+        )
         expect(globalSearchElm).toBeFalsy()
 
         // Hide table header
@@ -359,11 +404,15 @@ describe('DataTable should display additional options correctly', () => {
     })
 
     test('should use custom table action, header & body wrappers properly', () => {
-        const ActionsWrapper = () => <div className="action-wrapper">Actions</div>
+        const ActionsWrapper = () => (
+            <div className="action-wrapper">Actions</div>
+        )
         const HeaderWrapper = () => <div className="header-wrapper">Header</div>
         const BodyWrapper = () => <div className="body-wrapper">Body</div>
 
-        jest.spyOn(HTMLElement.prototype, 'offsetWidth', 'get').mockReturnValue(1500)
+        jest.spyOn(HTMLElement.prototype, 'offsetWidth', 'get').mockReturnValue(
+            1500
+        )
 
         const { container } = render(
             <TableComp

@@ -6,7 +6,12 @@ import { ChakraProvider, extendTheme } from '@chakra-ui/react'
 import { theme } from '../../../const/theme'
 import DataTable from '../index'
 import GlobalStyles from '../../../const/globalStyles'
-import { props, sampleSliderColumns, sampleNumberRangeColumns, condensedColumns } from './sample'
+import {
+    props,
+    sampleSliderColumns,
+    sampleNumberRangeColumns,
+    condensedColumns,
+} from './sample'
 import CatalogHeaderWrapper from './CatalogHeaderWrapper'
 import { Cell } from './Styles'
 
@@ -23,7 +28,8 @@ const theme1 = extendTheme(
         styles: {
             global: {
                 'html, body': {
-                    fontFamily: "'Amazon Ember', Arial, sans-serif, 'Noto Sans HK'",
+                    fontFamily:
+                        "'Amazon Ember', Arial, sans-serif, 'Noto Sans HK'",
                 },
                 a: {
                     color: 'blue.800',
