@@ -45,26 +45,6 @@ const GlobalStyles = () => (
             footer {
                 text-align: center;
             }
-
-            /* 
-            ** React DatePicker
-            */
-            .react-datepicker {
-                font-family: 'Amazon Ember', Arial, sans-serif;
-            }
-            .react-datepicker__day--selected,
-            .react-datepicker__time-container
-                .react-datepicker__time
-                .react-datepicker__time-box
-                ul.react-datepicker__time-list
-                li.react-datepicker__time-list-item--selected {
-                background-color: #f0c14b !important;
-                outline: none;
-            }
-            .react-datepicker__day--selected:hover,
-            .react-datepicker__day:hover {
-                outline: none;
-            }
         `}
     />
 )
