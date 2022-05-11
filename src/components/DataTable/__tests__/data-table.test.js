@@ -2,13 +2,12 @@ import React from 'react'
 import { ThemeProvider } from '@emotion/react'
 import i18next from 'i18next'
 import { initReactI18next } from 'react-i18next'
-
-import { render, screen, fireEvent, findByRole } from '@testing-library/react'
+import { render, screen, fireEvent } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
 
 import DataTable from '../index'
-import { theme } from '../../../const/theme'
 import { sampleColumns, sampleData } from '../stories/sample.js'
+import { theme } from '../../../const/theme'
 
 i18next.use(initReactI18next).init({
     // init launch for forcing preload translation file
@@ -100,13 +99,7 @@ const testColumnHeaderSort = (getByText, columnHeader) => {
 
 describe('DataTable should display data correctly', () => {
     test('display sort icons', () => {
-        const {
-            getByText,
-            container,
-            getAllByText,
-            queryAllByText,
-            getByTestId,
-        } = render(<TableComp height={5000} />)
+        const { getByText, getByTestId } = render(<TableComp height={5000} />)
 
         // Should have a "Total Items: ..." text
         const totalRecordElm = getByText(/Total Items/i)
@@ -132,8 +125,9 @@ describe('DataTable should display data correctly', () => {
     })
 
     test('display grid & list views correctly', () => {
-        const { debug, getByText, container, getAllByText, queryAllByText } =
-            render(<TableComp height={5000} disableWidth={true} />)
+        const { queryAllByText } = render(
+            <TableComp height={5000} disableWidth={true} />
+        )
 
         // The table should contain 10 records
         let rows = queryAllByText(/Pro /i)
@@ -141,7 +135,7 @@ describe('DataTable should display data correctly', () => {
     })
 
     test('global search input should display & work correctly', () => {
-        const { container, queryAllByText, getByTestId } = render(
+        const { queryAllByText, getByTestId } = render(
             <TableComp height={5000} disableWidth={true} />
         )
 
@@ -198,9 +192,7 @@ describe('DataTable should display data correctly', () => {
     })
 
     test('individual table columns should sort data correctly', () => {
-        const { container, getByText } = render(
-            <TableComp disableWidth={true} />
-        )
+        const { getByText } = render(<TableComp disableWidth={true} />)
 
         const headers = [
             'SKUID',
@@ -318,7 +310,7 @@ describe('DataTable should display data correctly', () => {
 
 describe('DataTable should display options correctly', () => {
     test('display grid view by default', () => {
-        const { container, getByTestId } = render(
+        const { getByTestId } = render(
             <TableComp view="GRID" showToggleButtons={true} />
         )
 

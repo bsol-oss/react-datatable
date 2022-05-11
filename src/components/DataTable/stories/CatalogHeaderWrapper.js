@@ -18,6 +18,7 @@ export const TableHeaderRow = styled.div`
     flex-direction: column;
     align-items: center;
 `
+
 export const TableHeaderTitle = styled.div`
     /* display: inline-flex ; */
     width: 100%;

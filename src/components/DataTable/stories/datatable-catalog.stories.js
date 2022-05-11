@@ -1,11 +1,7 @@
 import React from 'react'
 import styled from '@emotion/styled'
-
 import { ChakraProvider, extendTheme } from '@chakra-ui/react'
 
-import { theme } from '../../../const/theme'
-import DataTable from '../index'
-import GlobalStyles from '../../../const/globalStyles'
 import {
     props,
     sampleSliderColumns,
@@ -14,6 +10,9 @@ import {
 } from './sample'
 import CatalogHeaderWrapper from './CatalogHeaderWrapper'
 import { Cell } from './Styles'
+import DataTable from '../index'
+import { theme } from '../../../const/theme'
+import GlobalStyles from '../../../const/globalStyles'
 
 export default { title: 'Data Table Catalog', component: DataTable }
 

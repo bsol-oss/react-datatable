@@ -10,10 +10,6 @@ import {
     TitlesWrapper,
 } from '../Styles'
 
-const EmptyIcon = () => (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"></svg>
-)
-
 const Arrow = ({ direction = null, icons = {} }) => {
     const AscIcon = (icons && icons.Asc) || BiSortUp
     const DescIcon = (icons && icons.Desc) || BiSortDown

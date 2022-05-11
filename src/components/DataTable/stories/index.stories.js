@@ -1,18 +1,17 @@
 import React from 'react'
 import styled from '@emotion/styled'
 import { ChakraProvider, extendTheme } from '@chakra-ui/react'
-
-import { theme } from '../../../const/theme'
-import DataTable from '../index'
-import GlobalStyles from '../../../const/globalStyles'
-import { sampleColumns1, props } from './sample'
 import {
     TiArrowSortedDown,
     TiArrowSortedUp,
     TiArrowUnsorted,
 } from 'react-icons/ti'
 
+import { sampleColumns1, props } from './sample'
+import DataTable from '../index'
 import { Cell as DataTableGrid, Row as DataTableRow } from '../Styles'
+import { theme } from '../../../const/theme'
+import GlobalStyles from '../../../const/globalStyles'
 
 export default { title: 'Data Table', component: DataTable }
 

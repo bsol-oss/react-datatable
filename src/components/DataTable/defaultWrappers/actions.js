@@ -2,7 +2,6 @@ import React from 'react'
 import { useTheme } from '@emotion/react'
 import styled from '@emotion/styled'
 import { useTranslation } from 'react-i18next'
-
 import {
     MdViewModule,
     MdFormatAlignJustify,
@@ -16,6 +15,100 @@ import {
     InputGroup,
     InputRightElement,
 } from '@chakra-ui/react'
+
+export const ActionWrapper = styled.div`
+    grid-area: action;
+    display: grid;
+    grid-template-areas: 'globalSearch toggleButtons recordTotal';
+    grid-template-columns: auto 1fr auto;
+    grid-gap: 0.25rem;
+    justify-content: ${({ theme }) =>
+        theme.components?.DataTable?.Actions?.justify || 'space-between'};
+    align-items: stretch;
+    background-color: ${({ theme }) =>
+        theme.components?.DataTable?.Actions?.bgColor || '#fff'};
+`
+
+const TotalRecordWrapper = styled.div`
+    grid-area: recordTotal;
+    justify-self: center;
+    align-self: center;
+    display: flex;
+    flex-flow: row wrap;
+`
+
+const TotalRecordsSpan = styled.span`
+    font-size: ${({ theme }) =>
+        theme.components?.DataTable?.Actions?.TotalRecords?.fontSize ||
+        theme.components?.DataTable?.fontSize ||
+        1}rem;
+    padding: 0
+        ${({ theme }) =>
+            theme.components?.DataTable?.Actions?.TotalRecords?.padding ||
+            theme.components?.DataTable?.Actions?.TotalRecords?.fontSize ||
+            theme.components?.DataTable?.fontSize ||
+            0.75}rem;
+    white-space: nowrap;
+`
+
+const DefaultGlobalSearchBar = ({ globalFilter, setGlobalFilter }) => {
+    const preset = {
+        xs: 6,
+        sm: 8,
+        md: 10,
+        lg: 12,
+    }
+
+    const theme = useTheme()
+    const bgColor =
+        theme.components?.DataTable?.Actions?.GlobalSearch?.bgColor || '#fff'
+    const iconColor =
+        theme.components?.DataTable?.Actions?.GlobalSearch?.iconColor || '#ccc'
+    const size =
+        theme.components?.DataTable?.Actions?.GlobalSearch?.size ||
+        theme.components?.DataTable?.widgetSize ||
+        'sm'
+    const h = preset[size || 'sm']
+
+    return (
+        <InputGroup data-testid="global-search-container">
+            <Input
+                size={size}
+                bgColor={bgColor}
+                value={globalFilter || ''}
+                onChange={(e) => setGlobalFilter(e.target.value)}
+            />
+            <InputRightElement
+                width={h}
+                height={h}
+                children={<MdSearch size={h * 3} color={iconColor} />}
+            />
+        </InputGroup>
+    )
+}
+
+const RecordTotal = ({ total = null, filtered = null, selected = null }) => {
+    const { t } = useTranslation()
+    return (
+        <TotalRecordWrapper>
+            {total && (
+                <TotalRecordsSpan>
+                    {t('Total Items')}: {total}
+                </TotalRecordsSpan>
+            )}
+            {filtered !== null && (
+                <TotalRecordsSpan>
+                    {t('Filtered Items')}: {filtered}
+                </TotalRecordsSpan>
+            )}
+            {selected && (
+                <TotalRecordsSpan>
+                    {t('Selected Items')}: {selected}
+                </TotalRecordsSpan>
+            )}
+        </TotalRecordWrapper>
+    )
+}
 
 const Action = ({
     showGlobalSearch,
@@ -138,99 +231,5 @@ const Action = ({
         </ActionWrapper>
     )
 }
-
-export const ActionWrapper = styled.div`
-    grid-area: action;
-    display: grid;
-    grid-template-areas: 'globalSearch toggleButtons recordTotal';
-    grid-template-columns: auto 1fr auto;
-    grid-gap: 0.25rem;
-    justify-content: ${({ theme }) =>
-        theme.components?.DataTable?.Actions?.justify || 'space-between'};
-    align-items: stretch;
-    background-color: ${({ theme }) =>
-        theme.components?.DataTable?.Actions?.bgColor || '#fff'};
-`
-
-const DefaultGlobalSearchBar = ({ globalFilter, setGlobalFilter }) => {
-    const preset = {
-        xs: 6,
-        sm: 8,
-        md: 10,
-        lg: 12,
-    }
-
-    const theme = useTheme()
-    const bgColor =
-        theme.components?.DataTable?.Actions?.GlobalSearch?.bgColor || '#fff'
-    const iconColor =
-        theme.components?.DataTable?.Actions?.GlobalSearch?.iconColor || '#ccc'
-    const size =
-        theme.components?.DataTable?.Actions?.GlobalSearch?.size ||
-        theme.components?.DataTable?.widgetSize ||
-        'sm'
-    const h = preset[size || 'sm']
-
-    return (
-        <InputGroup data-testid="global-search-container">
-            <Input
-                size={size}
-                bgColor={bgColor}
-                value={globalFilter || ''}
-                onChange={(e) => setGlobalFilter(e.target.value)}
-            />
-            <InputRightElement
-                width={h}
-                height={h}
-                children={<MdSearch size={h * 3} color={iconColor} />}
-            />
-        </InputGroup>
-    )
-}
-
-const RecordTotal = ({ total = null, filtered = null, selected = null }) => {
-    const { t } = useTranslation()
-    return (
-        <TotalRecordWrapper>
-            {total && (
-                <TotalRecordsSpan>
-                    {t('Total Items')}: {total}
-                </TotalRecordsSpan>
-            )}
-            {filtered !== null && (
-                <TotalRecordsSpan>
-                    {t('Filtered Items')}: {filtered}
-                </TotalRecordsSpan>
-            )}
-            {selected && (
-                <TotalRecordsSpan>
-                    {t('Selected Items')}: {selected}
-                </TotalRecordsSpan>
-            )}
-        </TotalRecordWrapper>
-    )
-}
-
-const TotalRecordWrapper = styled.div`
-    grid-area: recordTotal;
-    justify-self: center;
-    align-self: center;
-    display: flex;
-    flex-flow: row wrap;
-`
-
-const TotalRecordsSpan = styled.span`
-    font-size: ${({ theme }) =>
-        theme.components?.DataTable?.Actions?.TotalRecords?.fontSize ||
-        theme.components?.DataTable?.fontSize ||
-        1}rem;
-    padding: 0
-        ${({ theme }) =>
-            theme.components?.DataTable?.Actions?.TotalRecords?.padding ||
-            theme.components?.DataTable?.Actions?.TotalRecords?.fontSize ||
-            theme.components?.DataTable?.fontSize ||
-            0.75}rem;
-    white-space: nowrap;
-`
 
 export default Action

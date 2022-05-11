@@ -9,12 +9,13 @@ import {
     useResizeColumns,
 } from 'react-table'
 import { withTheme } from '@emotion/react'
+import AutoSizer from 'react-virtualized-auto-sizer'
+import { Checkbox as ChakraCheckbox, Center } from '@chakra-ui/react'
+
 import { Search, Range, Slider, Dropdown } from './Filters'
+import { AutoSizeWrapper, Loader, MainWrapper as Main } from './Styles'
 import { Actions, Header, Body } from './defaultWrappers'
 import { defaultHeaderTextWrap } from './defaultWrappers/header'
-import AutoSizer from 'react-virtualized-auto-sizer'
-import { AutoSizeWrapper, Loader, MainWrapper as Main } from './Styles'
-import { Checkbox as ChakraCheckbox, useTheme, Center } from '@chakra-ui/react'
 
 const Checkbox = ({ checked, indeterminate, ...props }) => (
     <ChakraCheckbox

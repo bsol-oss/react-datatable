@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react'
-
 import { FixedSizeList } from 'react-window'
+import { useTheme } from '@chakra-ui/react'
 
 import {
     ViewContainer,
@@ -8,9 +8,7 @@ import {
     Cell as DefaultCell,
 } from '../Styles'
 import GridWrapper from '../GridWrapper'
-import { useTheme } from '@chakra-ui/react'
 
-const GRID_ROW_HEIGHT = 270
 const browserFontSize =
     typeof document === 'object'
         ? parseFloat(getComputedStyle(document.body).fontSize) || 16
@@ -99,7 +97,6 @@ const Body = ({
                             c.height || fontSize * rowHeightMultiplier
                         )
 
-                        // console.log(c.width, c.height, '@debug-dimension')
                         // react-table default width is 150px
                         if (remainingRowWidth > (c.width || 150)) {
                             remainingRowWidth -= c.width || 150
