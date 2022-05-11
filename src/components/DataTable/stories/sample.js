@@ -11,7 +11,7 @@ import {
 } from './Styles'
 import { Slider, Range, Dropdown } from '../Filters'
 
-const defaultPic = '../../images/products.svg'
+import defaultPic from '../images/products.svg'
 
 export const sampleColumns = [
     {

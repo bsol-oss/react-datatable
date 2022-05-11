@@ -106,7 +106,6 @@ const theme1 = extendTheme(
                         fontSize: 0.8,
                         borderWidth: '1px',
                         borderColor: '#abc',
-                        bgColor: '#333',
                         hoverBorderWidth: '3px',
                         hoverBorderColor: '#00f',
                     },

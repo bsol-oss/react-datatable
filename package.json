@@ -9,7 +9,9 @@
     "license": "MIT",
     "keywords": [
         "react",
-        "react-table"
+        "react-table",
+        "@chakra-ui/react",
+        "react-icons"
     ],
     "files": [
         "dist"
