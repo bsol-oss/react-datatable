@@ -69,24 +69,29 @@ export const Header = ({
                                 {...column.getSortByToggleProps()}
                             >
                                 {column.render('Header')}
-                                {column.isSorted ? (
-                                    column.isSortedDesc ? (
-                                        <Arrow
-                                            direction="down"
-                                            icons={arrowIcons}
-                                        />
-                                    ) : (
-                                        <Arrow
-                                            direction="up"
-                                            icons={arrowIcons}
-                                        />
-                                    )
-                                ) : (
-                                    <Arrow
-                                        direction={null}
-                                        icons={arrowIcons}
-                                    />
-                                )}
+                                {column.id !== 'selection' ? (
+                                    <>
+                                        {column.isSorted ? (
+                                            column.isSortedDesc ? (
+                                                <Arrow
+                                                    direction="down"
+                                                    icons={arrowIcons}
+                                                />
+                                            ) : (
+                                                <Arrow
+                                                    direction="up"
+                                                    icons={arrowIcons}
+                                                />
+                                            )
+                                        ) : (
+                                            <Arrow
+                                                direction={null}
+                                                icons={arrowIcons}
+                                            />
+                                        )}
+                                    </>
+                                ) : null}
+
                                 {isColumnResizable && (
                                     <Box
                                         color="gray.200"
