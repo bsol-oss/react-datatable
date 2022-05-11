@@ -19,25 +19,24 @@ const GlobalStyles = () => (
             a {
                 text-decoration: none;
             }
+
             a:hover {
                 color: #f3d078;
             }
-            body::-webkit-scrollbar,
-            .gallery::-webkit-scrollbar {
+
+            body::-webkit-scrollbar {
                 width: 0.3rem;
                 height: auto;
                 background-color: #232f3e;
             }
 
-            body::-webkit-scrollbar-track,
-            .gallery::-webkit-scrollbar-track {
+            body::-webkit-scrollbar-track {
                 box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
                 background-color: #232f3e;
                 border-radius: 0.6rem;
             }
 
-            body::-webkit-scrollbar-thumb,
-            .gallery::-webkit-scrollbar-thumb {
+            body::-webkit-scrollbar-thumb {
                 border-radius: 0.6rem;
                 background-color: #232f3e;
             }
