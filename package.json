@@ -43,7 +43,6 @@
         "@storybook/react": "^6.4.22",
         "@testing-library/jest-dom": "^5.14.1",
         "@testing-library/react": "^11.2.6",
-        "axios": "^0.27.2",
         "babel-jest": "^26.6.3",
         "babel-loader": "^8.2.2",
         "framer-motion": "^4.1.17",
@@ -54,7 +53,7 @@
         "react": "^17.0.2",
         "react-content-loader": "^6.2.0",
         "react-dom": "^17.0.2",
-        "react-i18next": "^11.11.4",
+        "react-i18next": "^11.16.8",
         "react-icons": "^4.3.1",
         "react-rollup": "^0.0.16",
         "react-table": "^7.7.0",
@@ -73,7 +72,7 @@
         "i18next-browser-languagedetector": "^5.0.0",
         "react": ">= 16",
         "react-dom": ">= 16",
-        "react-i18next": "^11.7.0",
+        "react-i18next": "^11.16.8",
         "react-icons": "^4.3.1"
     }
 }
