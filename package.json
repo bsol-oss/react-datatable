@@ -71,8 +71,8 @@
         "framer-motion": "^4.1.17",
         "i18next": "^19.5.4",
         "i18next-browser-languagedetector": "^5.0.0",
-        "react": ">= 16",
-        "react-dom": ">= 16",
+        "react": "18.1.0",
+        "react-dom": "18.1.0",
         "react-i18next": "^11.16.8",
         "react-icons": "^4.3.1"
     }
