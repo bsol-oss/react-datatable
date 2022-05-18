@@ -69,7 +69,10 @@ export const Header = ({
                                 {...column.getSortByToggleProps()}
                             >
                                 {column.render('Header')}
-                                {column.id !== 'selection' ? (
+                                {column.id !== 'selection' &&
+                                column.Header &&
+                                column.Header.props &&
+                                column.Header.props.children ? (
                                     <>
                                         {column.isSorted ? (
                                             column.isSortedDesc ? (

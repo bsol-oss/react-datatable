@@ -130,7 +130,7 @@ export const DefaultTableView = () => (
 export const DefaultLoadingView = () => (
     <ChakraProvider theme={theme1}>
         <GlobalStyles />
-        <DataTable {...Object.assign({}, props, { loading: true })} />
+        <DataTable {...props} loading={true} />
     </ChakraProvider>
 )
 
