@@ -79,4 +79,4 @@ Run `yarn storybook` to see the storybook components locally.
 
 Or,
 
-Check at **CodeSandbox**: https://codesandbox.io/s/bsol-react-datatable-example-fh9prl
+Check at **CodeSandbox**: https://codesandbox.io/s/bsol-oss-react-datatable-example-fh9prl
