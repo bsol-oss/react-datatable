@@ -79,29 +79,21 @@ export const theme = {
     // per component setup
     dataTable: {
         headerColor: defaultValues.colorSet1.text,
-
         background: defaultValues.backgroundColor,
         searchBackground: defaultValues.glassBackgroundColor,
         shadowColor: defaultValues.lightBackgroundColor,
-
         evenRow: defaultValues.colorSet2.secondary,
         oddRow: defaultValues.lightBackgroundColor,
-
         toggleEnabledColor: defaultValues.colorSet2.primary,
         toggleDisabledColor: defaultValues.lightBackgroundColor,
-
         loaderPrimaryColor: defaultValues.darkBackgroundColor,
         loaderSecondaryColor: defaultValues.colorSet2.primary,
-
         fontSize: defaultValues.fontSize.small,
         fontWeight: defaultValues.fontWeight.bold,
-
         fontSizeIcon: defaultValues.fontSize.medium,
-
         borderWidth: defaultValues.borderWidth.thin,
         borderRadius: defaultValues.borderRadius.small,
         borderColor: defaultValues.lightBackgroundColor,
-
         shadowFocus: defaultValues.shadow[1],
         hoverColor: defaultValues.colorSet1.primary,
         borderColorFocus: defaultValues.colorSet2.error,
