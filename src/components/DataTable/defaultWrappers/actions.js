@@ -91,11 +91,11 @@ const RecordTotal = ({ total = null, filtered = null, selected = null }) => {
     const { t } = useTranslation()
     return (
         <TotalRecordWrapper>
-            {total && (
+            {total ? (
                 <TotalRecordsSpan>
                     {t('Total Items')}: {total}
                 </TotalRecordsSpan>
-            )}
+            ) : null}
             {filtered !== null && (
                 <TotalRecordsSpan>
                     {t('Filtered Items')}: {filtered}
