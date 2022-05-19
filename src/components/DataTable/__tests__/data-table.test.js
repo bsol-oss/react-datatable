@@ -1,5 +1,5 @@
 import React from 'react'
-import { ThemeProvider } from '@emotion/react'
+import { ChakraProvider, extendTheme } from '@chakra-ui/react'
 import i18next from 'i18next'
 import { initReactI18next } from 'react-i18next'
 import { render, screen, fireEvent } from '@testing-library/react'
@@ -37,6 +37,103 @@ i18next.use(initReactI18next).init({
     interpolation: { escapeValue: false },
 })
 
+const theme1 = extendTheme(
+    Object.assign({}, theme, {
+        config: {
+            cssVarPrefix: 'c',
+        },
+        breakpoints: {
+            mobile: '480px',
+            tablet: '768px',
+            desktop: '1280px',
+            desktopPlus: '1280px',
+        },
+        styles: {
+            global: {
+                'html, body': {
+                    fontFamily:
+                        "'Amazon Ember', Arial, sans-serif, 'Noto Sans HK'",
+                },
+                a: {
+                    color: 'blue.800',
+                },
+            },
+        },
+        components: {
+            Button: {
+                defaultProps: {
+                    colorScheme: 'yellow',
+                },
+            },
+            Spinner: {
+                defaultProps: {
+                    emptyColor: 'gray.200',
+                    color: 'blue.500',
+                    thickness: '8px',
+                },
+            },
+            DataTable: {
+                bgColor: '#fff',
+                fontSize: 1,
+                borderWidth: 1,
+                widgetSize: 'md',
+                Actions: {
+                    bgColor: '#37c',
+                    GlobalSearch: {
+                        bgColor: '#f77',
+                        iconColor: '#0f0',
+                        size: 'sm',
+                    },
+                    TotalRecords: {
+                        fontSize: 0.8,
+                        padding: 0.5,
+                    },
+                    ToggleButtons: {
+                        colorScheme: 'gray',
+                        size: 'sm',
+                    },
+                },
+                Header: {
+                    fontSize: 1,
+                    fontWeight: 600,
+                    widgetSize: 'sm',
+                    bgColor: '#fff',
+                    borderBottomWidth: '1px',
+                    borderColor: '#f00',
+                    Search: {
+                        size: 'lg',
+                        bgColor: '#000',
+                        variant: 'unstyled',
+                    },
+                    Slider: {
+                        size: 'xs',
+                    },
+                    Range: {
+                        size: 'lg',
+                        bgColor: '#a3e',
+                    },
+                    Dropdown: {
+                        size: 'sm',
+                        bgColor: '#eee',
+                    },
+                },
+                Body: {
+                    Row: {
+                        fontSize: 0.8,
+                        borderWidth: '1px',
+                        borderColor: '#abc',
+                        hoverBorderWidth: '3px',
+                        hoverBorderColor: '#00f',
+                    },
+                    Cell: {
+                        fontSize: 1.2,
+                    },
+                },
+            },
+        },
+    })
+)
+
 const TableComp = (props = {}) => {
     let columns = props.columns || sampleColumns
     columns = columns.map((col) => ({
@@ -46,7 +143,7 @@ const TableComp = (props = {}) => {
     }))
 
     return (
-        <ThemeProvider theme={theme}>
+        <ChakraProvider theme={theme1}>
             <DataTable
                 loading={false}
                 totalCount={10}
@@ -54,7 +151,7 @@ const TableComp = (props = {}) => {
                 data={sampleData.slice(0, 10)}
                 {...props}
             />
-        </ThemeProvider>
+        </ChakraProvider>
     )
 }
 
