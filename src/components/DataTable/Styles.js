@@ -7,8 +7,13 @@ import { down } from '../../const/theme'
 
 export const MainWrapper = styled.div`
     background: ${({ theme }) =>
-        theme.components?.DataTable?.bgColor || '#fff'};
-    color: ${({ theme }) => theme.components?.DataTable?.color || '#000'};
+        theme.components && theme.components.DataTable
+            ? theme.components.DataTable.bgColor
+            : '#fff'};
+    color: ${({ theme }) =>
+        theme.components && theme.components.DataTable
+            ? theme.components.DataTable.color
+            : '#000'};
 
     display: grid;
     grid-template-areas:
@@ -61,12 +66,24 @@ export const TableHeaderRow = styled.div`
     justify-content: flex-start;
 
     background: ${({ theme }) =>
-        theme.components?.DataTable?.Header?.bgColor || '#eee'};
+        theme.components &&
+        theme.components.DataTable &&
+        theme.components.DataTable.Header
+            ? theme.components.DataTable.Header.bgColor
+            : '#eee'};
     border-bottom: ${({ theme }) =>
-            theme.components?.DataTable?.Header?.borderBottomWidth || '0px'}
+            theme.components &&
+            theme.components.DataTable &&
+            theme.components.DataTable.Header
+                ? theme.components.DataTable.Header.borderBottomWidth
+                : '0px'}
         solid
         ${({ theme }) =>
-            theme.components?.DataTable?.Header?.borderColor || '#aaa'};
+            theme.components &&
+            theme.components.DataTable &&
+            theme.components.DataTable.Header
+                ? theme.components.DataTable.Header.borderColor
+                : '#aaa'};
     flex-wrap: ${({ view }) => (view === 'ROWCONDENSED' ? 'nowrap' : 'wrap')};
 
     ${down('tablet')} {
@@ -77,21 +94,33 @@ export const TableHeaderTitle = styled.div`
     text-align: center;
     display: grid;
     grid-template-columns: auto ${({ theme }) =>
-        theme.components?.DataTable?.Header?.fontSize ||
-        theme.components?.DataTable?.fontSize ||
-        1}rem 5px;
+        theme.components &&
+        theme.components.DataTable &&
+        theme.components.DataTable.Header
+            ? theme.components.DataTable.Header.fontSize
+            : theme.components && theme.components.DataTable
+            ? theme.components.DataTable.fontSize
+            : 1}rem 5px;
 
     align-items: center;
     width: 100%;
 
     font-size: ${({ theme }) =>
-        theme.components?.DataTable?.Header?.fontSize ||
-        theme.components?.DataTable?.fontSize ||
-        1}rem;
+        theme.components &&
+        theme.components.DataTable &&
+        theme.components.DataTable.Header
+            ? theme.components.DataTable.Header.fontSize
+            : theme.components && theme.components.DataTable
+            ? theme.components.DataTable.fontSize
+            : 1}rem;
     font-weight: ${({ theme }) =>
-        theme.components?.DataTable?.Header?.fontWeight ||
-        theme.components?.DataTable?.fontWeight ||
-        400};
+        theme.components &&
+        theme.components.DataTable &&
+        theme.components.DataTable.Header
+            ? theme.components.DataTable.Header.fontWeight
+            : theme.components && theme.components.DataTable
+            ? theme.components.DataTable.fontWeight
+            : 400};
     }
 `
 
@@ -111,32 +140,59 @@ export const TableHeaderFilter = styled.div`
 
 export const Row = styled.div`
     font-size: ${({ theme }) =>
-        theme.components?.DataTable?.Body?.fontSize ||
-        theme.components?.DataTable?.fontSize ||
-        1}rem;
+        theme.components &&
+        theme.components.DataTable &&
+        theme.components.DataTable.Body
+            ? theme.components.DataTable.Body.fontSize
+            : theme.components && theme.components.DataTable
+            ? theme.components.DataTable.fontSize
+            : 1}rem;
 
     display: flex;
     justify-content: flex-start;
     align-items: center;
 
     border: ${({ theme }) =>
-            theme.components?.DataTable?.Body?.Row?.borderWidth || '0px'}
+            theme.components &&
+            theme.components.DataTable &&
+            theme.components.DataTable.Body &&
+            theme.components.DataTable.Body.Row
+                ? theme.components.DataTable.Body.Row.borderWidth
+                : '0px'}
         solid
         ${({ theme }) =>
-            theme.components?.DataTable?.Body?.Row?.borderColor || '#ccc'};
+            theme.components &&
+            theme.components.DataTable &&
+            theme.components.DataTable.Body &&
+            theme.components.DataTable.Body.Row
+                ? theme.components.DataTable.Body.Row.borderColor
+                : '#ccc'};
     background-color: ${({ theme }) =>
-        theme.components?.DataTable?.Body?.Row?.bgColor ||
-        theme.components?.DataTable?.bgColor ||
-        null};
+        theme.components &&
+        theme.components.DataTable &&
+        theme.components.DataTable.Body &&
+        theme.components.DataTable.Body.Row
+            ? theme.components.DataTable.Body.Row.bgColor
+            : theme.components && theme.components.DataTable
+            ? theme.components.DataTable.bgColor
+            : null};
 
     &:hover {
         border-left: ${({ theme }) =>
-                theme.components?.DataTable?.Body?.Row?.hoverBorderWidth ||
-                '3px'}
+                theme.components &&
+                theme.components.DataTable &&
+                theme.components.DataTable.Body &&
+                theme.components.DataTable.Body.Row
+                    ? theme.components.DataTable.Body.Row.hoverBorderWidth
+                    : '3px'}
             solid
             ${({ theme }) =>
-                theme.components?.DataTable?.Body?.Row?.hoverBorderColor ||
-                '#777'};
+                theme.components &&
+                theme.components.DataTable &&
+                theme.components.DataTable.Body &&
+                theme.components.DataTable.Body.Row
+                    ? theme.components.DataTable.Body.Row.hoverBorderColor
+                    : '#777'};
     }
     flex-wrap: ${({ isCondensed }) => (isCondensed ? `nowrap` : `wrap`)};
     padding: 8px 0;
@@ -162,7 +218,10 @@ export const Cell = styled.div`
     box-sizing: border-box;
 
     padding: ${({ theme: { dataTable, components } }) =>
-        components?.DataTable?.Body?.Cell?.padding
+        components &&
+        components.DataTable &&
+        components.DataTable.Body &&
+        components.DataTable.Body.Cell
             ? components.DataTable.Body.Cell.padding
             : dataTable.fontSize * 1.2}rem;
 
@@ -170,7 +229,7 @@ export const Cell = styled.div`
         ${({ theme: { dataTable } }) => dataTable.borderColor};
 
     background-color: ${({ theme: { dataTable, components } }) =>
-        components?.DataTable?.bgColor
+        components && components.DataTable && components.DataTable.bgColor
             ? components.DataTable.bgColor
             : dataTable.background};
 
