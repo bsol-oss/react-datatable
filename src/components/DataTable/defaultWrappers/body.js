@@ -83,7 +83,9 @@ const Body = ({
         () => {
             const rowHeightMultiplier = 2
             const fontSize =
-                (theme.components?.DataTable?.fontSize || 1) * browserFontSize
+                (theme.components && theme.components.DataTable
+                    ? theme.components.DataTable.fontSize
+                    : 1) * browserFontSize
 
             switch (view) {
                 case 'ROW':

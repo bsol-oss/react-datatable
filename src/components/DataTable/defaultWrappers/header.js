@@ -18,9 +18,13 @@ const Arrow = ({ direction = null, icons = {} }) => {
     const theme = useTheme()
 
     const fontSize = `${
-        theme.components?.DataTable?.Header?.fontSize ||
-        theme.components?.DataTable?.fontSize ||
-        1
+        theme.components &&
+        theme.components.DataTable &&
+        theme.components.DataTable.Header
+            ? theme.components.DataTable.Header.fontSize
+            : theme.components && theme.components.DataTable
+            ? theme.components.DataTable.fontSize
+            : 1
     }rem`
 
     if (direction === 'down')

@@ -23,10 +23,18 @@ export const ActionWrapper = styled.div`
     grid-template-columns: auto 1fr auto;
     grid-gap: 0.25rem;
     justify-content: ${({ theme }) =>
-        theme.components?.DataTable?.Actions?.justify || 'space-between'};
+        theme.components &&
+        theme.components.DataTable &&
+        theme.components.DataTable.Actions
+            ? theme.components.DataTable.Actions.justify
+            : 'space-between'};
     align-items: stretch;
     background-color: ${({ theme }) =>
-        theme.components?.DataTable?.Actions?.bgColor || '#fff'};
+        theme.components &&
+        theme.components.DataTable &&
+        theme.components.DataTable.Actions
+            ? theme.components.DataTable.Actions.bgColor
+            : '#fff'};
 `
 
 const TotalRecordWrapper = styled.div`
@@ -39,15 +47,24 @@ const TotalRecordWrapper = styled.div`
 
 const TotalRecordsSpan = styled.span`
     font-size: ${({ theme }) =>
-        theme.components?.DataTable?.Actions?.TotalRecords?.fontSize ||
-        theme.components?.DataTable?.fontSize ||
-        1}rem;
+        theme.components &&
+        theme.components.DataTable &&
+        theme.components.DataTable.Actions &&
+        theme.components.DataTable.Actions.TotalRecords
+            ? theme.components.DataTable.Actions.TotalRecords.fontSize
+            : theme.components && theme.components.DataTable
+            ? theme.components.DataTable.fontSize
+            : 1}rem;
     padding: 0
         ${({ theme }) =>
-            theme.components?.DataTable?.Actions?.TotalRecords?.padding ||
-            theme.components?.DataTable?.Actions?.TotalRecords?.fontSize ||
-            theme.components?.DataTable?.fontSize ||
-            0.75}rem;
+            theme.components &&
+            theme.components.DataTable &&
+            theme.components.DataTable.Actions &&
+            theme.components.DataTable.Actions.TotalRecords
+                ? theme.components.DataTable.Actions.TotalRecords.padding
+                : theme.components && theme.components.DataTable
+                ? theme.components.DataTable.fontSize
+                : 0.75}rem;
     white-space: nowrap;
 `
 
@@ -61,13 +78,30 @@ const DefaultGlobalSearchBar = ({ globalFilter, setGlobalFilter }) => {
 
     const theme = useTheme()
     const bgColor =
-        theme.components?.DataTable?.Actions?.GlobalSearch?.bgColor || '#fff'
+        theme.components &&
+        theme.components.DataTable &&
+        theme.components.DataTable.Actions &&
+        theme.components.DataTable.Actions.GlobalSearch
+            ? theme.components.DataTable.Actions.GlobalSearch.bgColor
+            : '#fff'
+
     const iconColor =
-        theme.components?.DataTable?.Actions?.GlobalSearch?.iconColor || '#ccc'
+        theme.components &&
+        theme.components.DataTable &&
+        theme.components.DataTable.Actions &&
+        theme.components.DataTable.Actions.GlobalSearch
+            ? theme.components.DataTable.Actions.GlobalSearch.iconColor
+            : '#ccc'
+
     const size =
-        theme.components?.DataTable?.Actions?.GlobalSearch?.size ||
-        theme.components?.DataTable?.widgetSize ||
-        'sm'
+        theme.components &&
+        theme.components.DataTable &&
+        theme.components.DataTable.Actions &&
+        theme.components.DataTable.Actions.GlobalSearch
+            ? theme.components.DataTable.Actions.GlobalSearch.size
+            : theme.components && theme.components.DataTable
+            ? theme.components.DataTable.widgetSize
+            : 'sm'
     const h = preset[size || 'sm']
 
     return (
@@ -128,9 +162,14 @@ const Action = ({
 }) => {
     const theme = useTheme()
     const toggleButtonTShirtSize =
-        theme.components?.DataTable?.Actions?.ToggleButtons?.size ||
-        theme.components?.DataTable?.widgetSize ||
-        'sm'
+        theme.components &&
+        theme.components.DataTable &&
+        theme.components.DataTable.Actions &&
+        theme.components.DataTable.Actions.ToggleButtons
+            ? theme.components.DataTable.Actions.ToggleButtons.size
+            : theme.components && theme.components.DataTable
+            ? theme.components.DataTable.widgetSize
+            : 'sm'
     const toggleButtonSize = {
         xs: 12,
         sm: 16,
@@ -163,11 +202,19 @@ const Action = ({
                     gridArea="toggleButtons"
                     data-testid="sort-icon-container"
                     size={
-                        theme.components?.DataTable?.ToggleButtons?.size || 'sm'
+                        theme.components &&
+                        theme.components.DataTable &&
+                        theme.components.DataTable.ToggleButtons
+                            ? theme.components.DataTable.ToggleButtons.size
+                            : 'sm'
                     }
                     colorScheme={
-                        theme.components?.DataTable?.ToggleButtons
-                            ?.colorScheme || 'gray'
+                        theme.components &&
+                        theme.components.DataTable &&
+                        theme.components.DataTable.ToggleButtons
+                            ? theme.components.DataTable.ToggleButtons
+                                  .colorScheme
+                            : 'gray'
                     }
                     justifyContent="flex-end"
                 >

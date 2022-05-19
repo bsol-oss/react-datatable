@@ -22,12 +22,21 @@ import { RiFilterOffLine } from 'react-icons/ri'
 function Search({ column: { filterValue, setFilter } }) {
     const theme = useTheme()
     const { t } = useTranslation()
-    const bgColor = theme.components?.DataTable?.Header?.Search?.bgColor || null
-    const size =
-        theme.components?.DataTable?.Header?.Search?.size ||
-        theme.components?.DataTable?.Header?.widgetSize ||
-        theme.components?.DataTable?.widgetSize ||
-        'sm'
+    const header =
+        theme.components &&
+        theme.components.DataTable &&
+        theme.components.DataTable.Header
+    const headerSearch = header ? header.Search : null
+
+    const bgColor = headerSearch ? headerSearch.bgColor : null
+
+    const size = headerSearch
+        ? headerSearch.size
+        : header
+        ? header.widgetSize
+        : theme.components && theme.components.DataTable
+        ? theme.components.DataTable.widgetSize
+        : 'sm'
     return (
         <Input
             value={filterValue || ''}
@@ -37,9 +46,7 @@ function Search({ column: { filterValue, setFilter } }) {
             placeholder={t(`DataTable_Column_Search`)}
             size={size}
             bgColor={bgColor}
-            variant={
-                theme.components?.DataTable?.Header?.Search?.variant || 'filled'
-            }
+            variant={headerSearch ? headerSearch.variant : 'filled'}
         />
     )
 }
@@ -49,11 +56,19 @@ function Search({ column: { filterValue, setFilter } }) {
 // min and max values
 function Slider({ column: { filterValue, setFilter, preFilteredRows, id } }) {
     const theme = useTheme()
+    const header =
+        theme.components &&
+        theme.components.DataTable &&
+        theme.components.DataTable.Header
+
     const buttonTShirtSize =
-        theme.components?.DataTable?.Header?.Slider?.size ||
-        theme.components?.DataTable?.Header?.widgetSize ||
-        theme.components?.DataTable?.widgetSize ||
-        'sm'
+        header && header.Slider
+            ? header.Slider.size
+            : header && header.widgetSize
+            ? header.widgetSize
+            : theme.components && theme.components.DataTable
+            ? theme.components.DataTable.widgetSize
+            : 'sm'
     const buttonSize = {
         xs: 12,
         sm: 16,
@@ -115,12 +130,19 @@ function Range({
     column: { filterValue = [], preFilteredRows, setFilter, id },
 }) {
     const theme = useTheme()
-    const bgColor = theme.components?.DataTable?.Header?.Range?.bgColor || null
+    const header =
+        theme.components &&
+        theme.components.DataTable &&
+        theme.components.DataTable.Header
+    const bgColor = header && header.Range ? header.Range.bgColor : null
     const size =
-        theme.components?.DataTable?.Header?.Range?.size ||
-        theme.components?.DataTable?.Header?.widgetSize ||
-        theme.components?.DataTable?.widgetSize ||
-        'sm'
+        header && header.Range
+            ? header.Range.size
+            : header && header.widgetSize
+            ? header.widgetSize
+            : theme.components && theme.components.DataTable
+            ? theme.components.DataTable.widgetSize
+            : 'sm'
 
     const [min, max] = React.useMemo(() => {
         let min = preFilteredRows.length ? preFilteredRows[0].values[id] : 0
@@ -174,13 +196,19 @@ function Range({
 function Dropdown({ column: { filterValue, setFilter, preFilteredRows, id } }) {
     const { t } = useTranslation()
     const theme = useTheme()
-    const bgColor =
-        theme.components?.DataTable?.Header?.Dropdown?.bgColor || null
+    const header =
+        theme.components &&
+        theme.components.DataTable &&
+        theme.components.DataTable.Header
+    const bgColor = header && header.Dropdown ? header.Dropdown.bgColor : null
     const size =
-        theme.components?.DataTable?.Header?.Dropdown?.size ||
-        theme.components?.DataTable?.Header?.widgetSize ||
-        theme.components?.DataTable?.widgetSize ||
-        'sm'
+        header && header.Dropdown
+            ? header.Dropdown.size
+            : header && header.widgetSize
+            ? header.widgetSize
+            : theme.components && theme.components.DataTable
+            ? theme.components.DataTable.widgetSize
+            : 'sm'
 
     // Calculate the options for filtering
     // using the preFilteredRows
