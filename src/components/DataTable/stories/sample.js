@@ -1310,6 +1310,25 @@ export const sampleData = [
     },
 ]
 
+export const columns = [
+    {
+        Header: 'id',
+        accessor: 'id',
+    },
+    {
+        Header: 'name',
+        accessor: 'name',
+    },
+    {
+        Header: 'email',
+        accessor: 'email',
+    },
+    {
+        Header: 'password',
+        accessor: 'password',
+    },
+]
+
 const sampleSliderColumns1 = [...sampleColumns]
 sampleSliderColumns1.splice(-1, 1)
 sampleSliderColumns1.push({
