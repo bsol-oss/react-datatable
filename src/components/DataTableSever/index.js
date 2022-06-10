@@ -15,7 +15,7 @@ import { Checkbox as ChakraCheckbox, Center } from '@chakra-ui/react'
 
 import Pagination from './pagination'
 import { fetchData, initialState, reducer } from './serverHelper'
-import { Search, Range, Slider, Dropdown } from '../DataTable/Filters'
+import { Search } from '../DataTable/Filters'
 import {
     AutoSizeWrapper,
     Loader,
@@ -36,9 +36,9 @@ const Checkbox = ({ checked, indeterminate, ...props }) => (
 )
 
 /**
- * Main DataTable Function
+ * Main DataTableServer Function
  */
-const DataTable = ({
+const DataTableServer = ({
     loading = false,
     columns,
     wrapper = {},
@@ -65,7 +65,7 @@ const DataTable = ({
     paginationComponent = null,
     authorizationKey = null,
 }) => {
-    // DataTable view (default): view = 'ROW'
+    // DataTableServer view (default): view = 'ROW'
     // Grid view: view = 'GRID'
     // Condensed view: view = 'ROWCONDENSED'
 
@@ -90,7 +90,7 @@ const DataTable = ({
         []
     )
     //***
-    //This is header filters
+    // This is header filters
 
     // Memoize columns
     const cols = useMemo(() => defaultHeaderTextWrap(columns), [columns])
@@ -114,7 +114,7 @@ const DataTable = ({
         isSuccess,
     } = useQuery(
         [
-            'datatable',
+            'DataTableServer',
             queryPageIndex,
             queryPageSize,
             queryPageFilter,
@@ -375,15 +375,10 @@ const DataTable = ({
     )
 }
 
-DataTable.Range = Range
-DataTable.Search = Search
-DataTable.Slider = Slider
-DataTable.Dropdown = Dropdown
-
 const TableWrapper = (props) => {
     return (
         <QueryClientProvider client={queryClient}>
-            <DataTable {...props} />
+            <DataTableServer {...props} />
         </QueryClientProvider>
     )
 }
