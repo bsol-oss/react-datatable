@@ -1462,6 +1462,42 @@ export const condensedColumns = [
     },
 ]
 
+export const serverColumns = [
+    {
+        Header: 'name',
+        accessor: 'name',
+        width: '250',
+        CellForGrid: ({ row }) => <>Name: {row.original.name}</>,
+        Cell: ({ row }) => <>{row.original.name}</>,
+    },
+    {
+        Header: 'url',
+        accessor: 'url',
+        width: '500',
+        CellForGrid: ({ row }) => <a>URL: {row.original.url}</a>,
+        Cell: ({ row }) => <a>{row.original.url}</a>,
+    },
+]
+
+export const serverColumns1 = [
+    {
+        Header: 'name',
+        accessor: 'name',
+        width: '250',
+        height: '100',
+        CellForGrid: ({ row }) => <>Name: {row.original.name}</>,
+        Cell: ({ row }) => <>{row.original.name}</>,
+    },
+    {
+        Header: 'url',
+        accessor: 'url',
+        width: '500',
+        height: '100',
+        CellForGrid: ({ row }) => <a>URL: {row.original.url}</a>,
+        Cell: ({ row }) => <a>{row.original.url}</a>,
+    },
+]
+
 export const props = {
     loading: false,
     totalCount: 100,
