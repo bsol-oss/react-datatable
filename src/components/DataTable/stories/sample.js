@@ -1474,8 +1474,10 @@ export const serverColumns = [
         Header: 'url',
         accessor: 'url',
         width: '500',
-        CellForGrid: ({ row }) => <a>URL: {row.original.url}</a>,
-        Cell: ({ row }) => <a>{row.original.url}</a>,
+        CellForGrid: ({ row }) => (
+            <a href={row.original.url}>URL: {row.original.url}</a>
+        ),
+        Cell: ({ row }) => <a href={row.original.url}>{row.original.url}</a>,
     },
 ]
 
