@@ -130,7 +130,7 @@ export const ServerDefaultTableView = () => (
         <GlobalStyles />
         <CustomTableContainer>
             <DataTableServer
-                apiUrl="https://pokeapi.co/api/v2/pokemon"
+                apiUrl="https://c3dev.nicecar.cc/api/masterdata/getProductMasterServer"
                 columns={serverColumns}
                 authorizationKey="authKey"
             />
@@ -144,7 +144,7 @@ export const DefaultLoadingView = () => (
         <DataTableServer
             {...props}
             loading={true}
-            apiUrl="https://pokeapi.co/api/v2/pokemon"
+            apiUrl="https://c3dev.nicecar.cc/api/masterdata/getProductMasterServer"
             columns={serverColumns}
             authorizationKey="authKey"
         />
@@ -158,7 +158,7 @@ export const WithSingleSelectable = () => (
             {...props}
             selectable={'single'}
             onSelect={(value) => console.log(value, '@selected-item')}
-            apiUrl="https://pokeapi.co/api/v2/pokemon"
+            apiUrl="https://c3dev.nicecar.cc/api/masterdata/getProductMasterServer"
             columns={serverColumns}
             authorizationKey="authKey"
         />
@@ -172,7 +172,7 @@ export const WithMultiSelectable = () => (
             {...props}
             selectable={'multi'}
             onSelect={(values) => console.log(values, '@selected-items')}
-            apiUrl="https://pokeapi.co/api/v2/pokemon"
+            apiUrl="https://c3dev.nicecar.cc/api/masterdata/getProductMasterServer"
             columns={serverColumns}
             authorizationKey="authKey"
         />
@@ -185,7 +185,7 @@ export const WithCellHeightWidthVariations = () => (
         <DataTableServer
             {...props}
             columns={serverColumns1}
-            apiUrl="https://pokeapi.co/api/v2/pokemon"
+            apiUrl="https://c3dev.nicecar.cc/api/masterdata/getProductMasterServer"
             authorizationKey="authKey"
         />
     </ChakraProvider>
@@ -197,7 +197,7 @@ export const DefaultGridView = () => (
         <DataTableServer
             {...props}
             view="GRID"
-            apiUrl="https://pokeapi.co/api/v2/pokemon"
+            apiUrl="https://c3dev.nicecar.cc/api/masterdata/getProductMasterServer"
             columns={serverColumns}
             authorizationKey="authKey"
         />
@@ -211,7 +211,7 @@ export const DefaultTableViewNoToggle = () => (
             {...props}
             showToggleButtons={false}
             view="GRID"
-            apiUrl="https://pokeapi.co/api/v2/pokemon"
+            apiUrl="https://c3dev.nicecar.cc/api/masterdata/getProductMasterServer"
             columns={serverColumns}
             authorizationKey="authKey"
         />
@@ -235,7 +235,7 @@ export const CustomGrid = () => {
                 cellHeight={250}
                 cellMaxWidth={300}
                 cellMinWidth={100}
-                apiUrl="https://pokeapi.co/api/v2/pokemon"
+                apiUrl="https://c3dev.nicecar.cc/api/masterdata/getProductMasterServer"
                 columns={serverColumns}
                 authorizationKey="authKey"
             />
@@ -273,7 +273,7 @@ export const CustomRow = () => {
                 {...props}
                 view="ROWCONDENSED"
                 wrapper={{ RowWrapper: Row, CellWrapper: Cell }}
-                apiUrl="https://pokeapi.co/api/v2/pokemon"
+                apiUrl="https://c3dev.nicecar.cc/api/masterdata/getProductMasterServer"
                 columns={serverColumns}
                 authorizationKey="authKey"
             />
@@ -287,7 +287,7 @@ export const WithRecordTotalComponent = () => (
         <DataTableServer
             {...props}
             recordTotalComponent={() => <div>random total</div>}
-            apiUrl="https://pokeapi.co/api/v2/pokemon"
+            apiUrl="https://c3dev.nicecar.cc/api/masterdata/getProductMasterServer"
             columns={serverColumns}
             authorizationKey="authKey"
         />
@@ -300,7 +300,7 @@ export const WithglobalSearchBarComponent = () => (
         <DataTableServer
             {...props}
             globalSearchBarComponent={() => <div>random global total</div>}
-            apiUrl="https://pokeapi.co/api/v2/pokemon"
+            apiUrl="https://c3dev.nicecar.cc/api/masterdata/getProductMasterServer"
             columns={serverColumns}
             authorizationKey="authKey"
         />
@@ -318,7 +318,7 @@ export const CustomSortIcon = () => (
                 Desc: TiArrowSortedDown,
                 Unsorted: TiArrowUnsorted,
             }}
-            apiUrl="https://pokeapi.co/api/v2/pokemon"
+            apiUrl="https://c3dev.nicecar.cc/api/masterdata/getProductMasterServer"
             columns={serverColumns}
             authorizationKey="authKey"
         />
@@ -332,7 +332,7 @@ export const WithIsColumnResizable = () => (
             {...props}
             view="GRID"
             isColumnResizable={true}
-            apiUrl="https://pokeapi.co/api/v2/pokemon"
+            apiUrl="https://c3dev.nicecar.cc/api/masterdata/getProductMasterServer"
             columns={serverColumns}
             authorizationKey="authKey"
         />

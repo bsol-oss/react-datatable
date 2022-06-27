@@ -93,7 +93,7 @@ export const DefaultCatalogSetup = () => (
         <GlobalStyles />
         <DataTableServer
             {...props}
-            apiUrl="https://pokeapi.co/api/v2/pokemon"
+            apiUrl="https://c3dev.nicecar.cc/api/masterdata/getProductMasterServer"
             columns={serverColumns}
             authorizationKey="authKey"
             wrapper={{
@@ -110,7 +110,7 @@ export const WithCustomGlobalSearch = () => (
         <DataTableServer
             {...props}
             globalSearchBarComponent={() => <div>custom search component</div>}
-            apiUrl="https://pokeapi.co/api/v2/pokemon"
+            apiUrl="https://c3dev.nicecar.cc/api/masterdata/getProductMasterServer"
             columns={serverColumns}
             authorizationKey="authKey"
             wrapper={{
@@ -127,7 +127,7 @@ export const CatalogSetupWithSliderFilter = () => (
         <DataTableServer
             {...props}
             columns={sampleSliderColumns}
-            apiUrl="https://pokeapi.co/api/v2/pokemon"
+            apiUrl="https://c3dev.nicecar.cc/api/masterdata/getProductMasterServer"
             authorizationKey="authKey"
             wrapper={{
                 MainWrapper: CatalogMainWrapper,
@@ -143,7 +143,7 @@ export const CatalogSetupWithNumberRangeFilter = () => (
         <DataTableServer
             {...props}
             columns={sampleNumberRangeColumns}
-            apiUrl="https://pokeapi.co/api/v2/pokemon"
+            apiUrl="https://c3dev.nicecar.cc/api/masterdata/getProductMasterServer"
             authorizationKey="authKey"
             wrapper={{
                 MainWrapper: CatalogMainWrapper,
@@ -161,7 +161,7 @@ export const CatalogSetupWithRowCondensed = () => (
                 {...props}
                 view="ROWCONDENSED"
                 columns={condensedColumns}
-                apiUrl="https://pokeapi.co/api/v2/pokemon"
+                apiUrl="https://c3dev.nicecar.cc/api/masterdata/getProductMasterServer"
                 authorizationKey="authKey"
                 wrapper={{
                     MainWrapper: CatalogMainWrapper,

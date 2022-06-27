@@ -42,7 +42,7 @@ export const ServerDefaultTableView = () => (
         <DataTableServer
             {...props}
             isColumnResizable={true}
-            apiUrl="https://pokeapi.co/api/v2/pokemon"
+            apiUrl="https://c3dev.nicecar.cc/api/masterdata/getProductMasterServer"
             columns={serverColumns}
             authorizationKey="authKey"
         />
