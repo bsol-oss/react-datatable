@@ -1484,28 +1484,40 @@ export const serverColumns = [
         accessor: 'SKUID',
         width: '500',
         CellForGrid: ({ row }) => (
-          <div>URL: <a href={'https://nicecar.store'}> {`https://dev.nicecar.store/product/${row.original.SKUID}`}</a></div>  
+          <div>URL: <a href={'https://nicecar.store'}> {'https://nicecar.store'}</a></div>  
         ),
-        Cell: ({ row }) => <a href={'https://nicecar.store'}>{`https://dev.nicecar.store/product/${row.original.SKUID}`}</a>,
+        Cell: ({ row }) => <a href={'https://nicecar.store'}>{'https://nicecar.store'}</a>,
     },
 ]
 
 export const serverColumns1 = [
     {
-        Header: 'name',
-        accessor: 'name',
-        width: '250',
+        Header: 'eName',
+        accessor: 'eName',
+        width: '350',
         height: '100',
-        CellForGrid: ({ row }) => <>Name: {row.original.name}</>,
-        Cell: ({ row }) => <>{row.original.name}</>,
+        CellForGrid: ({ row }) => <>Name: {row.original.eName}</>,
+        Cell: ({ row }) => <>{row.original.eName}</>,
+    },
+    {
+        Header: 'cName',
+        accessor: 'cName',
+        width: '350',
+        height: '100',
+        CellForGrid: ({ row }) => (
+            <div>CName: {row.original.cName}</div>
+        ),
+        Cell: ({ row }) => <>{row.original.cName}</>
     },
     {
         Header: 'url',
-        accessor: 'url',
+        accessor: 'SKUID',
         width: '500',
         height: '100',
-        CellForGrid: ({ row }) => <a>URL: {row.original.url}</a>,
-        Cell: ({ row }) => <a>{row.original.url}</a>,
+        CellForGrid: ({ row }) => (
+          <div>URL: <a href={'https://nicecar.store'}> {'https://nicecar.store'}</a></div>  
+        ),
+        Cell: ({ row }) => <a href={'https://nicecar.store'}>{'https://nicecar.store'}</a>,
     },
 ]
 
