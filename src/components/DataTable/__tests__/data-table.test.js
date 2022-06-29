@@ -515,11 +515,10 @@ describe('DataTable should display additional options correctly', () => {
         )
 
         const actionCont = container.querySelector('.action-wrapper')
-        const headerCont = container.querySelector('.header-wrapper')
-        const bodyCont = container.querySelector('.body-wrapper')
-
         expect(actionCont).toBeTruthy()
+        const headerCont = container.querySelector('.header-wrapper')
         expect(headerCont).toBeTruthy()
+        const bodyCont = container.querySelector('.body-wrapper')
         expect(bodyCont).toBeTruthy()
     })
 })

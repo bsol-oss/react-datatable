@@ -20,6 +20,7 @@ export const MainWrapper = styled.div`
         'action'
         'header'
         'body'
+        'pagination'
         'error';
 
     grid-template-rows: auto;
@@ -236,5 +237,17 @@ export const Cell = styled.div`
     &:hover {
         border-left: ${({ theme: { dataTable } }) => dataTable.borderWidth}px
             solid ${({ theme: { dataTable } }) => dataTable.hoverColor};
+    }
+`
+
+export const PaginationDiv = styled.div`
+    grid-area: pagination;
+    display: flex;
+    div:first-of-type {
+        margin-right: 10px;
+    }
+
+    ${down('mobile')} {
+        display: block;
     }
 `

@@ -1310,6 +1310,25 @@ export const sampleData = [
     },
 ]
 
+export const columns = [
+    {
+        Header: 'id',
+        accessor: 'id',
+    },
+    {
+        Header: 'name',
+        accessor: 'name',
+    },
+    {
+        Header: 'email',
+        accessor: 'email',
+    },
+    {
+        Header: 'password',
+        accessor: 'password',
+    },
+]
+
 const sampleSliderColumns1 = [...sampleColumns]
 sampleSliderColumns1.splice(-1, 1)
 sampleSliderColumns1.push({
@@ -1440,6 +1459,65 @@ export const condensedColumns = [
         Cell: ({ row }) => (
             <CellForPriceStyle>${row.original.price}</CellForPriceStyle>
         ),
+    },
+]
+
+export const serverColumns = [
+    {
+        Header: 'eName',
+        accessor: 'eName',
+        width: '350',
+        CellForGrid: ({ row }) => <>Name: {row.original.eName}</>,
+        Cell: ({ row }) => <>{row.original.eName}</>,
+    },
+    {
+        Header: 'cName',
+        accessor: 'cName',
+        width: '350',
+        CellForGrid: ({ row }) => (
+            <div>CName: {row.original.cName}</div>
+        ),
+        Cell: ({ row }) => <>{row.original.cName}</>
+    },
+    {
+        Header: 'url',
+        accessor: 'SKUID',
+        width: '500',
+        CellForGrid: ({ row }) => (
+          <div>URL: <a href={'https://nicecar.store'}> {'https://nicecar.store'}</a></div>  
+        ),
+        Cell: ({ row }) => <a href={'https://nicecar.store'}>{'https://nicecar.store'}</a>,
+    },
+]
+
+export const serverColumns1 = [
+    {
+        Header: 'eName',
+        accessor: 'eName',
+        width: '350',
+        height: '100',
+        CellForGrid: ({ row }) => <>Name: {row.original.eName}</>,
+        Cell: ({ row }) => <>{row.original.eName}</>,
+    },
+    {
+        Header: 'cName',
+        accessor: 'cName',
+        width: '350',
+        height: '100',
+        CellForGrid: ({ row }) => (
+            <div>CName: {row.original.cName}</div>
+        ),
+        Cell: ({ row }) => <>{row.original.cName}</>
+    },
+    {
+        Header: 'url',
+        accessor: 'SKUID',
+        width: '500',
+        height: '100',
+        CellForGrid: ({ row }) => (
+          <div>URL: <a href={'https://nicecar.store'}> {'https://nicecar.store'}</a></div>  
+        ),
+        Cell: ({ row }) => <a href={'https://nicecar.store'}>{'https://nicecar.store'}</a>,
     },
 ]
 

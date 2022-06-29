@@ -1,3 +1,5 @@
 import DataTable from './components/DataTable'
+import DataTableServer from './components/DataTableSever'
+import { Search, Range, Slider, Dropdown } from './components/DataTable/Filters'
 
-export default DataTable
+export { DataTable, DataTableServer, Range, Search, Slider, Dropdown }
