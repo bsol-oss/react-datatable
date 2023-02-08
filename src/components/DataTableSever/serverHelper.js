@@ -84,7 +84,7 @@ export const fetchData = async (
         }
 
         const response = await fetch(
-            `${url}?offset=${page * pageSize}&limit=${pageSize}${paramStr}`,
+            `${url}?pagination={"offset":${page * pageSize},"rows":${pageSize}}${paramStr}`,
             { headers: { authorization: `Bearer ${authKey}` } }
         )
         const data = await response.json()
