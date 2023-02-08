@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, ButtonGroup } from '@chakra-ui/react'
+import { Button, ButtonGroup, Select, Input } from '@chakra-ui/react'
 
 import { PaginationDiv } from '../DataTable/Styles'
 
@@ -21,38 +21,34 @@ const Pagination = ({
             <div>
                 <ButtonGroup gap="1" marginRight={'10px'}>
                     <Button
-                        variant="outline"
                         onClick={() => gotoPage(0)}
                         isDisabled={!canPreviousPage}
                         colorScheme="gray"
-                        size="xs"
+                        size="sm"
                     >
                         {'<<'}
                     </Button>{' '}
                     <Button
-                        variant="outline"
                         onClick={() => previousPage()}
                         isDisabled={!canPreviousPage}
                         colorScheme="gray"
-                        size="xs"
+                        size="sm"
                     >
                         {'<'}
                     </Button>{' '}
                     <Button
-                        variant="outline"
                         onClick={() => nextPage()}
                         isDisabled={!canNextPage}
                         colorScheme="gray"
-                        size="xs"
+                        size="sm"
                     >
                         {'>'}
                     </Button>{' '}
                     <Button
-                        variant="outline"
                         onClick={() => gotoPage(pageCount - 1)}
                         isDisabled={!canNextPage}
                         colorScheme="gray"
-                        size="xs"
+                        size="sm"
                     >
                         {'>>'}
                     </Button>{' '}
@@ -60,8 +56,23 @@ const Pagination = ({
                 {pageSize * pageIndex + 1} - {pageSize * pageIndex + pageSize} /{' '}
                 {totalCount}
             </div>
+            <span>
+                | Go to page:{' '}
+                <Input
+                    type="number"
+                    value={pageIndex + 1}
+                    onChange={(e) => {
+                        const page = e.target.value
+                            ? Number(e.target.value) - 1
+                            : 0
+                        gotoPage(page)
+                    }}
+                    width="100px"
+                    marginRight="10px"
+                />
+            </span>
             <div>
-                <select
+                <Select
                     value={pageSize}
                     onChange={(e) => {
                         setPageSize(Number(e.target.value))
@@ -73,7 +84,7 @@ const Pagination = ({
                             Show {pageSize}
                         </option>
                     ))}
-                </select>
+                </Select>
             </div>
         </PaginationDiv>
     )

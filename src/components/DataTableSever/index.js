@@ -20,6 +20,7 @@ import {
     AutoSizeWrapper,
     Loader,
     MainWrapper as Main,
+    PaginationDiv,
 } from '../DataTable/Styles'
 import { Actions, Header, Body } from '../DataTable/defaultWrappers'
 import { defaultHeaderTextWrap } from '../DataTable/defaultWrappers/header'
@@ -354,7 +355,7 @@ const DataTableServer = ({
                 </AutoSizeWrapper>
             )}
             {paginationComponent ? (
-                <>{paginationComponent}</>
+                <PaginationDiv>{paginationComponent}</PaginationDiv>
             ) : (
                 <Pagination
                     gotoPage={gotoPage}
