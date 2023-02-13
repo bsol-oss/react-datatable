@@ -130,7 +130,6 @@ const Body = ({
                     return 0
             }
         },
-        // eslint-disable-next-line react-hooks/exhaustive-deps
         [view, width]
     )
 
