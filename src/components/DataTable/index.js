@@ -186,7 +186,6 @@ const DataTable = ({
 
         if (selectable === 'multi')
             onSelect(selectedFlatRows.map((row) => row.original))
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [selectedRowIds])
 
     const commonProps = {
