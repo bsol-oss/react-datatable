@@ -83,10 +83,21 @@ export const fetchData = async (
             )}`
         }
 
-        const response = await fetch(
-            `${url}?pagination={"offset":${page * pageSize},"rows":${pageSize}}${paramStr}`,
-            { headers: { authorization: `Bearer ${authKey}` } }
-        )
+        let response
+        if (!!authKey) {
+            response = await fetch(
+                `${url}?pagination={"offset":${
+                    page * pageSize
+                },"rows":${pageSize}}${paramStr}`,
+                { headers: { authorization: `Bearer ${authKey}` } }
+            )
+        } else {
+            response = await fetch(
+                `${url}?pagination={"offset":${
+                    page * pageSize
+                },"rows":${pageSize}}${paramStr}`
+            )
+        }
         const data = await response.json()
 
         return data
