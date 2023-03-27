@@ -115,7 +115,7 @@ const DataTableServer = ({
         isSuccess,
     } = useQuery(
         [
-            'DataTableServer',
+            `DataTableServer_${apiUrl}`,
             queryPageIndex,
             queryPageSize,
             queryPageFilter,
