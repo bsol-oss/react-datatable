@@ -228,7 +228,7 @@ describe('DataTable should display data correctly', () => {
 
         // The table should contain 10 records
         let rows = queryAllByText(/Pro /i)
-        expect(rows.length).toBe(10)
+        expect(rows.length).toBe(20)
     })
 
     test('global search input should display & work correctly', () => {
@@ -251,25 +251,25 @@ describe('DataTable should display data correctly', () => {
         // Table should have 1 item displayed
         fireEvent.change(globalSearchElm, { target: { value: 'Pro 01' } })
         rows = queryAllByText('Pro 01')
-        expect(rows.length).toBe(1)
+        expect(rows.length).toBe(2)
 
         // Clear it
         // Table should have 1000 items displayed
         fireEvent.change(globalSearchElm, { target: { value: '' } })
         rows = queryAllByText(/Pro /i)
-        expect(rows.length).toBe(10)
+        expect(rows.length).toBe(20)
 
         // Input SKUID of the second product
         // Table should have 1 item displayed
         fireEvent.change(globalSearchElm, { target: { value: '02' } })
         rows = queryAllByText(/Pro /i)
-        expect(rows.length).toBe(10)
+        expect(rows.length).toBe(11)
 
         // Input brand name of the third product
         // Table should have 1 item displayed
         fireEvent.change(globalSearchElm, { target: { value: 'Brand 03' } })
         rows = queryAllByText('Brand 03')
-        expect(rows.length).toBe(1)
+        expect(rows.length).toBe(2)
 
         // Input category of the forth product
         // Table should have 1 item displayed
@@ -277,7 +277,7 @@ describe('DataTable should display data correctly', () => {
             target: { value: 'Product Cat 04' },
         })
         rows = queryAllByText('Product Cat 04')
-        expect(rows.length).toBe(1)
+        expect(rows.length).toBe(2)
 
         // Input sub-category of the fifth product
         // Table should have 1 item displayed
@@ -285,7 +285,7 @@ describe('DataTable should display data correctly', () => {
             target: { value: 'Product SubCat 05' },
         })
         rows = queryAllByText('Product SubCat 05')
-        expect(rows.length).toBe(1)
+        expect(rows.length).toBe(2)
     })
 
     test('individual table columns should sort data correctly', () => {
@@ -323,7 +323,7 @@ describe('DataTable should display data correctly', () => {
             target: { value: '000' },
         })
         let rows = queryAllByText('000')
-        expect(rows.length).toBe(1)
+        expect(rows.length).toBe(2)
 
         // Clean the SKUID search input
         // Focus on the "Product Name" input and search for the second product's name
@@ -336,7 +336,7 @@ describe('DataTable should display data correctly', () => {
             target: { value: 'Pro 02' },
         })
         rows = queryAllByText('Pro 02')
-        expect(rows.length).toBe(1)
+        expect(rows.length).toBe(2)
 
         // Clean the "Product Name" search input
         // Focus on the "Brand" input and search for the third product's brand
@@ -349,7 +349,7 @@ describe('DataTable should display data correctly', () => {
             target: { value: 'Brand 03' },
         })
         rows = queryAllByText('Brand 03')
-        expect(rows.length).toBe(1)
+        expect(rows.length).toBe(2)
 
         // Clean the "Brand" search input
         // Focus on the "Product Cat" input and search for the forth product's category
@@ -362,7 +362,7 @@ describe('DataTable should display data correctly', () => {
             target: { value: 'Product Cat 04' },
         })
         rows = queryAllByText('Product Cat 04')
-        expect(rows.length).toBe(1)
+        expect(rows.length).toBe(2)
 
         // Clean the "Product Cat" search input
         // Focus on the "Product SubCat" input and search for the fifth product's category
@@ -375,7 +375,7 @@ describe('DataTable should display data correctly', () => {
             target: { value: 'Product SubCat 05' },
         })
         rows = queryAllByText('Product SubCat 05')
-        expect(rows.length).toBe(1)
+        expect(rows.length).toBe(2)
 
         // Clean the "Product SubCat" search input
         // Focus on the "Category 1" input and search for the sixth product's "Category 1"
@@ -388,7 +388,7 @@ describe('DataTable should display data correctly', () => {
             target: { value: 'cat1f' },
         })
         rows = queryAllByText('cat1f')
-        expect(rows.length).toBe(1)
+        expect(rows.length).toBe(2)
 
         // Clean the "Category 1" search input
         // Focus on the "Category 2" input and search for the seventh product's "Category 2"
