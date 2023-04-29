@@ -1,6 +1,6 @@
 import { extendTheme } from '@chakra-ui/react'
 
-const defaultValues = {
+export const defaultValues = {
     // in rem
     fontSize: {
         mini: '0.6',
