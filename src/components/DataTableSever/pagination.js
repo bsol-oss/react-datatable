@@ -25,7 +25,7 @@ const Pagination = ({
         <PaginationDiv>
         <Flex
             justifyContent={'space-between'}
-            color={defaultValues.colorSet1.secondary}
+            color={defaultValues.colorSet1.serverText}
             alignItems={'center'}
         >
             <div>
