@@ -241,12 +241,8 @@ export const Cell = styled.div`
 `
 
 export const PaginationDiv = styled.div`
+    margin: 20px;
     grid-area: pagination;
-    display: flex;
-    align-items: center;
-    div:first-of-type {
-        margin-right: 10px;
-    }
 
     ${down('mobile')} {
         display: block;

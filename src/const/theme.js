@@ -19,6 +19,7 @@ const defaultValues = {
         secondary: '#f0c14b',
         text: '#000000',
         error: 'red',
+        serverText: '#808080',
     },
 
     colorSet2: {

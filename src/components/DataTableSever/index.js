@@ -72,7 +72,7 @@ const DataTableServer = forwardRef(
             arrowIcons = {},
             isColumnResizable = false,
             apiUrl = '',
-            pageSizes = [10, 20, 30, 40, 50],
+            pageSizes = [5, 10, 15, 20, 25, 30],
             paginationComponent = null,
             authorizationKey = null,
         },
