@@ -58,6 +58,23 @@ export const Loader = styled(LoaderDiv)`
 //////Table Header
 //*** */
 
+export const HeaderWrapperServer = styled.div`
+    grid-area: header;
+    div {
+        div:first-of-type {
+            display: flex;
+            align-items: center;
+            left: 5px;
+            right: 10px;
+            min-width: 30px;
+            justify-content: center;
+        }
+        div {
+            display: none;
+        }
+    }
+`
+
 export const HeaderWrapper = styled.div`
     grid-area: header;
 `

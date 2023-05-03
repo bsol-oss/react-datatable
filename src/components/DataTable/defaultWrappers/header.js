@@ -8,6 +8,7 @@ import {
     TableHeaderTitle,
     TableHeaderFilter,
     TitlesWrapper,
+    HeaderWrapperServer
 } from '../Styles'
 
 const Arrow = ({ direction = null, icons = {} }) => {
@@ -120,6 +121,72 @@ export const Header = ({
                 </TableHeaderRow>
             ))}
         </HeaderWrapper>
+    )
+}
+
+export const HeaderServer = ({
+    headerGroups,
+    view,
+    arrowIcons,
+    isColumnResizable,
+}) => {
+    return (
+        <HeaderWrapperServer className="header-wrapper">
+            {headerGroups.map((headerGroup, i) => (
+                <TableHeaderRow key={i} view={view}>
+                    {headerGroup.headers.map((column, i) => (
+                        <TitlesWrapper {...column.getHeaderProps()}>
+                            <TableHeaderTitle
+                                {...column.getSortByToggleProps()}
+                            >
+                                {column.render('Header')}
+                                {column.id !== 'selection' &&
+                                column.Header &&
+                                column.Header.props &&
+                                column.Header.props.children ? (
+                                    <>
+                                        {column.isSorted ? (
+                                            column.isSortedDesc ? (
+                                                <Arrow
+                                                    direction="down"
+                                                    icons={arrowIcons}
+                                                />
+                                            ) : (
+                                                <Arrow
+                                                    direction="up"
+                                                    icons={arrowIcons}
+                                                />
+                                            )
+                                        ) : (
+                                            <Arrow
+                                                direction={null}
+                                                icons={arrowIcons}
+                                            />
+                                        )}
+                                    </>
+                                ) : null}
+
+                                {isColumnResizable && (
+                                    <Box
+                                        color="gray.200"
+                                        {...column.getResizerProps()}
+                                    >
+                                        |
+                                    </Box>
+                                )}
+                            </TableHeaderTitle>
+                            {!column.disableFilters && (
+                                <TableHeaderFilter key={i + 'i'}>
+                                    {column.canFilter
+                                        ? column.render('Filter')
+                                        : null}
+                                </TableHeaderFilter>
+                            )}
+                        </TitlesWrapper>
+                    ))}
+                </TableHeaderRow>
+            ))}
+        </HeaderWrapperServer>
     )
 }
 
