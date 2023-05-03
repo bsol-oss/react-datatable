@@ -60,6 +60,9 @@ export const Loader = styled(LoaderDiv)`
 
 export const HeaderWrapperServer = styled.div`
     grid-area: header;
+    > div {
+        padding: 10px 0;
+    }
     div {
         div:first-of-type {
             display: flex;
