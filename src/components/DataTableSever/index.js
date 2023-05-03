@@ -30,7 +30,7 @@ import {
     MainWrapper as Main,
     PaginationDiv,
 } from '../DataTable/Styles'
-import { Actions, Header, Body } from '../DataTable/defaultWrappers'
+import { Actions, HeaderServer, Body } from '../DataTable/defaultWrappers'
 import { defaultHeaderTextWrap } from '../DataTable/defaultWrappers/header'
 
 const queryClient = new QueryClient()
@@ -88,7 +88,7 @@ const DataTableServer = forwardRef(
 
         const {
             ActionsWrapper = Actions,
-            HeaderWrapper = Header,
+            HeaderWrapper = HeaderServer,
             BodyWrapper = Body,
             MainWrapper = Main,
             RowWrapper,
@@ -218,14 +218,26 @@ const DataTableServer = forwardRef(
                             disableFilters: true,
                             width: 20,
                             Cell: ({ row }) => (
-                                <Checkbox
-                                    {...row.getToggleRowSelectedProps()}
-                                />
+                                <Center
+                                    minWidth="30px"
+                                    marginLeft="5px"
+                                    marginRight="10px"
+                                >
+                                    <Checkbox
+                                        {...row.getToggleRowSelectedProps()}
+                                    />
+                                </Center>
                             ),
                             CellForGrid: ({ row }) => (
-                                <Checkbox
-                                    {...row.getToggleRowSelectedProps()}
-                                />
+                                <Center
+                                    minWidth="30px"
+                                    marginLeft="5px"
+                                    marginRight="10px"
+                                >
+                                    <Checkbox
+                                        {...row.getToggleRowSelectedProps()}
+                                    />
+                                </Center>
                             ),
                         },
 

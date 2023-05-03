@@ -23,13 +23,13 @@ const Pagination = ({
     const end = pageSize * pageIndex + pageSize
     return (
         <PaginationDiv>
-        <Flex
-            justifyContent={'space-between'}
-            color={defaultValues.colorSet1.serverText}
-            alignItems={'center'}
-        >
-            <div>
-                {/* <ButtonGroup gap="1" marginRight={'10px'}>
+            <Flex
+                justifyContent={'space-between'}
+                color={defaultValues.colorSet1.serverText}
+                alignItems={'center'}
+            >
+                <div>
+                    {/* <ButtonGroup gap="1" marginRight={'10px'}>
                 <Button
                     onClick={() => gotoPage(0)}
                     isDisabled={!canPreviousPage}
@@ -63,39 +63,39 @@ const Pagination = ({
                     {'>>'}
                 </Button>{' '}
             </ButtonGroup> */}
-                {t('Showing')} {start} {t('to')}{' '}
-                {end < totalCount ? end : totalCount} {t('of')}{' '}
-                {totalCount} {t('results')}
-            </div>
-            <div>
-                <ButtonGroup gap="1" marginRight={'10px'}>
-                    <Button
-                        onClick={() => previousPage()}
-                        isDisabled={!canPreviousPage}
-                        colorScheme="gray"
-                        size="sm"
-                        variant="outline"
-                        width={['70px', '90px']}
-                        fontSize={['12px', '14px']}
-                    >
-                        {t('Previous')}
-                    </Button>{' '}
-                    <Button
-                        onClick={() => nextPage()}
-                        isDisabled={!canNextPage}
-                        colorScheme="gray"
-                        size="sm"
-                        variant="outline"
-                        width={['60px', '80px']}
-                        fontSize={['12px', '14px']}
-                    >
-                        {t('Next')}
-                    </Button>
-                </ButtonGroup>
-            </div>
-        </Flex>
+                    {t('Showing')} {start < totalCount ? start : totalCount}{' '}
+                    {t('to')} {end < totalCount ? end : totalCount} {t('of')}{' '}
+                    {totalCount} {t('results')}
+                </div>
+                <div>
+                    <ButtonGroup gap="1" marginRight={'10px'}>
+                        <Button
+                            onClick={() => previousPage()}
+                            isDisabled={!canPreviousPage}
+                            colorScheme="gray"
+                            size="sm"
+                            variant="outline"
+                            width={['70px', '90px']}
+                            fontSize={['12px', '14px']}
+                        >
+                            {t('Previous')}
+                        </Button>{' '}
+                        <Button
+                            onClick={() => nextPage()}
+                            isDisabled={!canNextPage}
+                            colorScheme="gray"
+                            size="sm"
+                            variant="outline"
+                            width={['60px', '80px']}
+                            fontSize={['12px', '14px']}
+                        >
+                            {t('Next')}
+                        </Button>
+                    </ButtonGroup>
+                </div>
+            </Flex>
 
-        {/* <span>
+            {/* <span>
             | Go to page:{' '}
             <Input
                 type="number"
@@ -125,7 +125,7 @@ const Pagination = ({
                 ))}
             </Select>
         </div> */}
-    </PaginationDiv>
+        </PaginationDiv>
     )
 }
 
