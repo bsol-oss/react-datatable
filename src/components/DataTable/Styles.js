@@ -261,7 +261,7 @@ export const Cell = styled.div`
 `
 
 export const PaginationDiv = styled.div`
-    margin: 20px;
+    margin: 0 10px;
     grid-area: pagination;
 
     ${down('mobile')} {
