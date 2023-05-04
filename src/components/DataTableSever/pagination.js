@@ -35,44 +35,45 @@ const Pagination = ({
                     {totalCount} {t('results')}
                 </div>
 
-                <div>
-                    Go to page:{' '}
-                    <Input
-                        type="number"
-                        value={pageIndex + 1}
-                        onChange={e => {
-                            const page = e.target.value
-                                ? Number(e.target.value) - 1
-                                : 0
-                            gotoPage(page)
-                        }}
-                        width="70px"
-                        marginRight="10px"
-                        size="sm"
-                    />
-                </div>
-                <div>
+                <Flex>
                     <Select
                         value={pageSize}
-                        onChange={e => {
+                        marginRight={'10px'}
+                        onChange={(e) => {
                             setPageSize(Number(e.target.value))
                         }}
                         style={{
                             border: '1px solid black',
                             fontSize: '12px',
                             borderColor: '#e2e8f0',
+                            borderRadius: '7px',
                         }}
                         width={'120px'}
                         size="sm"
                     >
-                        {pageSizes.map(pageSize => (
+                        {pageSizes.map((pageSize) => (
                             <option key={pageSize} value={pageSize}>
                                 Show {pageSize}
                             </option>
                         ))}
                     </Select>
-                </div>
-                <div>
+                    <div>
+                        {t('Go to page')}:{' '}
+                        <Input
+                            type="number"
+                            value={pageIndex + 1}
+                            onChange={(e) => {
+                                const page = e.target.value
+                                    ? Number(e.target.value) - 1
+                                    : 0
+                                gotoPage(page)
+                            }}
+                            width="70px"
+                            marginRight="10px"
+                            size="sm"
+                            borderRadius="7px"
+                        />
+                    </div>
                     <ButtonGroup gap="1" marginRight={'10px'}>
                         <Button
                             onClick={() => gotoPage(0)}
@@ -107,7 +108,7 @@ const Pagination = ({
                             {'>>'}
                         </Button>{' '}
                     </ButtonGroup>
-                </div>
+                </Flex>
             </Flex>
         </PaginationDiv>
     )

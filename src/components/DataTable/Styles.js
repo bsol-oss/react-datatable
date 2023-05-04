@@ -61,7 +61,7 @@ export const Loader = styled(LoaderDiv)`
 export const HeaderWrapperServer = styled.div`
     grid-area: header;
     > div {
-        padding: 10px 0;
+        padding: 7px 0;
     }
     div {
         div:first-of-type {
@@ -71,9 +71,6 @@ export const HeaderWrapperServer = styled.div`
             right: 10px;
             min-width: 30px;
             justify-content: center;
-        }
-        div {
-            display: none;
         }
     }
 `
