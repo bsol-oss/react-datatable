@@ -172,7 +172,7 @@ const DataTableServer = forwardRef(
             {
                 columns: cols,
                 data: useMemo(
-                    () => (isSuccess ? data.results : []),
+                    () => (isSuccess ? data?.results : []),
                     [isSuccess, data]
                 ),
                 defaultColumn,
