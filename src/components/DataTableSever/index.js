@@ -60,8 +60,10 @@ const DataTableServer = forwardRef(
             showTotalRecords = true,
             showGlobalSearch = true,
             showTableHeader = true,
+            showLoading = true,
             selectable = false,
             disableWidth = false, // Mainly for test, 'disableWidth = true' will fix error of AutoSizer not rendering table body
+            onDataLoaded = () => {},
             onSelect = () => {},
             recordTotalComponent = null,
             globalSearchBarComponent = null,
@@ -315,15 +317,15 @@ const DataTableServer = forwardRef(
         }, [data?.count])
 
         useEffect(() => {
+            if (!isLoading) onDataLoaded(data, dataError)
+        }, [isLoading])
+
+        useEffect(() => {
             dispatch({ type: 'FIELDS_FILTER_CHANGED', payload: filters })
         }, [filters])
 
-        if (dataError) {
-            return <p>Error</p>
-        }
-
         if (isLoading) {
-            return <p>Loading...</p>
+            return showLoading ? <p>Loading...</p> : ''
         }
 
         const commonProps = {
