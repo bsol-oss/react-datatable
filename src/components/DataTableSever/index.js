@@ -75,6 +75,7 @@ const DataTableServer = forwardRef(
             isColumnResizable = false,
             apiUrl = '',
             pageSizes = [5, 10, 15, 20, 25, 30],
+            loadingComponent: LoadingComponent = null,
             paginationComponent = null,
             authorizationKey = null,
         },
@@ -326,7 +327,15 @@ const DataTableServer = forwardRef(
         }, [filters])
 
         if (isLoading) {
-            return showLoading ? <p>Loading...</p> : ''
+            return showLoading ? (
+                LoadingComponent ? (
+                    <LoadingComponent />
+                ) : (
+                    <p>Loading...</p>
+                )
+            ) : (
+                ''
+            )
         }
 
         const commonProps = {
