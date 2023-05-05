@@ -123,9 +123,10 @@ const DataTableServer = forwardRef(
         ] = useReducer(reducer, initialState(pageSizes && pageSizes[0]))
 
         const {
-            isLoading,
             error: dataError,
             data,
+            isLoading,
+            isFetched,
             isSuccess,
             refetch,
         } = useQuery(
@@ -317,8 +318,8 @@ const DataTableServer = forwardRef(
         }, [data?.count])
 
         useEffect(() => {
-            if (!isLoading) onDataLoaded(data, dataError)
-        }, [isLoading])
+            if (isFetched) onDataLoaded(data, dataError)
+        }, [isFetched])
 
         useEffect(() => {
             dispatch({ type: 'FIELDS_FILTER_CHANGED', payload: filters })
