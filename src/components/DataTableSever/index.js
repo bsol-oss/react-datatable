@@ -76,6 +76,7 @@ const DataTableServer = forwardRef(
             apiUrl = '',
             pageSizes = [5, 10, 15, 20, 25, 30],
             loadingComponent: LoadingComponent = null,
+            errorComponent: ErrorComponent = null,
             paginationComponent = null,
             authorizationKey = null,
         },
@@ -325,6 +326,10 @@ const DataTableServer = forwardRef(
         useEffect(() => {
             dispatch({ type: 'FIELDS_FILTER_CHANGED', payload: filters })
         }, [filters])
+
+        if (dataError && ErrorComponent) {
+            return <ErrorComponent />
+        }
 
         if (isLoading) {
             return showLoading ? (
