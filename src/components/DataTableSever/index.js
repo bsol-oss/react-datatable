@@ -320,7 +320,7 @@ const DataTableServer = forwardRef(
 
         useEffect(() => {
             if (isFetched) onDataLoaded(data, dataError)
-        }, isFetched)
+        }, [isFetched])
 
         useEffect(() => {
             dispatch({ type: 'FIELDS_FILTER_CHANGED', payload: filters })
