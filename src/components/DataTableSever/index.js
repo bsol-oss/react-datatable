@@ -152,10 +152,6 @@ const DataTableServer = forwardRef(
             {
                 keepPreviousData: true,
                 staleTime: Infinity,
-                useErrorBoundary: (err, query) => {
-                    console.log('useErrorBoundary: ', err, query)
-                    return false
-                },
             }
         )
 
