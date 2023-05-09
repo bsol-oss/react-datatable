@@ -176,10 +176,10 @@ const DataTableServer = forwardRef(
         } = useTable(
             {
                 columns: cols,
-                data: useMemo(
-                    () => (isSuccess ? data?.results : []),
-                    [isSuccess, data]
-                ),
+                data: useMemo(() => {
+                    console.log('Server table data: ', data)
+                    return isSuccess ? data?.results : []
+                }, [isSuccess, data]),
                 defaultColumn,
                 initialState: {
                     pageIndex: queryPageIndex,
