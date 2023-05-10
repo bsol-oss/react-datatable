@@ -104,13 +104,17 @@ export const fetchData = async (
         )
     }
 
-    return query.then(async (response) => {
-        const data = await response.json()
-
-        if (response.ok) {
-            return { ...data, status: response.status }
-        } else {
-            throw FetchError({ ...response, status: response.status })
-        }
-    })
+    return query
+        .then(async (response) => {
+            const data = await response.json()
+            return { ...data, ok: response.ok, status: response.status }
+        })
+        .catch((e) => {
+            return {
+                results: [],
+                ok: false,
+                status: e.status,
+                message: e.message,
+            }
+        })
 }
