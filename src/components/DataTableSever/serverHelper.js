@@ -46,6 +46,12 @@ export const reducer = (state, { type, payload }) => {
     }
 }
 
+class FetchError extends Error {
+    constructor(response, message) {
+        super(message)
+    }
+}
+
 export const fetchData = async (
     url,
     authKey = null,
@@ -104,7 +110,7 @@ export const fetchData = async (
         if (response.ok) {
             return { ...data, status: response.status }
         } else {
-            throw new Error(response)
+            throw new FetchError(response)
         }
     })
 }
