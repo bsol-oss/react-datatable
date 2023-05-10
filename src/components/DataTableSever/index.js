@@ -154,7 +154,15 @@ const DataTableServer = forwardRef(
                 keepPreviousData: true,
                 staleTime: Infinity,
                 onError: (e) => {
-                    console.log('Error getting data: ', e)
+                    console.log(
+                        'Error getting data: ',
+                        e,
+                        e.status,
+                        e.req?.status,
+                        e.request?.status,
+                        e.res?.status,
+                        e.response?.status
+                    )
                 },
             }
         )
