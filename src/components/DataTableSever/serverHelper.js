@@ -104,6 +104,7 @@ export const fetchData = async (
         if (response.ok) {
             return { ...data, status: response.status }
         } else {
+            console.log('Error getting data: ', response)
             throw response
         }
     })
