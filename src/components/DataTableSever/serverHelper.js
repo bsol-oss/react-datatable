@@ -109,9 +109,11 @@ export const fetchData = async (
             let data = await response.json()
             if (!data || typeof data !== 'object') data = { results: [] }
 
+            console.log('Results: ', response.status)
             return { ...data, ok: response.ok, status: response.status }
         })
         .catch((e) => {
+            console.log('Error: ', e.status, e.req?.status, e.res?.status)
             return {
                 results: [],
                 ok: false,
