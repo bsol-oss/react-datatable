@@ -55,53 +55,56 @@ export const fetchData = async (
     fieldsFilter,
     pageSortBy
 ) => {
-    try {
-        let paramStr = ''
-        if (pageSortBy.length > 0) {
-            const field = []
-            const sortyByDir = []
-            pageSortBy.forEach((srt) => {
-                field.push(srt.id)
-                sortyByDir.push(srt.desc ? 'desc' : 'asc')
-            })
-            paramStr = `&sorting={"field":"${field.join()}","sort":"${sortyByDir.join()}"}`
-        }
+    let paramStr = ''
+    if (pageSortBy.length > 0) {
+        const field = []
+        const sortyByDir = []
+        pageSortBy.forEach((srt) => {
+            field.push(srt.id)
+            sortyByDir.push(srt.desc ? 'desc' : 'asc')
+        })
+        paramStr = `&sorting={"field":"${field.join()}","sort":"${sortyByDir.join()}"}`
+    }
 
-        if (pageFilter.trim().length > 0) {
-            paramStr = `${paramStr}&searching=${encodeURIComponent(pageFilter)}`
-        }
+    if (pageFilter.trim().length > 0) {
+        paramStr = `${paramStr}&searching=${encodeURIComponent(pageFilter)}`
+    }
 
-        if (fieldsFilter.length > 0) {
-            const filterInfo = fieldsFilter.map((field) => {
-                const value = field.value.replace('\\', '').replace('"', '')
-                return {
-                    [field.id]: encodeURIComponent(value),
-                }
-            })
-            paramStr = `${paramStr}&where=${JSON.stringify(
-                Object.assign({}, ...filterInfo)
-            )}`
-        }
+    if (fieldsFilter.length > 0) {
+        const filterInfo = fieldsFilter.map((field) => {
+            const value = field.value.replace('\\', '').replace('"', '')
+            return {
+                [field.id]: encodeURIComponent(value),
+            }
+        })
+        paramStr = `${paramStr}&where=${JSON.stringify(
+            Object.assign({}, ...filterInfo)
+        )}`
+    }
 
-        let response
-        if (!!authKey) {
-            response = await fetch(
-                `${url}?pagination={"offset":${
-                    page * pageSize
-                },"rows":${pageSize}}${paramStr}`,
-                { headers: { authorization: `Bearer ${authKey}` } }
-            )
-        } else {
-            response = await fetch(
-                `${url}?pagination={"offset":${
-                    page * pageSize
-                },"rows":${pageSize}}${paramStr}`
-            )
-        }
+    let query
+    if (!!authKey) {
+        query = await fetch(
+            `${url}?pagination={"offset":${
+                page * pageSize
+            },"rows":${pageSize}}${paramStr}`,
+            { headers: { authorization: `Bearer ${authKey}` } }
+        )
+    } else {
+        query = await fetch(
+            `${url}?pagination={"offset":${
+                page * pageSize
+            },"rows":${pageSize}}${paramStr}`
+        )
+    }
+
+    return query.then(async (response) => {
         const data = await response.json()
 
-        return { ...data, status: response.status }
-    } catch (e) {
-        throw new Error(e)
-    }
+        if (response.ok) {
+            return { ...data, status: response.status }
+        } else {
+            throw new Error(response)
+        }
+    })
 }
