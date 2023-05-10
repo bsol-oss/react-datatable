@@ -84,14 +84,14 @@ export const fetchData = async (
 
     let query
     if (!!authKey) {
-        query = await fetch(
+        query = fetch(
             `${url}?pagination={"offset":${
                 page * pageSize
             },"rows":${pageSize}}${paramStr}`,
             { headers: { authorization: `Bearer ${authKey}` } }
         )
     } else {
-        query = await fetch(
+        query = fetch(
             `${url}?pagination={"offset":${
                 page * pageSize
             },"rows":${pageSize}}${paramStr}`
