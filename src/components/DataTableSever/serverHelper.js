@@ -100,8 +100,8 @@ export const fetchData = async (
         }
         const data = await response.json()
 
-        return data
+        return { ...data, status: response.status }
     } catch (e) {
-        throw new Error(`API error:${e?.message}`)
+        throw new Error(e)
     }
 }
