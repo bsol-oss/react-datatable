@@ -106,7 +106,9 @@ export const fetchData = async (
 
     return query
         .then(async (response) => {
-            const data = await response.json()
+            let data = await response.json()
+            if (!data || typeof data !== 'object') data = { results: [] }
+
             return { ...data, ok: response.ok, status: response.status }
         })
         .catch((e) => {
