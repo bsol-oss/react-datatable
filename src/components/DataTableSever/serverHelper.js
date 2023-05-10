@@ -9,6 +9,12 @@ export const initialState = (page) => {
     }
 }
 
+class FetchError extends Error {
+    constructor(response, message) {
+        super(message)
+    }
+}
+
 export const reducer = (state, { type, payload }) => {
     switch (type) {
         case 'PAGE_CHANGED':
@@ -105,7 +111,7 @@ export const fetchData = async (
             return { ...data, status: response.status }
         } else {
             console.log('Error getting data: ', response)
-            throw response
+            throw FetchError({ ...response, status: response.status })
         }
     })
 }
