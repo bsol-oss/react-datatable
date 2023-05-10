@@ -64,6 +64,7 @@ const DataTableServer = forwardRef(
             selectable = false,
             disableWidth = false, // Mainly for test, 'disableWidth = true' will fix error of AutoSizer not rendering table body
             onDataLoaded = () => {},
+            onDataLoadError = () => {},
             onSelect = () => {},
             recordTotalComponent = null,
             globalSearchBarComponent = null,
@@ -153,17 +154,7 @@ const DataTableServer = forwardRef(
             {
                 keepPreviousData: true,
                 staleTime: Infinity,
-                onError: (e) => {
-                    console.log(
-                        'Error getting data: ',
-                        e,
-                        e.status,
-                        e.req?.status,
-                        e.request?.status,
-                        e.res?.status,
-                        e.response?.status
-                    )
-                },
+                onError: onDataLoadError,
             }
         )
 
