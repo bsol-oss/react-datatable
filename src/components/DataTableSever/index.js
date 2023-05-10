@@ -328,7 +328,7 @@ const DataTableServer = forwardRef(
             dispatch({ type: 'FIELDS_FILTER_CHANGED', payload: filters })
         }, [filters])
 
-        if (dataError && ErrorComponent) {
+        if ((dataError || (data && !data.ok)) && ErrorComponent) {
             return <ErrorComponent />
         }
 
