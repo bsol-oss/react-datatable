@@ -129,6 +129,8 @@ const DataTableServer = forwardRef(
             data,
             error: dataError,
             isLoading,
+            isFetching,
+            isRefetching,
             isFetched,
             isSuccess,
             refetch,
@@ -323,6 +325,12 @@ const DataTableServer = forwardRef(
         useEffect(() => {
             if (isFetched) onDataLoaded(data, dataError)
         }, [isFetched])
+
+        useEffect(() => {
+            if (isLoading) console.log('1 - isLoading')
+            if (isFetching) console.log('2 - isFetching')
+            if (isRefetching) console.log('3 - isRefetching')
+        }, [isLoading, isFetching, isRefetching])
 
         useEffect(() => {
             dispatch({ type: 'FIELDS_FILTER_CHANGED', payload: filters })
