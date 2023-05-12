@@ -9,12 +9,6 @@ export const initialState = (page) => {
     }
 }
 
-class FetchError extends Error {
-    constructor(response, message) {
-        super(message)
-    }
-}
-
 export const reducer = (state, { type, payload }) => {
     switch (type) {
         case 'PAGE_CHANGED':
@@ -62,7 +56,7 @@ export const fetchData = async (
     pageSortBy
 ) => {
     let paramStr = ''
-    if (pageSortBy.length > 0) {
+    if (pageSortBy?.length) {
         const field = []
         const sortyByDir = []
         pageSortBy.forEach((srt) => {
@@ -72,11 +66,11 @@ export const fetchData = async (
         paramStr = `&sorting={"field":"${field.join()}","sort":"${sortyByDir.join()}"}`
     }
 
-    if (pageFilter.trim().length > 0) {
+    if (pageFilter?.trim?.().length) {
         paramStr = `${paramStr}&searching=${encodeURIComponent(pageFilter)}`
     }
 
-    if (fieldsFilter.length > 0) {
+    if (fieldsFilter?.length) {
         const filterInfo = fieldsFilter.map((field) => {
             const value = field.value.replace('\\', '').replace('"', '')
             return {
@@ -107,9 +101,15 @@ export const fetchData = async (
     return query
         .then(async (response) => {
             let data = await response.json()
-            if (!data || typeof data !== 'object') data = { results: [] }
+            if (
+                !data ||
+                typeof data !== 'object' ||
+                !Array.isArray(data.results)
+            ) {
+                data = { results: [] }
+            }
 
-            console.log('Results: ', response)
+            console.log('DataTableServer Results: ', response)
             return {
                 ...data,
                 response,
@@ -118,7 +118,12 @@ export const fetchData = async (
             }
         })
         .catch((e) => {
-            console.log('Error: ', e.status, e.req?.status, e.res?.status)
+            console.log(
+                'DataTableServer Error: ',
+                e.status,
+                e.req?.status,
+                e.res?.status
+            )
             return {
                 results: [],
                 ok: false,
