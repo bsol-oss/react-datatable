@@ -100,7 +100,7 @@ export const fetchData = async (
 
     return query
         .then(async (response) => {
-            let data = await response.json()
+            let data = await response?.json?.()
             if (
                 !data ||
                 typeof data !== 'object' ||
