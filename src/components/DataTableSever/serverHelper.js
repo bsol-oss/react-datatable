@@ -55,53 +55,80 @@ export const fetchData = async (
     fieldsFilter,
     pageSortBy
 ) => {
-    try {
-        let paramStr = ''
-        if (pageSortBy.length > 0) {
-            const field = []
-            const sortyByDir = []
-            pageSortBy.forEach((srt) => {
-                field.push(srt.id)
-                sortyByDir.push(srt.desc ? 'desc' : 'asc')
-            })
-            paramStr = `&sorting={"field":"${field.join()}","sort":"${sortyByDir.join()}"}`
-        }
-
-        if (pageFilter.trim().length > 0) {
-            paramStr = `${paramStr}&searching=${encodeURIComponent(pageFilter)}`
-        }
-
-        if (fieldsFilter.length > 0) {
-            const filterInfo = fieldsFilter.map((field) => {
-                const value = field.value.replace('\\', '').replace('"', '')
-                return {
-                    [field.id]: encodeURIComponent(value),
-                }
-            })
-            paramStr = `${paramStr}&where=${JSON.stringify(
-                Object.assign({}, ...filterInfo)
-            )}`
-        }
-
-        let response
-        if (!!authKey) {
-            response = await fetch(
-                `${url}?pagination={"offset":${
-                    page * pageSize
-                },"rows":${pageSize}}${paramStr}`,
-                { headers: { authorization: `Bearer ${authKey}` } }
-            )
-        } else {
-            response = await fetch(
-                `${url}?pagination={"offset":${
-                    page * pageSize
-                },"rows":${pageSize}}${paramStr}`
-            )
-        }
-        const data = await response.json()
-
-        return data
-    } catch (e) {
-        throw new Error(`API error:${e?.message}`)
+    let paramStr = ''
+    if (pageSortBy?.length) {
+        const field = []
+        const sortyByDir = []
+        pageSortBy.forEach((srt) => {
+            field.push(srt.id)
+            sortyByDir.push(srt.desc ? 'desc' : 'asc')
+        })
+        paramStr = `&sorting={"field":"${field.join()}","sort":"${sortyByDir.join()}"}`
     }
+
+    if (pageFilter?.trim?.().length) {
+        paramStr = `${paramStr}&searching=${encodeURIComponent(pageFilter)}`
+    }
+
+    if (fieldsFilter?.length) {
+        const filterInfo = fieldsFilter.map((field) => {
+            const value = field.value.replace('\\', '').replace('"', '')
+            return {
+                [field.id]: encodeURIComponent(value),
+            }
+        })
+        paramStr = `${paramStr}&where=${JSON.stringify(
+            Object.assign({}, ...filterInfo)
+        )}`
+    }
+
+    let query
+    if (!!authKey) {
+        query = fetch(
+            `${url}?pagination={"offset":${
+                page * pageSize
+            },"rows":${pageSize}}${paramStr}`,
+            { headers: { authorization: `Bearer ${authKey}` } }
+        )
+    } else {
+        query = fetch(
+            `${url}?pagination={"offset":${
+                page * pageSize
+            },"rows":${pageSize}}${paramStr}`
+        )
+    }
+
+    return query
+        .then(async (response) => {
+            let data = await response?.json?.()
+            if (
+                !data ||
+                typeof data !== 'object' ||
+                !Array.isArray(data.results)
+            ) {
+                data = { results: [] }
+            }
+
+            console.log('DataTableServer Results: ', response)
+            return {
+                ...data,
+                response,
+                ok: response.ok,
+                status: response.status,
+            }
+        })
+        .catch((e) => {
+            console.log(
+                'DataTableServer Error: ',
+                e.status,
+                e.req?.status,
+                e.res?.status
+            )
+            return {
+                results: [],
+                ok: false,
+                status: e.status,
+                message: e.message,
+            }
+        })
 }

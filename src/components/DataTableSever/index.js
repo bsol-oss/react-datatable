@@ -60,8 +60,11 @@ const DataTableServer = forwardRef(
             showTotalRecords = true,
             showGlobalSearch = true,
             showTableHeader = true,
+            showLoading = true,
             selectable = false,
             disableWidth = false, // Mainly for test, 'disableWidth = true' will fix error of AutoSizer not rendering table body
+            onDataLoaded = () => {},
+            onDataLoadError = () => {},
             onSelect = () => {},
             recordTotalComponent = null,
             globalSearchBarComponent = null,
@@ -73,6 +76,8 @@ const DataTableServer = forwardRef(
             isColumnResizable = false,
             apiUrl = '',
             pageSizes = [5, 10, 15, 20, 25, 30],
+            loadingComponent: LoadingComponent = null,
+            errorComponent: ErrorComponent = null,
             paginationComponent = null,
             authorizationKey = null,
         },
@@ -121,9 +126,12 @@ const DataTableServer = forwardRef(
         ] = useReducer(reducer, initialState(pageSizes && pageSizes[0]))
 
         const {
-            isLoading,
-            error: dataError,
             data,
+            error: dataError,
+            isLoading,
+            isFetching,
+            isRefetching,
+            isFetched,
             isSuccess,
             refetch,
         } = useQuery(
@@ -148,6 +156,7 @@ const DataTableServer = forwardRef(
             {
                 keepPreviousData: true,
                 staleTime: Infinity,
+                onError: onDataLoadError,
             }
         )
 
@@ -171,10 +180,9 @@ const DataTableServer = forwardRef(
         } = useTable(
             {
                 columns: cols,
-                data: useMemo(
-                    () => (isSuccess ? data.results : []),
-                    [isSuccess, data]
-                ),
+                data: useMemo(() => {
+                    return isSuccess ? data?.results || [] : []
+                }, [isSuccess, data]),
                 defaultColumn,
                 initialState: {
                     pageIndex: queryPageIndex,
@@ -315,15 +323,33 @@ const DataTableServer = forwardRef(
         }, [data?.count])
 
         useEffect(() => {
+            if (isFetched) onDataLoaded(data, dataError)
+        }, [isFetched])
+
+        useEffect(() => {
+            if (isLoading) console.log('1 - isLoading')
+            if (isFetching) console.log('2 - isFetching')
+            if (isRefetching) console.log('3 - isRefetching')
+        }, [isLoading, isFetching, isRefetching])
+
+        useEffect(() => {
             dispatch({ type: 'FIELDS_FILTER_CHANGED', payload: filters })
         }, [filters])
 
-        if (dataError) {
-            return <p>Error</p>
+        if ((dataError || (data && !data.ok)) && ErrorComponent) {
+            return <ErrorComponent />
         }
 
         if (isLoading) {
-            return <p>Loading...</p>
+            return showLoading ? (
+                LoadingComponent ? (
+                    <LoadingComponent />
+                ) : (
+                    <p>Loading...</p>
+                )
+            ) : (
+                ''
+            )
         }
 
         const commonProps = {
