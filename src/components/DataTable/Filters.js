@@ -280,10 +280,11 @@ function StatusDropdown({
             }}
             size={size}
             bgColor={bgColor}
+            fontSize={'13px'}
         >
             <option value="">{t('All')}</option>
             <option value={true}>{t('ACTIVE')}</option>
-            <option value={true}>{t('INACTIVE')}</option>
+            <option value={false}>{t('INACTIVE')}</option>
         </Select>
     )
 }
