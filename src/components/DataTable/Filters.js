@@ -283,8 +283,8 @@ function StatusDropdown({
             fontSize={'13px'}
         >
             <option value="">{t('All')}</option>
-            <option value={true}>{t('ACTIVE')}</option>
-            <option value={false}>{t('INACTIVE')}</option>
+            <option value={1}>{t('ACTIVE')}</option>
+            <option value={0}>{t('INACTIVE')}</option>
         </Select>
     )
 }
