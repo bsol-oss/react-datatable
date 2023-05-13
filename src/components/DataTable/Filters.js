@@ -240,6 +240,54 @@ function Dropdown({ column: { filterValue, setFilter, preFilteredRows, id } }) {
     )
 }
 
+// This is a custom filter UI for selecting in JCD project only
+// a unique option from a list
+function StatusDropdown({
+    column: { filterValue, setFilter, preFilteredRows, id },
+}) {
+    const { t } = useTranslation()
+    const theme = useTheme()
+    const header =
+        theme.components &&
+        theme.components.DataTable &&
+        theme.components.DataTable.Header
+    const bgColor = header && header.Dropdown ? header.Dropdown.bgColor : null
+    const size =
+        header && header.Dropdown
+            ? header.Dropdown.size
+            : header && header.widgetSize
+            ? header.widgetSize
+            : theme.components && theme.components.DataTable
+            ? theme.components.DataTable.widgetSize
+            : 'sm'
+
+    // Calculate the options for filtering
+    // using the preFilteredRows
+    const options = React.useMemo(() => {
+        const options = new Set()
+        preFilteredRows.forEach((row) => {
+            options.add(row.values[id])
+        })
+        return [...options.values()]
+    }, [id, preFilteredRows])
+
+    // Render a multi-select box
+    return (
+        <Select
+            value={filterValue}
+            onChange={(e) => {
+                setFilter(e.target.value || undefined)
+            }}
+            size={size}
+            bgColor={bgColor}
+        >
+            <option value="">{t('All')}</option>
+            <option value={true}>{t('ACTIVE')}</option>
+            <option value={true}>{t('INACTIVE')}</option>
+        </Select>
+    )
+}
+
 // Define a default UI for filtering
 
-export { Search, Slider, Range, Dropdown }
+export { Search, Slider, Range, Dropdown, StatusDropdown }
