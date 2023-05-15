@@ -340,16 +340,14 @@ const DataTableServer = forwardRef(
             return <ErrorComponent />
         }
 
-        if (isLoading) {
+        if (isLoading || isFetching || isRefetching) {
             return showLoading ? (
                 LoadingComponent ? (
                     <LoadingComponent />
                 ) : (
                     <p>Loading...</p>
                 )
-            ) : (
-                ''
-            )
+            ) : null
         }
 
         const commonProps = {
