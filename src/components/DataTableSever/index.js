@@ -341,13 +341,8 @@ const DataTableServer = forwardRef(
         }
 
         if (isLoading || isFetching || isRefetching) {
-            return showLoading ? (
-                LoadingComponent ? (
-                    <LoadingComponent />
-                ) : (
-                    <p>Loading...</p>
-                )
-            ) : null
+            if (!showLoading) return null
+            return LoadingComponent ? <LoadingComponent /> : <p>Loading...</p>
         }
 
         const commonProps = {
