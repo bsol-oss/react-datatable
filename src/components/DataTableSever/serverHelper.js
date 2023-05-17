@@ -53,7 +53,8 @@ export const fetchData = async (
     pageSize,
     pageFilter,
     fieldsFilter,
-    pageSortBy
+    pageSortBy,
+    extraKeyPair
 ) => {
     let paramStr = ''
     if (pageSortBy?.length) {
@@ -68,6 +69,12 @@ export const fetchData = async (
 
     if (pageFilter?.trim?.().length) {
         paramStr = `${paramStr}&searching=${encodeURIComponent(pageFilter)}`
+    }
+
+    if (extraKeyPair !== null && typeof extraKeyPair === 'object') {
+        paramStr = `${paramStr}&${Object.keys(extraKeyPair)[0]}=${
+            Object.values(extraKeyPair)[0]
+        }`
     }
 
     if (fieldsFilter?.length) {

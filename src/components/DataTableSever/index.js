@@ -80,6 +80,7 @@ const DataTableServer = forwardRef(
             errorComponent: ErrorComponent = null,
             paginationComponent = null,
             authorizationKey = null,
+            extraKeyPair = null
         },
         ref
     ) => {
@@ -151,7 +152,8 @@ const DataTableServer = forwardRef(
                     queryPageSize,
                     queryPageFilter,
                     queryFieldsFilter,
-                    queryPageSortBy
+                    queryPageSortBy,
+                    extraKeyPair
                 ),
             {
                 keepPreviousData: true,
