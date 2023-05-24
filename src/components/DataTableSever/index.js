@@ -341,7 +341,7 @@ const DataTableServer = forwardRef(
         useEffect(() => {
             dispatch({
                 type: 'FIELDS_FILTER_CHANGED',
-                payload: [...queryFieldsFilter, ...filters],
+                payload: [...(queryFieldsFilter ?? []), ...filters],
             })
         }, [filters])
 
