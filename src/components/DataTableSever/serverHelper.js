@@ -1,11 +1,11 @@
-export const initialState = (page) => {
+export const initialState = (page, fieldsFilter = []) => {
     return {
         queryPageIndex: 0,
         queryPageSize: page || 10,
         totalCount: 0,
         queryPageFilter: '',
         queryPageSortBy: [],
-        queryFieldsFilter: [],
+        queryFieldsFilter: fieldsFilter,
     }
 }
 
