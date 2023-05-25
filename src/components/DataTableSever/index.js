@@ -322,17 +322,21 @@ const DataTableServer = forwardRef(
         }, [keyword])
 
         useEffect(() => {
-            dispatch({
-                type: 'TOTAL_COUNT_CHANGED',
-                payload: data.count,
-            })
+            if (data?.count) {
+                dispatch({
+                    type: 'TOTAL_COUNT_CHANGED',
+                    payload: data.count,
+                })
+            }
         }, [data?.count])
 
         useEffect(() => {
-            dispatch({
-                type: 'FILTER_COUNT_CHANGED',
-                payload: data.filterCount,
-            })
+            if (data?.filterCount !== undefined) {
+                dispatch({
+                    type: 'FILTER_COUNT_CHANGED',
+                    payload: data.filterCount,
+                })
+            }
         }, [data?.filterCount])
 
         useEffect(() => {
