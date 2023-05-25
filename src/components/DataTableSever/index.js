@@ -438,6 +438,7 @@ const DataTableServer = forwardRef(
                         pageSize={pageSize}
                         pageSizes={pageSizes}
                         totalCount={totalCount}
+                        filteredCount={rows.length}
                     />
                 )}
                 {!!error && <div>{error}</div>}
