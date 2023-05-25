@@ -330,6 +330,15 @@ const DataTableServer = forwardRef(
         }, [data?.count])
 
         useEffect(() => {
+            if (data?.filterCount) {
+                dispatch({
+                    type: 'FILTER_COUNT_CHANGED',
+                    payload: data.filterCount,
+                })
+            }
+        }, [data?.filterCount])
+
+        useEffect(() => {
             if (isFetched) onDataLoaded(data, dataError)
         }, [isFetched])
 
