@@ -120,6 +120,7 @@ const DataTableServer = forwardRef(
                 queryPageIndex,
                 queryPageSize,
                 totalCount,
+                filterCount,
                 queryPageFilter,
                 queryFieldsFilter,
                 queryPageSortBy,
@@ -199,7 +200,7 @@ const DataTableServer = forwardRef(
                 manualPagination: true, // Tell the usePagination hook that we'll handle our own data fetching, we'll also have to provide our own pageCount.
                 manualSortBy: true,
                 pageCount: isSuccess
-                    ? Math.ceil(totalCount / queryPageSize)
+                    ? Math.ceil(filterCount / queryPageSize)
                     : 0,
                 autoResetSortBy: false,
                 autoResetExpanded: false,
@@ -401,13 +402,7 @@ const DataTableServer = forwardRef(
                     enabledView={enabledView}
                     totalCount={totalCount}
                     searchedCount={
-                        headerGroups &&
-                        headerGroups[0].headers &&
-                        headerGroups[0].headers
-                            .map((header) => header.filterValue !== undefined)
-                            .includes(true)
-                            ? rows.length
-                            : null
+                        totalCount === filterCount ? null : filterCount
                     }
                     selectedCount={selectedFlatRows.length || null}
                     globalSearchBarComponent={globalSearchBarComponent}
@@ -457,7 +452,7 @@ const DataTableServer = forwardRef(
                         pageSize={pageSize}
                         pageSizes={pageSizes}
                         totalCount={totalCount}
-                        filteredCount={rows.length}
+                        filterCount={filterCount}
                     />
                 )}
                 {!!error && <div>{error}</div>}

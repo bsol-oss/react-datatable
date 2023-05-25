@@ -3,6 +3,7 @@ export const initialState = (page, fieldsFilter = []) => {
         queryPageIndex: 0,
         queryPageSize: page || 10,
         totalCount: 0,
+        filterCount: 0,
         queryPageFilter: '',
         queryPageSortBy: [],
         queryFieldsFilter: fieldsFilter,
@@ -40,6 +41,11 @@ export const reducer = (state, { type, payload }) => {
             return {
                 ...state,
                 totalCount: payload,
+            }
+        case 'FILTER_COUNT_CHANGED':
+            return {
+                ...state,
+                filterCount: payload,
             }
         default:
             throw new Error(`Unhandled action type: ${type}`)

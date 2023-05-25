@@ -17,7 +17,7 @@ const Pagination = ({
     pageSizes,
     setPageSize,
     totalCount,
-    filteredCount,
+    filterCount,
 }) => {
     const { t } = useTranslation()
     const start = pageSize * pageIndex + 1
@@ -32,8 +32,8 @@ const Pagination = ({
             >
                 <div>
                     {t('Showing')}{' '}
-                    {start < filteredCount ? start : filteredCount} {t('to')}{' '}
-                    {end < filteredCount ? end : filteredCount} {t('of')}{' '}
+                    {start < filterCount ? start : filterCount} {t('to')}{' '}
+                    {end < filterCount ? end : filterCount} {t('of')}{' '}
                     {totalCount} {t('results')}
                 </div>
 
@@ -95,7 +95,7 @@ const Pagination = ({
                         </Button>{' '}
                         <Button
                             onClick={() => nextPage()}
-                            isDisabled={!canNextPage || filteredCount < pageSize}
+                            isDisabled={!canNextPage}
                             colorScheme="gray"
                             size="sm"
                         >
@@ -103,7 +103,7 @@ const Pagination = ({
                         </Button>{' '}
                         <Button
                             onClick={() => gotoPage(pageCount - 1)}
-                            isDisabled={!canNextPage || filteredCount < pageSize}
+                            isDisabled={!canNextPage}
                             colorScheme="gray"
                             size="sm"
                         >
