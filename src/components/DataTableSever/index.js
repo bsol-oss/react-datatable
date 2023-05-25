@@ -318,7 +318,8 @@ const DataTableServer = forwardRef(
 
         useEffect(() => {
             dispatch({ type: 'PAGE_FILTER_CHANGED', payload: keyword })
-        }, [keyword])
+            if (pageIndex !== 0) gotoPage(0)
+        }, [keyword, pageIndex, gotoPage])
 
         useEffect(() => {
             if (data?.count) {
@@ -356,23 +357,22 @@ const DataTableServer = forwardRef(
         }, [filters])
 
         useEffect(() => {
-            if (
-                keyword.length === 1 ||
-                (headerGroups &&
+            if (pageIndex !== 0) {
+                if (
+                    headerGroups &&
                     headerGroups[0].headers &&
-                    headerGroups[0].headers
-                        .map(
-                            (header) =>
-                                header.filterValue &&
-                                (header.filterValue.toString().length === 1 ||
-                                    header.filterValue.toString() === '0' ||
-                                    header.filterValue.toString() === '1')
-                        )
-                        .includes(true))
-            ) {
-                gotoPage(0)
+                    headerGroups[0].headers.map(
+                        (header) =>
+                            header.filterValue &&
+                            (header.filterValue.toString().length > 0).includes(
+                                true
+                            )
+                    )
+                ) {
+                    gotoPage(0)
+                }
             }
-        }, [keyword, headerGroups])
+        }, [headerGroups, pageIndex, gotoPage])
 
         if ((dataError || (data && !data.ok)) && ErrorComponent) {
             return <ErrorComponent />
