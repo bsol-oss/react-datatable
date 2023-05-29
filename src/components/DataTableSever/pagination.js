@@ -31,9 +31,8 @@ const Pagination = ({
                 fontSize={'0.85rem'}
             >
                 <div>
-                    {t('Showing')}{' '}
-                    {start < filterCount ? start : filterCount} {t('to')}{' '}
-                    {end < filterCount ? end : filterCount} {t('of')}{' '}
+                    {t('Showing')} {start < filterCount ? start : filterCount}{' '}
+                    {t('to')} {end < filterCount ? end : filterCount} {t('of')}{' '}
                     {totalCount} {t('results')}
                 </div>
 
@@ -95,7 +94,9 @@ const Pagination = ({
                         </Button>{' '}
                         <Button
                             onClick={() => nextPage()}
-                            isDisabled={!canNextPage}
+                            isDisabled={
+                                !canNextPage || filterCount === pageSize
+                            }
                             colorScheme="gray"
                             size="sm"
                         >
@@ -103,7 +104,9 @@ const Pagination = ({
                         </Button>{' '}
                         <Button
                             onClick={() => gotoPage(pageCount - 1)}
-                            isDisabled={!canNextPage}
+                            isDisabled={
+                                !canNextPage || filterCount === pageSize
+                            }
                             colorScheme="gray"
                             size="sm"
                         >

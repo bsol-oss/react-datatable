@@ -314,6 +314,9 @@ const DataTableServer = forwardRef(
 
         useEffect(() => {
             dispatch({ type: 'PAGE_FILTER_CHANGED', payload: keyword })
+            if (keyword.length > 0 && pageIndex > 0) {
+                gotoPage(0)
+            }
         }, [keyword])
 
         useEffect(() => {
@@ -346,18 +349,10 @@ const DataTableServer = forwardRef(
 
         useEffect(() => {
             dispatch({ type: 'FIELDS_FILTER_CHANGED', payload: filters })
-        }, [filters])
-
-        useEffect(() => {
-            if (
-                data?.ok &&
-                (queryPageFilter?.trim?.().length ||
-                    queryFieldsFilter?.length) &&
-                pageIndex !== 0
-            ) {
+            if (filters.length > 0 && pageIndex > 0) {
                 gotoPage(0)
             }
-        }, [data?.ok, queryPageFilter, queryFieldsFilter, pageIndex, gotoPage])
+        }, [filters])
 
         if ((dataError || (data && !data.ok)) && ErrorComponent) {
             return <ErrorComponent />
