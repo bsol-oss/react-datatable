@@ -330,6 +330,17 @@ const DataTableServer = forwardRef(
         }, [data?.count])
 
         useEffect(() => {
+            if (
+                data?.ok &&
+                (queryPageFilter?.trim?.().length ||
+                    queryFieldsFilter?.length) &&
+                pageIndex !== 0
+            ) {
+                gotoPage(0)
+            }
+        }, [data?.ok, queryPageFilter, queryFieldsFilter, pageIndex, gotoPage])
+
+        useEffect(() => {
             if (data?.filterCount !== undefined) {
                 dispatch({
                     type: 'FILTER_COUNT_CHANGED',

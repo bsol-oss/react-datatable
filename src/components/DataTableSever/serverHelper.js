@@ -63,6 +63,8 @@ export const fetchData = async (
     extraKeyPair
 ) => {
     let paramStr = ''
+    let offset = page * pageSize
+
     if (pageSortBy?.length) {
         const field = []
         const sortyByDir = []
@@ -98,16 +100,12 @@ export const fetchData = async (
     let query
     if (!!authKey) {
         query = fetch(
-            `${url}?pagination={"offset":${
-                page * pageSize
-            },"rows":${pageSize}}${paramStr}`,
+            `${url}?pagination={"offset":${offset},"rows":${pageSize}}${paramStr}`,
             { headers: { authorization: `Bearer ${authKey}` } }
         )
     } else {
         query = fetch(
-            `${url}?pagination={"offset":${
-                page * pageSize
-            },"rows":${pageSize}}${paramStr}`
+            `${url}?pagination={"offset":${offset},"rows":${pageSize}}${paramStr}`
         )
     }
 
