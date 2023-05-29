@@ -161,7 +161,6 @@ const DataTableServer = forwardRef(
                     extraKeyPair
                 ),
             {
-                keepPreviousData: true,
                 staleTime: Infinity,
                 onError: onDataLoadError,
             }
