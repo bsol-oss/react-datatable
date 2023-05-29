@@ -1,4 +1,4 @@
-export const initialState = (page, fieldsFilter = []) => {
+export const initialState = (page) => {
     return {
         queryPageIndex: 0,
         queryPageSize: page || 10,
@@ -6,7 +6,7 @@ export const initialState = (page, fieldsFilter = []) => {
         filterCount: 0,
         queryPageFilter: '',
         queryPageSortBy: [],
-        queryFieldsFilter: fieldsFilter,
+        queryFieldsFilter: [],
     }
 }
 

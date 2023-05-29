@@ -76,7 +76,6 @@ const DataTableServer = forwardRef(
             isColumnResizable = false,
             apiUrl = '',
             pageSizes = [5, 10, 15, 20, 25, 30],
-            fieldsFilter = [], // default filter fields
             loadingComponent: LoadingComponent = null,
             errorComponent: ErrorComponent = null,
             paginationComponent = null,
@@ -126,10 +125,7 @@ const DataTableServer = forwardRef(
                 queryPageSortBy,
             },
             dispatch,
-        ] = useReducer(
-            reducer,
-            initialState(pageSizes && pageSizes[0], fieldsFilter)
-        )
+        ] = useReducer(reducer, initialState(pageSizes && pageSizes[0]))
 
         const {
             data,
@@ -161,6 +157,7 @@ const DataTableServer = forwardRef(
                     extraKeyPair
                 ),
             {
+                keepPreviousData: true,
                 staleTime: Infinity,
                 onError: onDataLoadError,
             }
@@ -348,10 +345,7 @@ const DataTableServer = forwardRef(
         }, [isLoading, isFetching, isRefetching])
 
         useEffect(() => {
-            dispatch({
-                type: 'FIELDS_FILTER_CHANGED',
-                payload: filters,
-            })
+            dispatch({ type: 'FIELDS_FILTER_CHANGED', payload: filters })
         }, [filters])
 
         useEffect(() => {
