@@ -391,7 +391,9 @@ const DataTableServer = forwardRef(
                     enabledView={enabledView}
                     totalCount={totalCount}
                     searchedCount={
-                        totalCount === filterCount ? null : filterCount
+                        filters.length > 0 || keyword.length > 0
+                            ? filterCount
+                            : null
                     }
                     selectedCount={selectedFlatRows.length || null}
                     globalSearchBarComponent={globalSearchBarComponent}
