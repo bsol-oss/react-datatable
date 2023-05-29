@@ -329,17 +329,6 @@ const DataTableServer = forwardRef(
         }, [data?.count])
 
         useEffect(() => {
-            if (
-                data?.ok &&
-                (queryPageFilter?.trim?.().length ||
-                    queryFieldsFilter?.length) &&
-                pageIndex !== 0
-            ) {
-                gotoPage(0)
-            }
-        }, [data?.ok, queryPageFilter, queryFieldsFilter, pageIndex, gotoPage])
-
-        useEffect(() => {
             if (data?.filterCount !== undefined) {
                 dispatch({
                     type: 'FILTER_COUNT_CHANGED',
@@ -361,9 +350,20 @@ const DataTableServer = forwardRef(
         useEffect(() => {
             dispatch({
                 type: 'FIELDS_FILTER_CHANGED',
-                payload: [...(queryFieldsFilter ?? []), ...filters],
+                payload: filters,
             })
         }, [filters])
+
+        useEffect(() => {
+            if (
+                data?.ok &&
+                (queryPageFilter?.trim?.().length ||
+                    queryFieldsFilter?.length) &&
+                pageIndex !== 0
+            ) {
+                gotoPage(0)
+            }
+        }, [data?.ok, queryPageFilter, queryFieldsFilter, pageIndex, gotoPage])
 
         if ((dataError || (data && !data.ok)) && ErrorComponent) {
             return <ErrorComponent />
