@@ -32,8 +32,8 @@ const Pagination = ({
             >
                 <div>
                     {t('Showing')} {start < filterCount ? start : filterCount}{' '}
-                    {t('to')} {end < filterCount ? end : filterCount} {t('of')}{' '}
-                    {totalCount} {t('results')}
+                    {t('-')} {end < filterCount ? end : filterCount} {t('of')}{' '}
+                    <b>{filterCount}</b> {t('results')}
                 </div>
 
                 <Flex>
