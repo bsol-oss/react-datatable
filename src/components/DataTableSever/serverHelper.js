@@ -60,7 +60,8 @@ export const fetchData = async (
     pageFilter,
     fieldsFilter,
     pageSortBy,
-    extraKeyPair
+    extraKeyPair,
+    BUName
 ) => {
     let paramStr = ''
     let offset = page * pageSize
@@ -102,6 +103,11 @@ export const fetchData = async (
         query = fetch(
             `${url}?pagination={"offset":${offset},"rows":${pageSize}}${paramStr}`,
             { headers: { authorization: `Bearer ${authKey}` } }
+        )
+    } else if (!!BUName) {
+        query = fetch(
+            `${url}?pagination={"offset":${offset},"rows":${pageSize}}${paramStr}`,
+            { headers: { bu: BUName } }
         )
     } else {
         query = fetch(
