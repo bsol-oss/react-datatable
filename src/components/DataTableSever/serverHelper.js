@@ -98,53 +98,45 @@ export const fetchData = async (
         )}`
     }
 
-    let query
-    if (!!authKey) {
-        query = fetch(
-            `${url}?pagination={"offset":${offset},"rows":${pageSize}}${paramStr}`,
-            { headers: { authorization: `Bearer ${authKey}` } }
-        )
-    } else if (!!axios) {
-        query = axios.get(
-            `${url}?pagination={"offset":${offset},"rows":${pageSize}}${paramStr}`
-        )
-    } else {
-        query = fetch(
-            `${url}?pagination={"offset":${offset},"rows":${pageSize}}${paramStr}`
-        )
-    }
-
-    return query
-        .then(async (response) => {
-            let data = await response?.json?.()
-            if (
-                !data ||
-                typeof data !== 'object' ||
-                !Array.isArray(data.results)
-            ) {
-                data = { results: [] }
-            }
-
-            console.log('DataTableServer Results: ', response)
-            return {
-                ...data,
-                response,
-                ok: response.ok,
-                status: response.status,
-            }
-        })
-        .catch((e) => {
-            console.log(
-                'DataTableServer Error: ',
-                e.status,
-                e.req?.status,
-                e.res?.status
+    try {
+        let items
+        if (!!authKey) {
+            items = await axios.get(
+                `${url}?pagination={"offset":${offset},"rows":${pageSize}}${paramStr}`,
+                { headers: { authorization: `Bearer ${authKey}` } }
             )
-            return {
-                results: [],
-                ok: false,
-                status: e.status,
-                message: e.message,
-            }
-        })
+        } else {
+            items = await axios.get(
+                `${url}?pagination={"offset":${offset},"rows":${pageSize}}${paramStr}`
+            )
+        }
+        if (
+            !items ||
+            typeof items !== 'object' ||
+            !Array.isArray(items.data.results)
+        ) {
+            items = { data: { results: [] } }
+        }
+        const data = items.data
+        return {
+            ...items,
+            data,
+            ok: items.ok,
+            status: items.status,
+        }
+    } catch (e) {
+        console.log(
+            'DataTableServer Error: ',
+            e.status,
+            e.req?.status,
+            e.res?.status
+        )
+
+        return {
+            results: [],
+            ok: false,
+            status: e.status || e.response?.status || e.request?.status,
+            message: e.message,
+        }
+    }
 }
