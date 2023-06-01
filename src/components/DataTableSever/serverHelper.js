@@ -119,9 +119,9 @@ export const fetchData = async (
         }
         const data = items.data
         return {
-            ...items,
+            ...data,
             data,
-            ok: items.ok,
+            ok: true,
             status: items.status,
         }
     } catch (e) {
