@@ -61,7 +61,7 @@ export const fetchData = async (
     fieldsFilter,
     pageSortBy,
     extraKeyPair,
-    BUName
+    axios
 ) => {
     let paramStr = ''
     let offset = page * pageSize
@@ -104,10 +104,9 @@ export const fetchData = async (
             `${url}?pagination={"offset":${offset},"rows":${pageSize}}${paramStr}`,
             { headers: { authorization: `Bearer ${authKey}` } }
         )
-    } else if (!!BUName) {
-        query = fetch(
-            `${url}?pagination={"offset":${offset},"rows":${pageSize}}${paramStr}`,
-            { headers: { bu: BUName } }
+    } else if (!!axios) {
+        query = axios.get(
+            `${url}?pagination={"offset":${offset},"rows":${pageSize}}${paramStr}`
         )
     } else {
         query = fetch(

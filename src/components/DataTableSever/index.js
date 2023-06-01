@@ -81,7 +81,7 @@ const DataTableServer = forwardRef(
             paginationComponent = null,
             authorizationKey = null,
             extraKeyPair = null,
-            BUName = '',
+            axios = null,
         },
         ref
     ) => {
@@ -156,7 +156,7 @@ const DataTableServer = forwardRef(
                     queryFieldsFilter,
                     queryPageSortBy,
                     extraKeyPair,
-                    BUName
+                    axios
                 ),
             {
                 keepPreviousData: true,
