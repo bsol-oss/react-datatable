@@ -77,6 +77,7 @@ const DataTableServer = forwardRef(
             apiUrl = '',
             pageSizes = [5, 10, 15, 20, 25, 30],
             loadingComponent: LoadingComponent = null,
+            refetchLoadingComponent: RefetchLoadingComponent = null,
             errorComponent: ErrorComponent = null,
             paginationComponent = null,
             authorizationKey = null,
@@ -360,7 +361,7 @@ const DataTableServer = forwardRef(
             return <ErrorComponent />
         }
 
-        if (isLoading || isFetching || isRefetching) {
+        if (isLoading) {
             if (!showLoading) return null
             return LoadingComponent ? <LoadingComponent /> : <p>Loading...</p>
         }
@@ -415,19 +416,24 @@ const DataTableServer = forwardRef(
                     <AutoSizeWrapper>
                         <AutoSizer disableHeight>
                             {({ width }) => (
-                                <BodyWrapper
-                                    headerGroups={headerGroups}
-                                    rows={rows}
-                                    width={width}
-                                    prepareRow={prepareRow}
-                                    Row={RowWrapper}
-                                    Cell={CellWrapper}
-                                    isMainWrap={!!wrapper.MainWrapper}
-                                    isHeader={isHeader}
-                                    {...commonProps}
-                                />
+                                <>
+                                    <BodyWrapper
+                                        headerGroups={headerGroups}
+                                        rows={rows}
+                                        width={width}
+                                        prepareRow={prepareRow}
+                                        Row={RowWrapper}
+                                        Cell={CellWrapper}
+                                        isMainWrap={!!wrapper.MainWrapper}
+                                        isHeader={isHeader}
+                                        {...commonProps}
+                                    />
+                                </>
                             )}
                         </AutoSizer>
+                        {RefetchLoadingComponent && isRefetching && (
+                            <RefetchLoadingComponent />
+                        )}
                     </AutoSizeWrapper>
                 )}
                 {paginationComponent ? (

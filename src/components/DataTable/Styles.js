@@ -218,6 +218,7 @@ export const Row = styled.div`
 
 export const AutoSizeWrapper = styled.div`
     grid-area: body;
+    position: relative;
 `
 
 export const ViewContainer = styled.div`
