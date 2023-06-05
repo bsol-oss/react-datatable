@@ -431,7 +431,7 @@ const DataTableServer = forwardRef(
                                 </>
                             )}
                         </AutoSizer>
-                        {RefetchLoadingComponent && (
+                        {RefetchLoadingComponent && isRefetching && (
                             <RefetchLoadingComponent />
                         )}
                     </AutoSizeWrapper>
