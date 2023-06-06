@@ -317,7 +317,7 @@ const DataTableServer = forwardRef(
 
         useEffect(() => {
             dispatch({ type: 'PAGE_FILTER_CHANGED', payload: keyword })
-            if (keyword.length > 0 && pageIndex > 0) {
+            if (keyword?.length > 0 && pageIndex > 0) {
                 gotoPage(0)
             }
         }, [keyword])
@@ -394,7 +394,7 @@ const DataTableServer = forwardRef(
                     enabledView={enabledView}
                     totalCount={totalCount}
                     searchedCount={
-                        filters.length > 0 || keyword.length > 0
+                        filters?.length > 0 || keyword?.length > 0
                             ? filterCount
                             : null
                     }
