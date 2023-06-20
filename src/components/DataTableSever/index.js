@@ -116,6 +116,13 @@ const DataTableServer = forwardRef(
         // Memoize columns
         const cols = useMemo(() => defaultHeaderTextWrap(columns), [columns])
 
+        const commonHeaders = axios?.defaults?.headers?.common ?? {}
+        const headers = Object.keys(commonHeaders)
+            .sort()
+            .reduce((acc, header) => {
+                return (acc += commonHeaders[header])
+            }, '')
+
         const [
             {
                 queryPageIndex,
@@ -141,6 +148,7 @@ const DataTableServer = forwardRef(
         } = useQuery(
             [
                 `DataTableServer_${apiUrl}`,
+                headers,
                 queryPageIndex,
                 queryPageSize,
                 queryPageFilter,
