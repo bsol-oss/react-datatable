@@ -66,6 +66,7 @@ const DataTableServer = forwardRef(
             onDataLoaded = () => {},
             onDataLoadError = () => {},
             onSelect = () => {},
+            onDisplayedRowsChanged = () => {},
             recordTotalComponent = null,
             globalSearchBarComponent = null,
             isHeader = false, // solve design issue when brandHeader is available
@@ -347,6 +348,10 @@ const DataTableServer = forwardRef(
                 })
             }
         }, [data?.filterCount])
+
+        useEffect(() => {
+            onDisplayedRowsChanged(rows)
+        }, [rows])
 
         useEffect(() => {
             if (isFetched) onDataLoaded(data, dataError)
