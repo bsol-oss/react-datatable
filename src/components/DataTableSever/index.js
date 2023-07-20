@@ -83,6 +83,7 @@ const DataTableServer = forwardRef(
             paginationComponent = null,
             authorizationKey = null,
             extraKeyPair = null,
+            extraFieldFilters = null,
             axios = null,
         },
         ref
@@ -135,7 +136,10 @@ const DataTableServer = forwardRef(
                 queryPageSortBy,
             },
             dispatch,
-        ] = useReducer(reducer, initialState(pageSizes && pageSizes[0]))
+        ] = useReducer(
+            reducer,
+            initialState(pageSizes && pageSizes[0], extraFieldFilters)
+        )
 
         const {
             data,
@@ -364,7 +368,12 @@ const DataTableServer = forwardRef(
         }, [isLoading, isFetching, isRefetching])
 
         useEffect(() => {
-            dispatch({ type: 'FIELDS_FILTER_CHANGED', payload: filters })
+            dispatch({
+                type: 'FIELDS_FILTER_CHANGED',
+                payload: extraFieldFilters
+                    ? [...extraFieldFilters, ...filters]
+                    : filters,
+            })
             if (filters.length > 0 && pageIndex > 0) {
                 gotoPage(0)
             }
