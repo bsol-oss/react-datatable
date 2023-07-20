@@ -1,4 +1,4 @@
-export const initialState = (page) => {
+export const initialState = (page, extraFieldFilters) => {
     return {
         queryPageIndex: 0,
         queryPageSize: page || 10,
@@ -6,7 +6,7 @@ export const initialState = (page) => {
         filterCount: 0,
         queryPageFilter: '',
         queryPageSortBy: [],
-        queryFieldsFilter: [],
+        queryFieldsFilter: extraFieldFilters ?? [],
     }
 }
 
@@ -88,7 +88,10 @@ export const fetchData = async (
 
     if (fieldsFilter?.length) {
         const filterInfo = fieldsFilter.map((field) => {
-            const value = field.value.replace('\\', '').replace('"', '')
+            const value =
+                typeof field.value === 'string'
+                    ? field.value.replace('\\', '').replace('"', '')
+                    : field.value
             return {
                 [field.id]: encodeURIComponent(value),
             }
