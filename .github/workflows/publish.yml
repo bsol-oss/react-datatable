@@ -33,7 +33,7 @@ jobs:
                   registry-url: 'https://registry.npmjs.org'
             - run: git config --global user.email "ross@bsoltec.com"
             - run: git config --global user.name "Ross Chiu"
-            - run: npm install
+            - run: npm ci
             - run: npm version patch
             - run: npm run build
             - run: npm publish . && git push --tags && git push && echo \"Successfully released version $npm_package_version!\"
