@@ -34,8 +34,8 @@ jobs:
             - run: git config --global user.email "ross@bsoltec.com"
             - run: git config --global user.name "Ross Chiu"
             - run: npm install
-            - run: npm run build
             - run: npm version patch
+            - run: npm run build
             - run: npm publish . && git push --tags && git push && echo \"Successfully released version $npm_package_version!\"
               env:
                   NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
