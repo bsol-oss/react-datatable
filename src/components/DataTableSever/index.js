@@ -82,7 +82,7 @@ const DataTableServer = forwardRef(
             errorComponent: ErrorComponent = null,
             paginationComponent = null,
             authorizationKey = null,
-            extraKeyPair = null,
+            extraSortFilters = null,
             extraFieldFilters = null,
             axios = null,
         },
@@ -169,7 +169,7 @@ const DataTableServer = forwardRef(
                     queryPageFilter,
                     queryFieldsFilter,
                     queryPageSortBy,
-                    extraKeyPair,
+                    extraSortFilters,
                     axios
                 ),
             {

@@ -60,30 +60,30 @@ export const fetchData = async (
     pageFilter,
     fieldsFilter,
     pageSortBy,
-    extraKeyPair,
+    extraSortFilters = null,
     axios
 ) => {
     let paramStr = ''
     let offset = page * pageSize
 
-    if (pageSortBy?.length) {
+    if (pageSortBy?.length || !!extraSortFilters) {
         const field = []
         const sortyByDir = []
-        pageSortBy.forEach((srt) => {
-            field.push(srt.id)
-            sortyByDir.push(srt.desc ? 'desc' : 'asc')
-        })
+        if (pageSortBy.length)
+            pageSortBy.forEach((srt) => {
+                field.push(srt.id)
+                sortyByDir.push(srt.desc ? 'desc' : 'asc')
+            })
+        if (extraSortFilters.length)
+            extraSortFilters.forEach((srt) => {
+                field.push(srt.id)
+                sortyByDir.push(srt.desc ? 'desc' : 'asc')
+            })
         paramStr = `&sorting={"field":"${field.join()}","sort":"${sortyByDir.join()}"}`
     }
 
     if (pageFilter?.trim?.().length) {
         paramStr = `${paramStr}&searching=${encodeURIComponent(pageFilter)}`
-    }
-
-    if (extraKeyPair !== null && typeof extraKeyPair === 'object') {
-        paramStr = `${paramStr}&${Object.keys(extraKeyPair)[0]}=${
-            Object.values(extraKeyPair)[0]
-        }`
     }
 
     if (fieldsFilter?.length) {
