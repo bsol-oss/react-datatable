@@ -138,7 +138,11 @@ const DataTableServer = forwardRef(
             dispatch,
         ] = useReducer(
             reducer,
-            initialState(pageSizes && pageSizes[0], extraFieldFilters)
+            initialState(
+                Number(localStorage.getItem('pageSize') || 5) ||
+                    (pageSizes && pageSizes[0]),
+                extraFieldFilters
+            )
         )
 
         const {
@@ -321,6 +325,7 @@ const DataTableServer = forwardRef(
 
         useEffect(() => {
             dispatch({ type: 'PAGE_SIZE_CHANGED', payload: pageSize })
+            localStorage.setItem('pageSize', pageSize)
             gotoPage(0)
         }, [pageSize, gotoPage])
 
