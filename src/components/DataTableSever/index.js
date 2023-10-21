@@ -395,8 +395,6 @@ const DataTableServer = forwardRef(
             return LoadingComponent ? <LoadingComponent /> : <p>Loading...</p>
         }
 
-        console.log('data==', data)
-
         const commonProps = {
             view,
             totalColumnsWidth,
@@ -486,9 +484,13 @@ const DataTableServer = forwardRef(
                     />
                 )}
                 {!!error && <div>{error}</div>}
-                <SumDiv>
-                    <b>test sum: 10</b>
-                </SumDiv>
+                {data && data.sum ? (
+                    <SumDiv>
+                        <b>
+                            {sumTitle} {data.sum}
+                        </b>
+                    </SumDiv>
+                ) : null}
             </MainWrapper>
         )
     }
