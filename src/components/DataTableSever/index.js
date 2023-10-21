@@ -29,6 +29,7 @@ import {
     Loader,
     MainWrapper as Main,
     PaginationDiv,
+    SumDiv,
 } from '../DataTable/Styles'
 import { Actions, HeaderServer, Body } from '../DataTable/defaultWrappers'
 import { defaultHeaderTextWrap } from '../DataTable/defaultWrappers/header'
@@ -85,6 +86,7 @@ const DataTableServer = forwardRef(
             extraSortFilters = null,
             extraFieldFilters = null,
             axios = null,
+            sumTitle = null,
         },
         ref
     ) => {
@@ -393,6 +395,8 @@ const DataTableServer = forwardRef(
             return LoadingComponent ? <LoadingComponent /> : <p>Loading...</p>
         }
 
+        console.log('data==', data)
+
         const commonProps = {
             view,
             totalColumnsWidth,
@@ -482,6 +486,9 @@ const DataTableServer = forwardRef(
                     />
                 )}
                 {!!error && <div>{error}</div>}
+                <SumDiv>
+                    <b>test sum: 10</b>
+                </SumDiv>
             </MainWrapper>
         )
     }

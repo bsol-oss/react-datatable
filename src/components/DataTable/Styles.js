@@ -21,6 +21,7 @@ export const MainWrapper = styled.div`
         'header'
         'body'
         'pagination'
+        'sum'
         'error';
 
     grid-template-rows: auto;
@@ -265,4 +266,9 @@ export const PaginationDiv = styled.div`
     ${down('mobile')} {
         display: block;
     }
+`
+
+export const SumDiv = styled.div`
+    margin-top: 10px;
+    grid-area: sum;
 `
