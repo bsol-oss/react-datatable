@@ -12,22 +12,35 @@ on:
 
 jobs:
     build:
+        timeout-minutes: 8
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v3
-            - uses: actions/setup-node@v3
+            - uses: actions/checkout@v4
+              with:
+                  fetch-depth: 0
+            - name: sonarQube scancode
+              uses: sonarsource/sonarqube-scan-action@master
+              env:
+                  SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+                  SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+            #- uses: sonarsource/sonarqube-quality-gate-action@master
+            #  timeout-minutes: 5
+            #  env:
+            #      SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+            - name: Use Node.js
+              uses: actions/setup-node@v4
               with:
                   node-version: 18
             - run: npm install
-            - run: npm run test
+            - run: npm test
 
     publish:
         name: Publish package to npmjs
         needs: build
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v3
-            - uses: actions/setup-node@v3
+            - uses: actions/checkout@v4
+            - uses: actions/setup-node@v4
               with:
                   node-version: 18
                   registry-url: 'https://registry.npmjs.org'
