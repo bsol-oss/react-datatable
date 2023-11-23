@@ -74,7 +74,7 @@ export const fetchData = async (
                 field.push(srt.id)
                 sortyByDir.push(srt.desc ? 'desc' : 'asc')
             })
-        if (extraSortFilters.length)
+        if (extraSortFilters && extraSortFilters.length)
             extraSortFilters.forEach((srt) => {
                 field.push(srt.id)
                 sortyByDir.push(srt.desc ? 'desc' : 'asc')
